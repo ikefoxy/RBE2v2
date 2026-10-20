@@ -1,6 +1,6 @@
 # RBE tournament maintenance
 
-- Complete requested changes, run relevant checks, publish to the existing public Site, and push the same completed source to `github` remote `main` (`https://github.com/ikefoxy/RBE2v2.git`). Never force-push. Include the literal website link in every completion response: https://byu-rbe-2v2-fall-2026.ikefox21.chatgpt.site
+- Complete requested changes, run relevant checks, publish to the existing public Site, and push the same completed source to `github` remote `main` (`https://github.com/ikefoxy/RBE2v2.git`). Never force-push. Include the literal website link in every completion response: https://rbe2v2fall2026.ikefox21.chatgpt.site
 - Preserve Sites identity in `.openai/hosting.json`, public viewer access, and owner-only server authorization. Use Sites helpers and native publishing tools. Credentials, `.dev.vars`, and local database state must stay untracked.
 - Keep exactly eight active teams and 28 unique active-team pairings, seven opponents per team. Defying Gravity notices are separate from competitive results; they contribute no wins, losses, games, forecasts, or seeds. Retain all 16 supplied broadcast URLs and the organizer acknowledgment.
 - The shared Week 1 URL has two matchup entries: `Mommy Mag vs Cliip That` for Mommy Mag/Cliip That, and `SONper SONic Legends vs The Hex Girls` for SSL/Hex Girls. Both URLs and timestamps stay identical. New recordings must sync with their selected matchup, teams and players.

@@ -1,8 +1,12 @@
 # RBE 2v2 · Fall 2026
 
-Public tournament site: https://byu-rbe-2v2-fall-2026.ikefox21.chatgpt.site
+Public tournament site: https://rbe2v2fall2026.ikefox21.chatgpt.site
 
 BYU Royal Blue Esports tournament app with league standings, a nine-week schedule, individual player profiles, match recordings, a connected single-elimination bracket, and owner-only administration.
+
+## Share on Discord
+
+Post https://rbe2v2fall2026.ikefox21.chatgpt.site in your Discord channel and pin the message. Anyone with the link can view the tournament and player profiles without signing in. Admin editing stays password protected.
 
 ## Development
 

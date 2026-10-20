@@ -1,6 +1,6 @@
 # Royal Blue Esports 2v2
 
-Public site: https://byu-rbe-2v2-fall-2026.ikefox21.chatgpt.site
+Public site: https://rbe2v2fall2026.ikefox21.chatgpt.site
 
 Sites identity is retained in `.openai/hosting.json`. Tournament state persists in the Cloudflare D1 `DB` binding. Viewer pages and all player profiles are public. Admin writes require the password session, checked on the server for every update.
 
