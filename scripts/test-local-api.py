@@ -3,7 +3,16 @@ import json, urllib.request, urllib.error, http.cookiejar
 base='http://127.0.0.1:5173'
 jar=http.cookiejar.CookieJar()
 client=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
-client.open(base+'/signin-with-chatgpt?return_to=/')
+def login(password,origin=base):
+    req=urllib.request.Request(base+'/api/admin/session',json.dumps({'password':password}).encode(),{'Content-Type':'application/json','Origin':origin})
+    try:
+        res=client.open(req);return res.status,res.headers,json.load(res)
+    except urllib.error.HTTPError as e: return e.code,e.headers,e.read().decode()
+assert login('wrong-password')[0]==401
+assert login('local-test-password','https://elsewhere.test')[0]==403
+status,headers,_=login('local-test-password');assert status==200
+assert 'HttpOnly' in headers['Set-Cookie'] and 'SameSite=Strict' in headers['Set-Cookie']
+
 def get(): return json.load(client.open(base+'/api/tournament'))
 def post(payload,origin=base):
     req=urllib.request.Request(base+'/api/tournament',json.dumps(payload).encode(),{'Content-Type':'application/json','Origin':origin})
@@ -25,7 +34,7 @@ assert post(p)[0]==409
 p.update(scoreA=match['scoreA'],scoreB=match['scoreB'],revision=saved['revision'])
 assert post(p)[0]==200
 assert next(m for m in get()['data']['matches'] if m['id']==match['id'])['scoreA'] is None
-print('PASS: owner sign-in, cross-origin rejection, invalid score rejection, persistent score update, concurrent-edit rejection, and restoration of original scores.')
+print('PASS: password sign-in, cookie protection, cross-origin rejection, invalid score rejection, persistent score update, concurrent-edit rejection, and restoration of original scores.')
 # New controls: validate unique seeds, persist a swap, and restore live seeding.
 d=get()['data']
 assert not any(x['scoreA'] is not None for x in d['playoffs'].values()), 'Use a fresh local playoff fixture.'
@@ -45,3 +54,38 @@ assert next(p for p in get()['data']['players'] if p['id']=='lw-0')['rank']=='GC
 status,out=post(dict(type='player',id=p['id'],name=name,rank=oldrank or '',revision=get()['data']['revision']));assert status==200,out
 assert [(m['scoreA'],m['scoreB']) for m in get()['data']['matches']]==scores
 print('PASS: seed duplicates rejected, swapped seeding persisted and restored, player rank edit persisted and restored, and all match scores preserved.')
+# Recordings are public; create/edit operations require the owner.
+public=json.load(urllib.request.urlopen(base+'/api/tournament'));assert public['admin'] is False
+assert len(public['data']['players'])==16 and all(p['rank'] for p in public['data']['players'])
+d=get()['data'];match=next(m for m in d['matches'] if m['id']=='w6-mp-ssl')
+create=dict(type='video-create',matchId=match['id'],title='Local API recording test',url='https://www.youtube.com/watch?v=abcdefghijk',revision=d['revision'])
+status,out=post({**create,'url':'https://example.com/video'});assert status==400
+status,out=post(create);assert status==200,out
+video=next(v for v in out['data']['videos'] if v['title']=='Local API recording test')
+try:
+    assert set(video['teams'])=={'mp','ssl'}
+    assert set(video['playerIds'])=={'mp-0','mp-1','ssl-0','ssl-1'}
+    assert video['week']==6 and video['matchId']==match['id']
+    public=json.load(urllib.request.urlopen(base+'/api/tournament'));assert any(v['id']==video['id'] for v in public['data']['videos'])
+    status,_=post({**create,'revision':get()['data']['revision']});assert status==400
+    edit=dict(type='video',id=video['id'],title='Edited local recording',url=video['url'],teams=['ct','mm'],week=1,revision=get()['data']['revision'])
+    status,out=post(edit);assert status==200,out
+    changed=next(v for v in out['data']['videos'] if v['id']==video['id'])
+    assert changed['matchId']=='w1-mm-ct'
+    assert set(changed['playerIds'])=={'ct-0','ct-1','mm-0','mm-1'}
+finally:
+    # Remove only this disposable record from the LOCAL database. Keep all other updates.
+    import subprocess
+    safe_id=video['id'].replace("'","''")
+    sql="UPDATE tournament SET state=json_set(state,'$.videos',json((SELECT json_group_array(json(value)) FROM json_each(tournament.state,'$.videos') WHERE json_extract(value,'$.id')!='"+safe_id+"'))),revision=revision+1 WHERE id=1;"
+    subprocess.run(['node','--import','./scripts/sites-env.mjs','./node_modules/wrangler/bin/wrangler.js','d1','execute','DB','--local','--config','dist/server/wrangler.json','--persist-to','.wrangler/state','--command',sql],check=True,capture_output=True,text=True)
+assert not any(v['id']==video['id'] for v in get()['data']['videos'])
+print('PASS: public profiles, owner recording creation, duplicate/URL validation, persisted matchup/team/player links, mapping edits, and local test cleanup.')
+
+req=urllib.request.Request(base+'/api/admin/session',method='DELETE',headers={'Origin':base})
+assert client.open(req).status==200
+assert get()['admin'] is False
+assert post(dict(type='reseed',revision=get()['data']['revision']))[0]==403
+for _ in range(8): assert login('incorrect')[0]==401
+assert login('incorrect')[0]==429
+print('PASS: sign-out revokes browser access, anonymous writes rejected, and repeated incorrect passwords rate-limited.')

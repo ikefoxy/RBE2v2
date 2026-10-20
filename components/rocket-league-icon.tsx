@@ -1,0 +1,1 @@
+export default function RocketLeagueIcon({size=24,className=''}:{size?:number;className?:string}){return <img className={'rocket-league-icon '+className} src="/assets/rocket-league.png" width={size} height={size} alt="" aria-hidden="true"/>}

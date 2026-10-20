@@ -1,0 +1,1 @@
+export default function OrganizerSpotlight(){return <section className="organizer-spotlight panel"><div className="eyebrow">LAN ORGANIZER</div><img src="/assets/defying-gravity.png" alt="Defying Gravity"/><h2>Defying Gravity</h2><p>Thank you for organizing the LAN and supporting the RBE community.</p></section>}

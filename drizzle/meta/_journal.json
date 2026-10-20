@@ -8,6 +8,13 @@
       "when": 1792521443567,
       "tag": "0000_windy_hannibal_king",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1792528601959,
+      "tag": "0001_blue_nightshade",
+      "breakpoints": true
     }
   ]
 }

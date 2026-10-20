@@ -375,13 +375,35 @@
     {
       "id": "iVYHQ0uzUuU",
       "week": 1,
-      "title": "Mommy Mag vs Cliip That",
+      "title": "SONper SONic Legends vs The Hex Girls",
       "url": "https://www.youtube.com/watch?v=iVYHQ0uzUuU&t=4072s",
       "teams": [
         "ssl",
-        "hg",
+        "hg"
+      ],
+      "matchId": "w1-ssl-hg",
+      "playerIds": [
+        "ssl-0",
+        "ssl-1",
+        "hg-0",
+        "hg-1"
+      ]
+    },
+    {
+      "id": "iVYHQ0uzUuU-mm-ct",
+      "week": 1,
+      "title": "Mommy Mag vs Cliip That",
+      "url": "https://www.youtube.com/watch?v=iVYHQ0uzUuU&t=4072s",
+      "teams": [
         "mm",
         "ct"
+      ],
+      "matchId": "w1-mm-ct",
+      "playerIds": [
+        "ct-0",
+        "ct-1",
+        "mm-0",
+        "mm-1"
       ]
     },
     {
@@ -391,6 +413,10 @@
       "url": "https://www.youtube.com/watch?v=C3b1qCWRIqc&t=5s",
       "teams": [
         "mp"
+      ],
+      "playerIds": [
+        "mp-0",
+        "mp-1"
       ]
     },
     {
@@ -401,7 +427,14 @@
       "teams": [
         "mf",
         "lw"
-      ]
+      ],
+      "playerIds": [
+        "mf-0",
+        "mf-1",
+        "lw-0",
+        "lw-1"
+      ],
+      "matchId": "w1-mf-lw"
     },
     {
       "id": "FX0CzhyS-R0",
@@ -411,7 +444,14 @@
       "teams": [
         "pg",
         "hg"
-      ]
+      ],
+      "playerIds": [
+        "pg-0",
+        "pg-1",
+        "hg-0",
+        "hg-1"
+      ],
+      "matchId": "w2-hg-pg"
     },
     {
       "id": "xIhy79h9jp8",
@@ -421,7 +461,14 @@
       "teams": [
         "mm",
         "mf"
-      ]
+      ],
+      "playerIds": [
+        "mm-0",
+        "mm-1",
+        "mf-0",
+        "mf-1"
+      ],
+      "matchId": "w2-mm-mf"
     },
     {
       "id": "cyLGdE3PHSM",
@@ -431,7 +478,14 @@
       "teams": [
         "ct",
         "ssl"
-      ]
+      ],
+      "playerIds": [
+        "ct-0",
+        "ct-1",
+        "ssl-0",
+        "ssl-1"
+      ],
+      "matchId": "w2-ct-ssl"
     },
     {
       "id": "orKP3TGqIUc",
@@ -440,6 +494,10 @@
       "url": "https://www.youtube.com/watch?v=orKP3TGqIUc",
       "teams": [
         "lw"
+      ],
+      "playerIds": [
+        "lw-0",
+        "lw-1"
       ]
     },
     {
@@ -450,7 +508,14 @@
       "teams": [
         "pg",
         "mp"
-      ]
+      ],
+      "playerIds": [
+        "pg-0",
+        "pg-1",
+        "mp-0",
+        "mp-1"
+      ],
+      "matchId": "w3-pg-mp"
     },
     {
       "id": "14wLU3YRlHU",
@@ -459,6 +524,10 @@
       "url": "https://www.youtube.com/watch?v=14wLU3YRlHU&t=1992s",
       "teams": [
         "mm"
+      ],
+      "playerIds": [
+        "mm-0",
+        "mm-1"
       ]
     },
     {
@@ -469,7 +538,14 @@
       "teams": [
         "ct",
         "hg"
-      ]
+      ],
+      "playerIds": [
+        "ct-0",
+        "ct-1",
+        "hg-0",
+        "hg-1"
+      ],
+      "matchId": "w3-hg-ct"
     },
     {
       "id": "Q1C7uxntJic",
@@ -479,7 +555,14 @@
       "teams": [
         "mf",
         "ssl"
-      ]
+      ],
+      "playerIds": [
+        "mf-0",
+        "mf-1",
+        "ssl-0",
+        "ssl-1"
+      ],
+      "matchId": "w3-ssl-mf"
     },
     {
       "id": "s5COCZR243w",
@@ -489,7 +572,14 @@
       "teams": [
         "mf",
         "hg"
-      ]
+      ],
+      "playerIds": [
+        "mf-0",
+        "mf-1",
+        "hg-0",
+        "hg-1"
+      ],
+      "matchId": "w4-mf-hg"
     },
     {
       "id": "9CdgVYIRDIA",
@@ -499,7 +589,14 @@
       "teams": [
         "ct",
         "pg"
-      ]
+      ],
+      "playerIds": [
+        "ct-0",
+        "ct-1",
+        "pg-0",
+        "pg-1"
+      ],
+      "matchId": "w4-pg-ct"
     },
     {
       "id": "txUUCvVoifI",
@@ -509,7 +606,14 @@
       "teams": [
         "lw",
         "mp"
-      ]
+      ],
+      "playerIds": [
+        "lw-0",
+        "lw-1",
+        "mp-0",
+        "mp-1"
+      ],
+      "matchId": "w4-lw-mp"
     },
     {
       "id": "diNVZ6eNIiw",
@@ -519,7 +623,14 @@
       "teams": [
         "ct",
         "mf"
-      ]
+      ],
+      "playerIds": [
+        "ct-0",
+        "ct-1",
+        "mf-0",
+        "mf-1"
+      ],
+      "matchId": "w5-ct-mf"
     },
     {
       "id": "Sc2wFqz7NL8",
@@ -529,7 +640,14 @@
       "teams": [
         "pg",
         "lw"
-      ]
+      ],
+      "playerIds": [
+        "pg-0",
+        "pg-1",
+        "lw-0",
+        "lw-1"
+      ],
+      "matchId": "w5-lw-pg"
     }
   ],
   "playoffs": {},
@@ -663,14 +781,14 @@
       "id": "pg-0",
       "teamId": "pg",
       "slot": 0,
-      "rank": null,
+      "rank": "GC1",
       "aliases": []
     },
     {
       "id": "pg-1",
       "teamId": "pg",
       "slot": 1,
-      "rank": null,
+      "rank": "GC1",
       "aliases": []
     },
     {
@@ -732,16 +850,16 @@
       "id": "hg-0",
       "teamId": "hg",
       "slot": 0,
-      "rank": null,
+      "rank": "Grand Plat",
       "aliases": []
     },
     {
       "id": "hg-1",
       "teamId": "hg",
       "slot": 1,
-      "rank": null,
+      "rank": "Grand Plat",
       "aliases": []
     }
   ],
-  "contentVersion": 2
+  "contentVersion": 3
 }

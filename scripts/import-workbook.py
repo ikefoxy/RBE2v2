@@ -60,7 +60,9 @@ if target.exists():
     for team in data['teams']:
         old=next((t for t in previous['teams'] if t['id']==team['id']),None)
         if old:team['players']=old['players']
-    for video in data['videos']:
-        if video['id']=='iVYHQ0uzUuU':video['title']='Mommy Mag vs Cliip That'
+    previous_videos={v['id']:v for v in previous['videos']}
+    for index,video in enumerate(data['videos']):
+        if video['id'] in previous_videos:data['videos'][index]=previous_videos.pop(video['id'])
+    data['videos'].extend(previous_videos.values())
 target.write_text(json.dumps(data,indent=2))
 print(f'{len(teams)} teams, {len(matches)} matches, {sum(m["scoreA"] is not None for m in matches)} completed, {len(vods)} active recordings, {len(conflicts)} score conflicts')

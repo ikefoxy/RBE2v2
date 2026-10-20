@@ -2,13 +2,13 @@
 
 Public tournament site: https://byu-rbe-2v2-fall-2026.ikefox21.chatgpt.site
 
-BYU Royal Blue Esports tournament app with league standings, a nine-week schedule, individual player profiles, match recordings, connected double-elimination brackets, and owner-only administration.
+BYU Royal Blue Esports tournament app with league standings, a nine-week schedule, individual player profiles, match recordings, a connected single-elimination bracket, and owner-only administration.
 
 ## Development
 
 Use Node 22.13 or later. Install dependencies using the Sites dependency helper or `npm run install:ci`, then run `npm run dev`. The portable preview runs at `http://127.0.0.1:5173`.
 
-The application stores tournament updates in the Cloudflare D1 `DB` binding. The `ADMIN_EMAIL` runtime setting restricts edits to the owner's verified ChatGPT account. See [OPERATIONS.md](OPERATIONS.md) for local database setup, authentication, data sources, and publication details. Never commit `.dev.vars` or credentials.
+The application stores tournament updates in the Cloudflare D1 `DB` binding. A server-verified password session restricts admin editing; the password hash and session key are configured as Sites secrets. See [OPERATIONS.md](OPERATIONS.md) for local database setup, authentication, data sources, and publication details. Never commit `.dev.vars` or credentials.
 
 ## Verification
 
