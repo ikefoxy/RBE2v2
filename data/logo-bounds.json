@@ -1,0 +1,47 @@
+{
+  "image1.png": {
+    "width": 506,
+    "height": 430,
+    "viewBox": "10 27 486 383"
+  },
+  "image2.png": {
+    "width": 399,
+    "height": 501,
+    "viewBox": "27 9 346 492"
+  },
+  "image3.png": {
+    "width": 929,
+    "height": 929,
+    "viewBox": "33 14 859 886"
+  },
+  "image4.png": {
+    "width": 224,
+    "height": 247,
+    "viewBox": "0 0 208 247"
+  },
+  "image5.png": {
+    "width": 2048,
+    "height": 1117,
+    "viewBox": "637 174 776 769"
+  },
+  "image6.png": {
+    "width": 1254,
+    "height": 1254,
+    "viewBox": "140 63 975 1126"
+  },
+  "image7.png": {
+    "width": 1254,
+    "height": 1254,
+    "viewBox": "54 9 1141 1210"
+  },
+  "image8.png": {
+    "width": 1254,
+    "height": 1254,
+    "viewBox": "31 106 1191 1029"
+  },
+  "image9.png": {
+    "width": 2048,
+    "height": 2048,
+    "viewBox": "117 94 1817 1742"
+  }
+}

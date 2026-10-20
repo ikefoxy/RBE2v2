@@ -1,9 +1,9 @@
 import {env} from 'cloudflare:workers';
 import {getChatGPTUser} from '../../chatgpt-auth';
-import {seed,bracket,standings,validateScore,reconcile,type Tournament} from '../../../lib/tournament';
+import {seed,normalize,bracket,standings,validateScore,reconcile,type Tournament} from '../../../lib/tournament';
 export const dynamic='force-dynamic';
 const json=(value:unknown,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'no-store'}});
-async function read():Promise<Tournament>{const row=await env.DB!.prepare('SELECT state, revision FROM tournament WHERE id=1').first<{state:string;revision:number}>();return row?{...JSON.parse(row.state),revision:row.revision}:structuredClone(seed)}
+async function read():Promise<Tournament>{const row=await env.DB!.prepare('SELECT state, revision FROM tournament WHERE id=1').first<{state:string;revision:number}>();return normalize(row?{...JSON.parse(row.state),revision:row.revision}:structuredClone(seed))}
 async function isAdmin(){const u=await getChatGPTUser();const email=(env as unknown as {ADMIN_EMAIL?:string}).ADMIN_EMAIL;return !!(email&&u?.email.toLowerCase()===email.toLowerCase())}
 export async function GET(){try{return json({data:await read(),admin:await isAdmin()})}catch{return json({error:'Tournament data is temporarily unavailable. Please retry.'},503)}}
 export async function POST(req:Request){
@@ -20,10 +20,15 @@ export async function POST(req:Request){
  const m=bracket(d).find(m=>m.id===p.id);if(!m||!m.a||!m.b)throw Error('Both bracket teams must be determined first.');validateScore(p.scoreA,p.scoreB,p.bestOf);
  if(!d.lockedSeeds.length&&p.scoreA!==null)d.lockedSeeds=standings(d).map(t=>t.id);
  d.playoffs[p.id]={scoreA:p.scoreA,scoreB:p.scoreB,bestOf:p.bestOf,participants:[m.a,m.b]};reconcile(d);action=`Updated ${m.label}`;
+ }else if(p.type==='seeds'){
+ if(!Array.isArray(p.seeds)||p.seeds.length!==8||new Set(p.seeds).size!==8||p.seeds.some((id:string)=>!d.teams.some(t=>t.id===id)))throw Error('Each of the eight teams must appear once.');
+ if(Object.values(d.playoffs).some(r=>r.scoreA!==null||r.scoreB!==null))throw Error('Reset playoff results before changing seeds.');d.lockedSeeds=p.seeds;action='Updated playoff seed order';
  }else if(p.type==='reseed'){
  d.lockedSeeds=[];d.playoffs={};action='Reset playoff results and restored live seeding';
  }else if(p.type==='team'){
  const t=d.teams.find(t=>t.id===p.id);if(!t)throw Error('Unknown team.');if(!Array.isArray(p.players)||p.players.length!==2||p.players.some((x:unknown)=>typeof x!=='string'||!x.trim()||(x as string).length>80))throw Error('Enter two player names.');t.players=p.players.map((x:string)=>x.trim());action=`Updated ${t.name} roster`;
+ }else if(p.type==='player'){
+ const player=d.players.find(x=>x.id===p.id);if(!player)throw Error('Unknown player.');if(typeof p.name!=='string'||!p.name.trim()||p.name.length>80)throw Error('Enter a player name.');if(!['','GC1','GC2','GC3','SSL','Grand Plat'].includes(p.rank))throw Error('Choose a supported rank.');d.teams.find(t=>t.id===player.teamId)!.players[player.slot]=p.name.trim();player.rank=p.rank||null;action=`Updated player ${p.name.trim()}`;
  }else if(p.type==='video'){
  const v=d.videos.find(v=>v.id===p.id);if(!v)throw Error('Unknown recording.');const u=new URL(p.url);if(u.protocol!=='https:'||!['www.youtube.com','youtube.com','youtu.be'].includes(u.hostname))throw Error('Use a YouTube HTTPS link.');if(typeof p.title!=='string'||!p.title.trim()||p.title.length>250)throw Error('Enter a video title.');if(!Array.isArray(p.teams)||p.teams.some((id:string)=>!d.teams.some(t=>t.id===id)))throw Error('Unknown team mapping.');Object.assign(v,{title:p.title.trim(),url:u.href,teams:[...new Set(p.teams)]});action=`Updated recording: ${v.title}`;
  }else if(p.type==='lan'){

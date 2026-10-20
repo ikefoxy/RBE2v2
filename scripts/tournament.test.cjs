@@ -3,13 +3,24 @@ const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),cp=r
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'rbe-logic-'));
 process.on('exit',()=>fs.rmSync(tmp,{recursive:true,force:true}));
 cp.execFileSync(process.execPath,['node_modules/typescript/bin/tsc','lib/tournament.ts','--outDir',tmp,'--module','commonjs','--resolveJsonModule','--esModuleInterop','--skipLibCheck','--target','es2022']);
-const {seed,standings,forecast,bracket,validateScore,reconcile}=require(path.join(tmp,'lib/tournament.js'));
+const {seed,normalize,roundRobinCheck,standings,forecast,bracket,validateScore,reconcile}=require(path.join(tmp,'lib/tournament.js'));
 const fresh=()=>structuredClone(seed);
 assert.equal(seed.teams.length,8);
 assert.equal(seed.matches.length,28);
 assert.equal(new Set(seed.matches.map(m=>[m.a,m.b].sort().join(':'))).size,28);
 assert.ok(seed.teams.every(t=>t.players.length===2&&t.name!=='Defying Gravity'));
 for(const t of seed.teams)assert.equal(seed.matches.filter(m=>[m.a,m.b].includes(t.id)).length,7);
+assert.equal(roundRobinCheck(seed).valid,true);
+assert.ok(roundRobinCheck(seed).teams.every(t=>t.total===7&&t.opponents===7));
+const duplicate=fresh();duplicate.matches[0]={...duplicate.matches[1]};assert.equal(roundRobinCheck(duplicate).valid,false);
+assert.equal(seed.withdrawals.length,8);assert.equal(new Set(seed.withdrawals.map(n=>n.teamId)).size,8);
+assert.ok(seed.withdrawals.every(n=>!seed.matches.some(m=>m.id===n.id)));
+assert.equal(seed.players.length,16);assert.equal(new Set(seed.players.map(p=>p.id)).size,16);
+for(const t of seed.teams)assert.equal(seed.players.filter(p=>p.teamId===t.id).length,2);
+assert.deepEqual(seed.players.filter(p=>p.teamId==='mf').map(p=>p.rank),['GC2','GC3']);
+assert.deepEqual(seed.teams.find(t=>t.id==='lw').players,['Walnutty','Instristic']);
+assert.deepEqual(seed.players.filter(p=>p.teamId==='lw').map(p=>p.rank),['GC1','Grand Plat']);
+const legacy=fresh();delete legacy.contentVersion;delete legacy.players;delete legacy.withdrawals;legacy.matches[0].scoreB=1;legacy.teams.find(t=>t.id==='lw').players=['Kylee','Andrew H'];normalize(legacy);assert.equal(legacy.matches[0].scoreB,1);assert.equal(legacy.players.length,16);assert.deepEqual(legacy.teams.find(t=>t.id==='lw').players,['Walnutty','Instristic']);
 const ranks=standings(seed);
 assert.deepEqual(ranks.map(t=>[t.short,t.w,t.l,t.gw,t.gl]),[
  ['SSL',3,0,9,4],['CT',3,2,12,7],['PG',3,1,9,3],['MM',2,0,6,2],['LW',1,2,3,6],['MF',2,3,10,9],['MP',0,2,0,6],['HG',0,4,0,12]
@@ -19,6 +30,7 @@ assert.equal(ranks.reduce((s,t)=>s+t.l,0),14);
 assert.equal(ranks.reduce((s,t)=>s+t.gw,0),ranks.reduce((s,t)=>s+t.gl,0));
 assert.equal(seed.videos.length,16);
 assert.deepEqual(seed.videos.find(v=>v.id==='iVYHQ0uzUuU').teams,['ssl','hg','mm','ct']);
+assert.equal(seed.videos.find(v=>v.id==='iVYHQ0uzUuU').title,'Mommy Mag vs Cliip That');
 assert.equal(seed.videos.filter(v=>v.title.includes('Defying Gravity')).length,3);
 assert.equal(seed.videos.find(v=>v.id==='s5COCZR243w').week,4);
 for(const m of seed.matches){validateScore(m.scoreA,m.scoreB,m.bestOf);assert.match(m.date,/^2026-/);assert.ok(forecast(seed,m.a,m.b)>0&&forecast(seed,m.a,m.b)<100)}
@@ -34,4 +46,5 @@ win('gf',0);assert.equal(bracket(d).find(m=>m.id==='reset').a,null);assert.equal
 win('w1',1);assert.equal(d.playoffs.w5.scoreA,null);assert.equal(d.playoffs.gf.scoreA,null);
 const locked=bracket(d)[0].a;d.matches.forEach(m=>{if(m.a==='ssl'||m.b==='ssl'){m.scoreA=m.a==='ssl'?0:3;m.scoreB=m.b==='ssl'?0:3}});assert.equal(bracket(d)[0].a,locked);
 d.lockedSeeds=[];d.playoffs={};assert.equal(bracket(d)[0].a,standings(d)[0].id);
-console.log('PASS: import totals, all 28 pairings, corrected standings, forecasts, video mappings, score validation, double elimination, reset final, downstream invalidation, and locked seeding.');
+const custom=fresh();custom.lockedSeeds=standings(custom).map(t=>t.id);[custom.lockedSeeds[0],custom.lockedSeeds[7]]=[custom.lockedSeeds[7],custom.lockedSeeds[0]];assert.equal(bracket(custom)[0].a,custom.lockedSeeds[0]);assert.equal(bracket(custom)[0].b,custom.lockedSeeds[7]);
+console.log('PASS: 28 unique pairings, seven opponents per team, withdrawal notices excluded, player rank mappings, safe persisted-data upgrade, standings, forecasts, video title, custom seeds, and double-elimination progression.');

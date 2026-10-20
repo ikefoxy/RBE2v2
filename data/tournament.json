@@ -28,7 +28,7 @@
       "short": "MF",
       "players": [
         "Schmtty",
-        "4ldnn"
+        "Schmtt"
       ],
       "logo": "/assets/image8.png",
       "color": "#8bd32c"
@@ -60,8 +60,8 @@
       "name": "Light Work",
       "short": "LW",
       "players": [
-        "Kylee",
-        "Andrew H"
+        "Walnutty",
+        "Instristic"
       ],
       "logo": "/assets/image3.png",
       "color": "#ffcd44"
@@ -375,7 +375,7 @@
     {
       "id": "iVYHQ0uzUuU",
       "week": 1,
-      "title": "SONper Sonic Legends vs The Hex Girls | RBE Fall 2v2 League Play",
+      "title": "Mommy Mag vs Cliip That",
       "url": "https://www.youtube.com/watch?v=iVYHQ0uzUuU&t=4072s",
       "teams": [
         "ssl",
@@ -552,5 +552,196 @@
   ],
   "revision": 0,
   "updatedAt": "",
-  "audit": []
+  "audit": [],
+  "withdrawals": [
+    {
+      "id": "withdrawn-w1",
+      "week": 1,
+      "teamId": "mp",
+      "date": "2026-09-22",
+      "status": "withdrawn"
+    },
+    {
+      "id": "withdrawn-w2",
+      "week": 2,
+      "teamId": "lw",
+      "date": "2026-10-02",
+      "status": "withdrawn"
+    },
+    {
+      "id": "withdrawn-w3",
+      "week": 3,
+      "teamId": "mm",
+      "date": "2026-10-07",
+      "status": "withdrawn"
+    },
+    {
+      "id": "withdrawn-w4",
+      "week": 4,
+      "teamId": "ssl",
+      "date": "2026-10-14",
+      "status": "withdrawn"
+    },
+    {
+      "id": "withdrawn-w5",
+      "week": 5,
+      "teamId": "hg",
+      "date": "",
+      "status": "withdrawn"
+    },
+    {
+      "id": "withdrawn-w6",
+      "week": 6,
+      "teamId": "ct",
+      "date": "",
+      "status": "withdrawn"
+    },
+    {
+      "id": "withdrawn-w7",
+      "week": 7,
+      "teamId": "mf",
+      "date": "",
+      "status": "withdrawn"
+    },
+    {
+      "id": "withdrawn-w8",
+      "week": 8,
+      "teamId": "pg",
+      "date": "",
+      "status": "withdrawn"
+    }
+  ],
+  "players": [
+    {
+      "id": "ct-0",
+      "teamId": "ct",
+      "slot": 0,
+      "rank": "GC3",
+      "aliases": [
+        "Clip"
+      ]
+    },
+    {
+      "id": "ct-1",
+      "teamId": "ct",
+      "slot": 1,
+      "rank": "GC2",
+      "aliases": []
+    },
+    {
+      "id": "mm-0",
+      "teamId": "mm",
+      "slot": 0,
+      "rank": "SSL",
+      "aliases": []
+    },
+    {
+      "id": "mm-1",
+      "teamId": "mm",
+      "slot": 1,
+      "rank": "GC2",
+      "aliases": []
+    },
+    {
+      "id": "mf-0",
+      "teamId": "mf",
+      "slot": 0,
+      "rank": "GC2",
+      "aliases": []
+    },
+    {
+      "id": "mf-1",
+      "teamId": "mf",
+      "slot": 1,
+      "rank": "GC3",
+      "aliases": [
+        "4ldnn",
+        "4dln"
+      ]
+    },
+    {
+      "id": "pg-0",
+      "teamId": "pg",
+      "slot": 0,
+      "rank": null,
+      "aliases": []
+    },
+    {
+      "id": "pg-1",
+      "teamId": "pg",
+      "slot": 1,
+      "rank": null,
+      "aliases": []
+    },
+    {
+      "id": "ssl-0",
+      "teamId": "ssl",
+      "slot": 0,
+      "rank": "GC3",
+      "aliases": [
+        "Ricky"
+      ]
+    },
+    {
+      "id": "ssl-1",
+      "teamId": "ssl",
+      "slot": 1,
+      "rank": "GC3",
+      "aliases": [
+        "Wes"
+      ]
+    },
+    {
+      "id": "lw-0",
+      "teamId": "lw",
+      "slot": 0,
+      "rank": "GC1",
+      "aliases": [
+        "Kylee"
+      ]
+    },
+    {
+      "id": "lw-1",
+      "teamId": "lw",
+      "slot": 1,
+      "rank": "Grand Plat",
+      "aliases": [
+        "Andrew H",
+        "intristic"
+      ]
+    },
+    {
+      "id": "mp-0",
+      "teamId": "mp",
+      "slot": 0,
+      "rank": "Grand Plat",
+      "aliases": [
+        "Sheak"
+      ]
+    },
+    {
+      "id": "mp-1",
+      "teamId": "mp",
+      "slot": 1,
+      "rank": "Grand Plat",
+      "aliases": [
+        "zpher"
+      ]
+    },
+    {
+      "id": "hg-0",
+      "teamId": "hg",
+      "slot": 0,
+      "rank": null,
+      "aliases": []
+    },
+    {
+      "id": "hg-1",
+      "teamId": "hg",
+      "slot": 1,
+      "rank": null,
+      "aliases": []
+    }
+  ],
+  "contentVersion": 2
 }

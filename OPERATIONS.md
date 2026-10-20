@@ -4,9 +4,9 @@ The public tournament is hosted through Sites. `/.openai/hosting.json` retains t
 
 ## Local development
 
-Install using the Sites dependency helper, then `npm run dev`. Apply `drizzle/0000_windy_hannibal_king.sql` to the local database as described in the starter README. For local admin tests only, set `ADMIN_EMAIL=seedy@sites.test` in an ignored `.dev.vars`, then use local Sign in with ChatGPT. Remove that file before production builds. Hosted owner configuration lives in Sites environment settings.
+Install using the Sites dependency helper, then `npm run dev`. After building once, apply `drizzle/0000_windy_hannibal_king.sql` using `node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_windy_hannibal_king.sql`. For local admin tests only, set `ADMIN_EMAIL=seedy@sites.test` in an ignored `.dev.vars`, then use local Sign in with ChatGPT. Remove that file before production builds. Hosted owner configuration lives in Sites environment settings.
 
-Run `npm test` and `npm run typecheck`. The tournament test compiles only tournament logic into a disposable temporary directory and checks imports, corrected standings, video mappings, scoring, forecasts, and bracket propagation. `../tools/test-local-api.py` checks local owner writes and concurrency; it is hardcoded to loopback and restores the original score.
+Run `npm test` and `npm run typecheck`. The tournament test compiles only tournament logic into a disposable temporary directory and checks imports, corrected standings, video mappings, scoring, forecasts, and bracket propagation. `scripts/test-local-api.py` checks local owner writes, concurrency, seed swapping, and player rank editing; it is hardcoded to loopback and restores original values.
 
 ## Tournament model
 
@@ -19,9 +19,17 @@ Run `npm test` and `npm run typecheck`. The tournament test compiles only tourna
 - The eight-team bracket adapts the workbook's upper/lower structure. It seeds 1–8, 4–5, 2–7, 3–6, with BO3 early rounds and configurable BO5 upper/championship finals. The workbook's BO5 is tentative. A lower-bracket grand-final win activates a reset series.
 - Seeds move with league standings until the first playoff result locks them. Reset playoffs and reseed clears all playoff results. Editing an earlier playoff winner invalidates results in affected downstream matches.
 - Admin updates use a revision check to prevent overwriting another session's edits. Scores, rosters, video mappings, dates, and recent activity persist in D1. Viewers refresh every 30 seconds.
-- All seven original workbook tabs remain readable in the archive and the unchanged original file remains downloadable. The hidden Schedule tab is legacy content, never this season's data. Individual goals/assists/saves/shots were not in the workbook and are not fabricated.
-- Only images 1–9 exist in public/assets. Images 10–17 are excluded.
+- Workbook source data remains in data/ for provenance. League rules, attendance and scoring information appear on Overview; no public workbook archive page or download is displayed. The hidden Schedule tab is legacy content, never this season's data. Individual goals/assists/saves/shots were not in the workbook and are not fabricated.
+- Numbered team artwork is limited to images 1–9 in public/assets. Images 10–17 are excluded. Transparent rank badges are in public/assets/ranks.
 
 ## Publishing
 
 Use the Sites source helper to push source and package the matching build. Deploy the saved version to the existing public Site; preserve its project ID and audience. Never publish `.dev.vars`, local database state, dependency folders, or credentials.
+
+## Player profiles and withdrawal notices
+
+Stable player profiles contain top ranks and aliases. Unprovided ranks remain blank and are editable by the owner. The v2 read upgrade adds metadata and requested display names without replacing any saved scores or playoff results. Withdrawal notices are stored separately from the 28 league matches and never enter competitive calculations. The shared Week 1 broadcast is titled Mommy Mag vs Cliip That and retains its four-team mapping.
+
+Admin seed selection swaps existing positions to preserve a unique permutation. Seeds cannot change after playoff scoring starts until the organizer resets results.
+
+GitHub and Sites are separate source destinations. Push the same completed source commit to github/main after successful verification and publishing; include the live URL in the final response.

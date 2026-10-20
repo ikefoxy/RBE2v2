@@ -3,8 +3,25 @@ export type Team={id:string;name:string;short:string;players:string[];logo:strin
 export type Match={id:string;week:number;a:string;b:string;scoreA:number|null;scoreB:number|null;date:string;bestOf:number};
 export type Video={id:string;title:string;week:number;url:string;teams:string[]};
 export type Result={scoreA:number|null;scoreB:number|null;bestOf:number;participants?:string[]};
-export type Tournament={teams:Team[];matches:Match[];videos:Video[];playoffs:Record<string,Result>;lockedSeeds:string[];lanDate:string;lanVenue:string;conflicts:{match:string;league:(number|null)[];roundSchedule:number[];resolution:string}[];revision:number;updatedAt:string;audit:{at:string;action:string}[]};
+export type Player={id:string;teamId:string;slot:number;rank:string|null;aliases:string[]};
+export type Withdrawal={id:string;week:number;teamId:string;date:string;status:'withdrawn'};
+export type Tournament={teams:Team[];players:Player[];withdrawals:Withdrawal[];contentVersion:number;matches:Match[];videos:Video[];playoffs:Record<string,Result>;lockedSeeds:string[];lanDate:string;lanVenue:string;conflicts:{match:string;league:(number|null)[];roundSchedule:number[];resolution:string}[];revision:number;updatedAt:string;audit:{at:string;action:string}[]};
 export const seed=initial as Tournament;
+// Upgrade old persisted records without replacing scores, playoff results, or owner edits.
+export function normalize(d:Tournament):Tournament{
+ if(!d.contentVersion||d.contentVersion<2){
+  d.players=structuredClone(seed.players);d.withdrawals=structuredClone(seed.withdrawals);
+  for(const t of d.teams){if(t.id==='mf'&&['4ldnn','4dln'].includes(t.players[1]))t.players[1]='Schmtt';if(t.id==='lw'){if(t.players[0]==='Kylee')t.players[0]='Walnutty';if(t.players[1]==='Andrew H')t.players[1]='Instristic'}}
+  const v=d.videos.find(v=>v.id==='iVYHQ0uzUuU');if(v)v.title='Mommy Mag vs Cliip That';d.contentVersion=2;
+ }
+ return d;
+}
+export function roundRobinCheck(d:Tournament){
+ const ids=new Set(d.teams.map(t=>t.id)),pairs=new Set<string>();let valid=d.teams.length===8&&d.matches.length===28;
+ for(const m of d.matches){const key=[m.a,m.b].sort().join(':');if(!ids.has(m.a)||!ids.has(m.b)||m.a===m.b||pairs.has(key))valid=false;pairs.add(key)}
+ const teams=d.teams.map(t=>{const fixtures=d.matches.filter(m=>[m.a,m.b].includes(t.id));const opponents=new Set(fixtures.map(m=>m.a===t.id?m.b:m.a));return {id:t.id,total:fixtures.length,opponents:opponents.size,valid:fixtures.length===7&&opponents.size===7}});
+ return {valid:valid&&teams.every(t=>t.valid),pairings:pairs.size,teams};
+}
 export const complete=(m:{scoreA:number|null;scoreB:number|null})=>m.scoreA!==null&&m.scoreB!==null;
 export function standings(d:Tournament){
  return d.teams.map(t=>{

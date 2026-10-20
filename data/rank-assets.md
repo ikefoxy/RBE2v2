@@ -1,0 +1,13 @@
+# Player rank badges
+
+Generated through the built-in ImageGen edit tool from the five supplied reference images. Files:
+
+- `public/assets/ranks/gc1.png`
+- `public/assets/ranks/gc2.png`
+- `public/assets/ranks/gc3.png`
+- `public/assets/ranks/ssl.png`
+- `public/assets/ranks/grand-plat.png`
+
+Prompt set: one background-extraction edit per supplied emblem, in the supplied order (GC1, GC2, GC3, SSL, Grand Plat). Remove the solid white or black rectangle, preserve the geometric silhouette, colors, internal details and division markers, retain the colored glow with transparent falloff, and return one centered emblem with transparent alpha, modest padding, no text and no redesign.
+
+Alpha channels were inspected in the saved files. Existing team logos already had alpha; their source artwork is preserved. `logo-bounds.json` provides display view boxes so the UI can remove empty transparent margins without altering source pixels.
