@@ -13,3 +13,5 @@
 - Owner-created recordings appear in Watch, match links, team profiles and player profiles. Next on deck derives from current unscored fixtures and must refresh after score/date changes.
 
 - Admin access uses a server-verified password session, not email verification. Store only salted password hashes and session keys as Sites runtime secrets; never commit a password. Keep public viewing open.
+
+- The top-right header shows the transparent BYU logo and “Created by Zeek.” Keep Owner/Viewer identity labels out of this header; admin access remains in the sidebar.
