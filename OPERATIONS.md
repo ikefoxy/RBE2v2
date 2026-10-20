@@ -36,3 +36,9 @@ Run `npm run typecheck`, `npm test`, and `python3 scripts/test-local-api.py`. AP
 ## Publishing
 
 Use the Sites source helper to build, push, and package the exact source commit. Save and deploy to the existing public Site. Push the same source commit to `github/main` at https://github.com/ikefoxy/RBE2v2 without force-pushing. Include the live URL after each completed fix. Never publish local database state or secrets.
+
+## Refresh verification
+
+The refresh button makes a new uncached API request and updates the same state used by every view. It shows progress, a Mountain Time confirmation, and an actionable error if the request fails or times out. Automatic polling cannot overlap an active request; a manual refresh supersedes an earlier request. Revision checks still prevent stale reads from undoing an admin save. Refresh reads the latest saved tournament data; it does not import a spreadsheet or infer YouTube scores.
+
+For browser regression checks, change a disposable local match result in D1, click Refresh results, and confirm the series total, standings, and Up next change together. Restore the original local result afterward. Stop the local preview, click refresh, and confirm there is an error with Retry and no success confirmation. Restart and retry to verify recovery. Never alter production scores for this check.

@@ -17,3 +17,5 @@
 - The top-right header shows the transparent BYU logo and “Created by Zeek.” Keep Owner/Viewer identity labels out of this header; admin access remains in the sidebar.
 
 - At mobile widths, league standings use vertical cards with the full team name/logo above separate score statistics; keep long names clear of scores and preserve roomy spacing. Desktop standings remain a table.
+
+- Refresh results must fetch fresh saved D1 data without caching, show loading and a timestamped confirmation, preserve newer revisions, and provide retry feedback on failure. Do not imply it imports new scores from the workbook or YouTube.
