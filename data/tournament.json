@@ -1,0 +1,556 @@
+{
+  "teams": [
+    {
+      "id": "ct",
+      "name": "Cliip That",
+      "short": "CT",
+      "players": [
+        "Cliip",
+        "Kaizer"
+      ],
+      "logo": "/assets/image5.png",
+      "color": "#35beff"
+    },
+    {
+      "id": "mm",
+      "name": "Mommy Mag",
+      "short": "MM",
+      "players": [
+        "Ultramag",
+        "Zeek"
+      ],
+      "logo": "/assets/image7.png",
+      "color": "#52ccff"
+    },
+    {
+      "id": "mf",
+      "name": "Mow Foes",
+      "short": "MF",
+      "players": [
+        "Schmtty",
+        "4ldnn"
+      ],
+      "logo": "/assets/image8.png",
+      "color": "#8bd32c"
+    },
+    {
+      "id": "pg",
+      "name": "Pink Goats",
+      "short": "PG",
+      "players": [
+        "Guzaboo",
+        "Whowen"
+      ],
+      "logo": "/assets/image4.png",
+      "color": "#ff59ad"
+    },
+    {
+      "id": "ssl",
+      "name": "SONper SONic Legends",
+      "short": "SSL",
+      "players": [
+        "Ricky_Dee",
+        "Wes4rs"
+      ],
+      "logo": "/assets/image1.png",
+      "color": "#ab9fff"
+    },
+    {
+      "id": "lw",
+      "name": "Light Work",
+      "short": "LW",
+      "players": [
+        "Kylee",
+        "Andrew H"
+      ],
+      "logo": "/assets/image3.png",
+      "color": "#ffcd44"
+    },
+    {
+      "id": "mp",
+      "name": "The Moldy Potatoes",
+      "short": "MP",
+      "players": [
+        "skeak_",
+        "zyber210"
+      ],
+      "logo": "/assets/image9.png",
+      "color": "#c5a075"
+    },
+    {
+      "id": "hg",
+      "name": "The Hex Girls",
+      "short": "HG",
+      "players": [
+        "Hexaract",
+        "Slayer13"
+      ],
+      "logo": "/assets/image2.png",
+      "color": "#b875fa"
+    }
+  ],
+  "matches": [
+    {
+      "id": "w1-mf-lw",
+      "week": 1,
+      "a": "mf",
+      "b": "lw",
+      "scoreA": 3,
+      "scoreB": 0,
+      "date": "2026-09-25",
+      "bestOf": 5
+    },
+    {
+      "id": "w1-ssl-hg",
+      "week": 1,
+      "a": "ssl",
+      "b": "hg",
+      "scoreA": 3,
+      "scoreB": 0,
+      "date": "2026-09-21",
+      "bestOf": 5
+    },
+    {
+      "id": "w1-mm-ct",
+      "week": 1,
+      "a": "mm",
+      "b": "ct",
+      "scoreA": 3,
+      "scoreB": 1,
+      "date": "2026-09-23",
+      "bestOf": 5
+    },
+    {
+      "id": "w2-hg-pg",
+      "week": 2,
+      "a": "hg",
+      "b": "pg",
+      "scoreA": 0,
+      "scoreB": 3,
+      "date": "2026-09-28",
+      "bestOf": 5
+    },
+    {
+      "id": "w2-mm-mf",
+      "week": 2,
+      "a": "mm",
+      "b": "mf",
+      "scoreA": 3,
+      "scoreB": 1,
+      "date": "2026-10-01",
+      "bestOf": 5
+    },
+    {
+      "id": "w2-ct-ssl",
+      "week": 2,
+      "a": "ct",
+      "b": "ssl",
+      "scoreA": 2,
+      "scoreB": 3,
+      "date": "2026-09-29",
+      "bestOf": 5
+    },
+    {
+      "id": "w3-pg-mp",
+      "week": 3,
+      "a": "pg",
+      "b": "mp",
+      "scoreA": 3,
+      "scoreB": 0,
+      "date": "2026-10-05",
+      "bestOf": 5
+    },
+    {
+      "id": "w3-hg-ct",
+      "week": 3,
+      "a": "hg",
+      "b": "ct",
+      "scoreA": 0,
+      "scoreB": 3,
+      "date": "2026-10-06",
+      "bestOf": 5
+    },
+    {
+      "id": "w3-ssl-mf",
+      "week": 3,
+      "a": "ssl",
+      "b": "mf",
+      "scoreA": 3,
+      "scoreB": 2,
+      "date": "2026-10-09",
+      "bestOf": 5
+    },
+    {
+      "id": "w4-mf-hg",
+      "week": 4,
+      "a": "mf",
+      "b": "hg",
+      "scoreA": 3,
+      "scoreB": 0,
+      "date": "2026-10-13",
+      "bestOf": 5
+    },
+    {
+      "id": "w4-pg-ct",
+      "week": 4,
+      "a": "pg",
+      "b": "ct",
+      "scoreA": 0,
+      "scoreB": 3,
+      "date": "2026-10-12",
+      "bestOf": 5
+    },
+    {
+      "id": "w4-lw-mp",
+      "week": 4,
+      "a": "lw",
+      "b": "mp",
+      "scoreA": 3,
+      "scoreB": 0,
+      "date": "2026-10-16",
+      "bestOf": 5
+    },
+    {
+      "id": "w5-ct-mf",
+      "week": 5,
+      "a": "ct",
+      "b": "mf",
+      "scoreA": 3,
+      "scoreB": 1,
+      "date": "2026-10-21",
+      "bestOf": 5
+    },
+    {
+      "id": "w5-lw-pg",
+      "week": 5,
+      "a": "lw",
+      "b": "pg",
+      "scoreA": 0,
+      "scoreB": 3,
+      "date": "2026-10-19",
+      "bestOf": 5
+    },
+    {
+      "id": "w5-mm-mp",
+      "week": 5,
+      "a": "mm",
+      "b": "mp",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-10-20",
+      "bestOf": 5
+    },
+    {
+      "id": "w6-mf-pg",
+      "week": 6,
+      "a": "mf",
+      "b": "pg",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-10-26",
+      "bestOf": 5
+    },
+    {
+      "id": "w6-mp-ssl",
+      "week": 6,
+      "a": "mp",
+      "b": "ssl",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-10-28",
+      "bestOf": 5
+    },
+    {
+      "id": "w6-lw-mm",
+      "week": 6,
+      "a": "lw",
+      "b": "mm",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-10-27",
+      "bestOf": 5
+    },
+    {
+      "id": "w7-mp-hg",
+      "week": 7,
+      "a": "mp",
+      "b": "hg",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-11-03",
+      "bestOf": 5
+    },
+    {
+      "id": "w7-ssl-lw",
+      "week": 7,
+      "a": "ssl",
+      "b": "lw",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-11-05",
+      "bestOf": 5
+    },
+    {
+      "id": "w7-pg-mm",
+      "week": 7,
+      "a": "pg",
+      "b": "mm",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-11-02",
+      "bestOf": 5
+    },
+    {
+      "id": "w8-mm-ssl",
+      "week": 8,
+      "a": "mm",
+      "b": "ssl",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-11-10",
+      "bestOf": 5
+    },
+    {
+      "id": "w8-ct-mp",
+      "week": 8,
+      "a": "ct",
+      "b": "mp",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-11-11",
+      "bestOf": 5
+    },
+    {
+      "id": "w8-hg-lw",
+      "week": 8,
+      "a": "hg",
+      "b": "lw",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-11-09",
+      "bestOf": 5
+    },
+    {
+      "id": "w9-hg-mm",
+      "week": 9,
+      "a": "hg",
+      "b": "mm",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-11-16",
+      "bestOf": 5
+    },
+    {
+      "id": "w9-mp-mf",
+      "week": 9,
+      "a": "mp",
+      "b": "mf",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-11-20",
+      "bestOf": 5
+    },
+    {
+      "id": "w9-pg-ssl",
+      "week": 9,
+      "a": "pg",
+      "b": "ssl",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-11-17",
+      "bestOf": 5
+    },
+    {
+      "id": "w9-lw-ct",
+      "week": 9,
+      "a": "lw",
+      "b": "ct",
+      "scoreA": null,
+      "scoreB": null,
+      "date": "2026-11-19",
+      "bestOf": 5
+    }
+  ],
+  "videos": [
+    {
+      "id": "iVYHQ0uzUuU",
+      "week": 1,
+      "title": "SONper Sonic Legends vs The Hex Girls | RBE Fall 2v2 League Play",
+      "url": "https://www.youtube.com/watch?v=iVYHQ0uzUuU&t=4072s",
+      "teams": [
+        "ssl",
+        "hg",
+        "mm",
+        "ct"
+      ]
+    },
+    {
+      "id": "C3b1qCWRIqc",
+      "week": 1,
+      "title": "Defying Gravity vs The Moldy Potatoes | RBE Fall 2v2 League Play",
+      "url": "https://www.youtube.com/watch?v=C3b1qCWRIqc&t=5s",
+      "teams": [
+        "mp"
+      ]
+    },
+    {
+      "id": "YTfhKG4GZ5s",
+      "week": 1,
+      "title": "Mow Foes vs Light Work | RBE Fall 2v2 League Play Week 1",
+      "url": "https://www.youtube.com/watch?v=YTfhKG4GZ5s&t=15s",
+      "teams": [
+        "mf",
+        "lw"
+      ]
+    },
+    {
+      "id": "FX0CzhyS-R0",
+      "week": 2,
+      "title": "Pink Goats vs The Hex Girls | RBE Fall 2v2 League Play Week 2",
+      "url": "https://www.youtube.com/watch?v=FX0CzhyS-R0",
+      "teams": [
+        "pg",
+        "hg"
+      ]
+    },
+    {
+      "id": "xIhy79h9jp8",
+      "week": 2,
+      "title": "Mommy Mag vs Mow Foes | RBE Fall 2v2 League Play Week 2",
+      "url": "https://www.youtube.com/watch?v=xIhy79h9jp8&t=2328s",
+      "teams": [
+        "mm",
+        "mf"
+      ]
+    },
+    {
+      "id": "cyLGdE3PHSM",
+      "week": 2,
+      "title": "SONper SONic Legends vs Cliip That | RBE Fall 2v2 League Play Week 2",
+      "url": "https://www.youtube.com/watch?v=cyLGdE3PHSM&t=2482s",
+      "teams": [
+        "ct",
+        "ssl"
+      ]
+    },
+    {
+      "id": "orKP3TGqIUc",
+      "week": 2,
+      "title": "Defying Gravity vs Light Work | RBE Fall 2v2 League Play Week 2",
+      "url": "https://www.youtube.com/watch?v=orKP3TGqIUc",
+      "teams": [
+        "lw"
+      ]
+    },
+    {
+      "id": "tEcAtMlKCSI",
+      "week": 3,
+      "title": "2026 Fall Semester RBE 2v2 League Play | Week 3 - Pink Goats vs The Moldy Potatoes",
+      "url": "https://www.youtube.com/watch?v=tEcAtMlKCSI",
+      "teams": [
+        "pg",
+        "mp"
+      ]
+    },
+    {
+      "id": "14wLU3YRlHU",
+      "week": 3,
+      "title": "Defying Gravity vs Mommy Mag | RBE Fall 2v2 League Play Week 3",
+      "url": "https://www.youtube.com/watch?v=14wLU3YRlHU&t=1992s",
+      "teams": [
+        "mm"
+      ]
+    },
+    {
+      "id": "hnmnsf8BEcI",
+      "week": 3,
+      "title": "2026 Fall Semester RBE 2v2 League Play | Week 3 - Cliip That vs The Hex Girls",
+      "url": "https://www.youtube.com/watch?v=hnmnsf8BEcI",
+      "teams": [
+        "ct",
+        "hg"
+      ]
+    },
+    {
+      "id": "Q1C7uxntJic",
+      "week": 3,
+      "title": "RBE 2v2 League Play Fall 2026 | Week 3 - Mow Foes vs SONper SONic Legends",
+      "url": "https://www.youtube.com/watch?v=Q1C7uxntJic&t=1900s",
+      "teams": [
+        "mf",
+        "ssl"
+      ]
+    },
+    {
+      "id": "s5COCZR243w",
+      "week": 4,
+      "title": "RBE 2v2 League Play Fall 2026 | Week 3 - Mow Foes vs The Hex Girls",
+      "url": "https://www.youtube.com/watch?v=s5COCZR243w",
+      "teams": [
+        "mf",
+        "hg"
+      ]
+    },
+    {
+      "id": "9CdgVYIRDIA",
+      "week": 4,
+      "title": "RBE 2v2 League Play Fall 2026 | Week 3 - Cliip That vs Pink Goats",
+      "url": "https://www.youtube.com/watch?v=9CdgVYIRDIA&t=1771s",
+      "teams": [
+        "ct",
+        "pg"
+      ]
+    },
+    {
+      "id": "txUUCvVoifI",
+      "week": 4,
+      "title": "RBE 2v2 League Play Fall 2026 | Week 3 - Light Work vs The Moldy Potatoes",
+      "url": "https://www.youtube.com/watch?v=txUUCvVoifI&t=1778s",
+      "teams": [
+        "lw",
+        "mp"
+      ]
+    },
+    {
+      "id": "diNVZ6eNIiw",
+      "week": 5,
+      "title": "RBE 2v2 League Play Fall 2026 | Week 5 - Cliip That vs Mow Foes",
+      "url": "https://www.youtube.com/watch?v=diNVZ6eNIiw",
+      "teams": [
+        "ct",
+        "mf"
+      ]
+    },
+    {
+      "id": "Sc2wFqz7NL8",
+      "week": 5,
+      "title": "RBE Fall 2026 2v2 League Play | Week 5 - Pink Goats vs Light Work",
+      "url": "https://www.youtube.com/watch?v=Sc2wFqz7NL8&t=1366s",
+      "teams": [
+        "pg",
+        "lw"
+      ]
+    }
+  ],
+  "playoffs": {},
+  "lockedSeeds": [],
+  "lanDate": "",
+  "lanVenue": "BYU \u00b7 Provo, Utah",
+  "conflicts": [
+    {
+      "match": "w4-lw-mp",
+      "league": [
+        3,
+        0
+      ],
+      "roundSchedule": [
+        0,
+        3
+      ],
+      "resolution": "League Play scores used"
+    }
+  ],
+  "revision": 0,
+  "updatedAt": "",
+  "audit": []
+}

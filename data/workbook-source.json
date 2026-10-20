@@ -1,0 +1,5886 @@
+{
+  "RBE Playoffs": [
+    {
+      "cell": "A1",
+      "value": "-",
+      "formula": null
+    },
+    {
+      "cell": "B1",
+      "value": "Royal Blue Esports Playoffs Fall 2026",
+      "formula": null
+    },
+    {
+      "cell": "B2",
+      "value": "* Best of 3",
+      "formula": null
+    },
+    {
+      "cell": "F2",
+      "value": "* Best of 3",
+      "formula": null
+    },
+    {
+      "cell": "J2",
+      "value": "* Best of 5 - maybe",
+      "formula": null
+    },
+    {
+      "cell": "N2",
+      "value": "* Best of 5 - maybe",
+      "formula": null
+    },
+    {
+      "cell": "F3",
+      "value": null,
+      "formula": "'RBE League Play Standings'!B3:C3"
+    },
+    {
+      "cell": "G3",
+      "value": "SONper SONic Legends",
+      "formula": null
+    },
+    {
+      "cell": "B4",
+      "value": null,
+      "formula": "'RBE League Play Standings'!B10:C10"
+    },
+    {
+      "cell": "C4",
+      "value": "Defying Gravity",
+      "formula": null
+    },
+    {
+      "cell": "F4",
+      "value": null,
+      "formula": "ifs(D5>D4,B5,D5<D4,B4,D5=D4,\"\")"
+    },
+    {
+      "cell": "G4",
+      "value": null,
+      "formula": "ifs(D5>D4,C5,D5<D4,C4,D5=D4,\"\")"
+    },
+    {
+      "cell": "B5",
+      "value": null,
+      "formula": "'RBE League Play Standings'!B11:C11"
+    },
+    {
+      "cell": "C5",
+      "value": "The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "J5",
+      "value": null,
+      "formula": "ifs(H4>H3,F4,H4<H3,F3,H4=H3,\"\")"
+    },
+    {
+      "cell": "K5",
+      "value": null,
+      "formula": "ifs(H4>H3,G4,H4<H3,G3,H4=H3,\"\")"
+    },
+    {
+      "cell": "R5",
+      "value": "X",
+      "formula": null
+    },
+    {
+      "cell": "S5",
+      "value": "Standings",
+      "formula": null
+    },
+    {
+      "cell": "T5",
+      "value": "Result",
+      "formula": null
+    },
+    {
+      "cell": "J6",
+      "value": null,
+      "formula": "ifs(H8>H7,F8,H8<H7,F7,H8=H7,\"\")"
+    },
+    {
+      "cell": "K6",
+      "value": null,
+      "formula": "ifs(H8>H7,G8,H8<H7,G7,H8=H7,\"\")"
+    },
+    {
+      "cell": "R6",
+      "value": null,
+      "formula": "ifs(P10>P9,N10,P10<P9,N9,P10=P9,\"\")"
+    },
+    {
+      "cell": "S6",
+      "value": null,
+      "formula": "ifs(P10>P9,O10,P10<P9,O9,P10=P9,\"\")"
+    },
+    {
+      "cell": "T6",
+      "value": "1st",
+      "formula": null
+    },
+    {
+      "cell": "F7",
+      "value": null,
+      "formula": "'RBE League Play Standings'!B6:C6"
+    },
+    {
+      "cell": "G7",
+      "value": "Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "R7",
+      "value": null,
+      "formula": "ifs(P10<P9,N10,P10>P9,N9,P10=P9,\"\")"
+    },
+    {
+      "cell": "S7",
+      "value": null,
+      "formula": "ifs(P10<P9,O10,P10>P9,O9,P10=P9,\"\")"
+    },
+    {
+      "cell": "T7",
+      "value": "2nd",
+      "formula": null
+    },
+    {
+      "cell": "F8",
+      "value": null,
+      "formula": "'RBE League Play Standings'!B7:C7"
+    },
+    {
+      "cell": "G8",
+      "value": "Light Work",
+      "formula": null
+    },
+    {
+      "cell": "R8",
+      "value": null,
+      "formula": "ifs(L24>L23,J24,L24<L23,J23,L24=L23,\"\")"
+    },
+    {
+      "cell": "S8",
+      "value": null,
+      "formula": "ifs(L24>L23,K24,L24<L23,K23,L24=L23,\"\")"
+    },
+    {
+      "cell": "T8",
+      "value": "3rd-4th",
+      "formula": null
+    },
+    {
+      "cell": "N9",
+      "value": null,
+      "formula": "ifs(L6>L5,J6,L6<L5,J5,L6=L5,\"\")"
+    },
+    {
+      "cell": "O9",
+      "value": null,
+      "formula": "ifs(L6>L5,K6,L6<L5,K5,L6=L5,\"\")"
+    },
+    {
+      "cell": "R9",
+      "value": null,
+      "formula": "ifs(L20>L19,J20,L20<L19,J19,L20=L19,\"\")"
+    },
+    {
+      "cell": "S9",
+      "value": null,
+      "formula": "ifs(L20>L19,K20,L20<L19,K19,L20=L19,\"\")"
+    },
+    {
+      "cell": "N10",
+      "value": null,
+      "formula": "ifs(L14>L13,J14,L14<L13,J13,L14=L13,\"\")"
+    },
+    {
+      "cell": "O10",
+      "value": null,
+      "formula": "ifs(L14>L13,K14,L14<L13,K13,L14=L13,\"\")"
+    },
+    {
+      "cell": "R10",
+      "value": null,
+      "formula": "ifs(L24<L23,J24,L24>L23,J23,L24=L23,\"\")"
+    },
+    {
+      "cell": "S10",
+      "value": null,
+      "formula": "ifs(L24<L23,K24,L24>L23,K23,L24=L23,\"\")"
+    },
+    {
+      "cell": "T10",
+      "value": "5th-6th",
+      "formula": null
+    },
+    {
+      "cell": "F11",
+      "value": null,
+      "formula": "'RBE League Play Standings'!B4:C4"
+    },
+    {
+      "cell": "G11",
+      "value": "Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "R11",
+      "value": null,
+      "formula": "ifs(L20<L19,J20,L20>L19,J19,L20=L19,\"\")"
+    },
+    {
+      "cell": "S11",
+      "value": null,
+      "formula": "ifs(L20<L19,K20,L20>L19,K19,L20=L19,\"\")"
+    },
+    {
+      "cell": "B12",
+      "value": null,
+      "formula": "'RBE League Play Standings'!B9:C9"
+    },
+    {
+      "cell": "C12",
+      "value": "The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "F12",
+      "value": null,
+      "formula": "ifs(D13>D12,B13,D13<D12,B12,D13=D12,\"\")"
+    },
+    {
+      "cell": "G12",
+      "value": null,
+      "formula": "ifs(D13>D12,C13,D13<D12,C12,D13=D12,\"\")"
+    },
+    {
+      "cell": "R12",
+      "value": null,
+      "formula": "ifs(H21<H20,F21,H21>H20,F20,H21=H20,\"\")"
+    },
+    {
+      "cell": "S12",
+      "value": null,
+      "formula": "ifs(H21<H20,G21,H21>H20,G20,H21=H20,\"\")"
+    },
+    {
+      "cell": "T12",
+      "value": "7th-8th",
+      "formula": null
+    },
+    {
+      "cell": "B13",
+      "value": null,
+      "formula": "'RBE League Play Standings'!B12:C12"
+    },
+    {
+      "cell": "J13",
+      "value": null,
+      "formula": "ifs(H12>H11,F12,H12<H11,F11,H12=H11,\"\")"
+    },
+    {
+      "cell": "K13",
+      "value": null,
+      "formula": "ifs(H12>H11,G12,H12<H11,G11,H12=H11,\"\")"
+    },
+    {
+      "cell": "R13",
+      "value": null,
+      "formula": "ifs(H25<H24,F25,H25>H24,F24,H25=H24,\"\")"
+    },
+    {
+      "cell": "S13",
+      "value": null,
+      "formula": "ifs(H25<H24,G25,H25>H24,G24,H25=H24,\"\")"
+    },
+    {
+      "cell": "J14",
+      "value": null,
+      "formula": "ifs(H16>H15,F16,H16<H15,F15,H16=H15,\"\")"
+    },
+    {
+      "cell": "K14",
+      "value": null,
+      "formula": "ifs(H16>H15,G16,H16<H15,G15,H16=H15,\"\")"
+    },
+    {
+      "cell": "R14",
+      "value": null,
+      "formula": "ifs(D22<D21,B22,D22>D21,B21,D22=D21,\"\")"
+    },
+    {
+      "cell": "S14",
+      "value": null,
+      "formula": "ifs(D22<D21,C22,D22>D21,C21,D22=D21,\"\")"
+    },
+    {
+      "cell": "T14",
+      "value": "9th-10th",
+      "formula": null
+    },
+    {
+      "cell": "F15",
+      "value": null,
+      "formula": "'RBE League Play Standings'!B5:C5"
+    },
+    {
+      "cell": "G15",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "J15",
+      "value": " ",
+      "formula": null
+    },
+    {
+      "cell": "R15",
+      "value": null,
+      "formula": "ifs(D26<D25,B26,D26>D25,B25,D26=D25,\"\")"
+    },
+    {
+      "cell": "S15",
+      "value": null,
+      "formula": "ifs(D26<D25,C26,D26>D25,C25,D26=D25,\"\")"
+    },
+    {
+      "cell": "F16",
+      "value": null,
+      "formula": "'RBE League Play Standings'!B8:C8"
+    },
+    {
+      "cell": "G16",
+      "value": "Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "B18",
+      "value": "* All matches are best of 3",
+      "formula": null
+    },
+    {
+      "cell": "J19",
+      "value": null,
+      "formula": "ifs(L6<L5,J6,L6>L5,J5,L6=L5,\"\")"
+    },
+    {
+      "cell": "K19",
+      "value": null,
+      "formula": "ifs(L6<L5,K6,L6>L5,K5,L6=L5,\"\")"
+    },
+    {
+      "cell": "F20",
+      "value": null,
+      "formula": "ifs(H12<H11,F12,H12>H11,F11,H12=H11,\"\")"
+    },
+    {
+      "cell": "G20",
+      "value": null,
+      "formula": "ifs(H12<H11,G12,H12>H11,G11,H12=H11,\"\")"
+    },
+    {
+      "cell": "J20",
+      "value": null,
+      "formula": "ifs(H21>H20,F21,H21<H20,F20,H21=H20,\"\")"
+    },
+    {
+      "cell": "K20",
+      "value": null,
+      "formula": "ifs(H21>H20,G21,H21<H20,G20,H21=H20,\"\")"
+    },
+    {
+      "cell": "B21",
+      "value": null,
+      "formula": "ifs(H16<H15,F16,H16>H15,F15,H16=H15,\"\")"
+    },
+    {
+      "cell": "C21",
+      "value": null,
+      "formula": "ifs(H16<H15,G16,H16>H15,G15,H16=H15,\"\")"
+    },
+    {
+      "cell": "F21",
+      "value": null,
+      "formula": "ifs(D22>D21,B22,D22<D21,B21,D22=D21,\"\")"
+    },
+    {
+      "cell": "G21",
+      "value": null,
+      "formula": "ifs(D22>D21,C22,D22<D21,C21,D22=D21,\"\")"
+    },
+    {
+      "cell": "B22",
+      "value": null,
+      "formula": "ifs(D5<D4,B5,D5>D4,B4,D5=D4,\"\")"
+    },
+    {
+      "cell": "C22",
+      "value": null,
+      "formula": "ifs(D5<D4,C5,D5>D4,C4,D5=D4,\"\")"
+    },
+    {
+      "cell": "J23",
+      "value": null,
+      "formula": "ifs(L14<L13,J14,L14>L13,J13,L14=L13,\"\")"
+    },
+    {
+      "cell": "K23",
+      "value": null,
+      "formula": "ifs(L14<L13,K14,L14>L13,K13,L14=L13,\"\")"
+    },
+    {
+      "cell": "F24",
+      "value": null,
+      "formula": "ifs(H4<H3,F4,H4>H3,F3,H4=H3,\"\")"
+    },
+    {
+      "cell": "G24",
+      "value": null,
+      "formula": "ifs(H4<H3,G4,H4>H3,G3,H4=H3,\"\")"
+    },
+    {
+      "cell": "J24",
+      "value": null,
+      "formula": "ifs(H25>H24,F25,H25<H24,F24,H25=H24,\"\")"
+    },
+    {
+      "cell": "K24",
+      "value": null,
+      "formula": "ifs(H25>H24,G25,H25<H24,G24,H25=H24,\"\")"
+    },
+    {
+      "cell": "B25",
+      "value": null,
+      "formula": "ifs(H8<H7,F8,H8>H7,F7,H8=H7,\"\")"
+    },
+    {
+      "cell": "C25",
+      "value": null,
+      "formula": "ifs(H8<H7,G8,H8>H7,G7,H8=H7,\"\")"
+    },
+    {
+      "cell": "F25",
+      "value": null,
+      "formula": "ifs(D26>D25,B26,D26<D25,B25,D26=D25,\"\")"
+    },
+    {
+      "cell": "G25",
+      "value": null,
+      "formula": "ifs(D26>D25,C26,D26<D25,C25,D26=D25,\"\")"
+    },
+    {
+      "cell": "B26",
+      "value": null,
+      "formula": "ifs(D13<D12,B13,D13>D12,B12,D13=D12,\"\")"
+    },
+    {
+      "cell": "C26",
+      "value": null,
+      "formula": "ifs(D13<D12,C13,D13>D12,C12,D13=D12,\"\")"
+    }
+  ],
+  "RBE League Play": [
+    {
+      "cell": "B1",
+      "value": "Royal Blue Esports League Play 2026 Fall 2026",
+      "formula": null
+    },
+    {
+      "cell": "B2",
+      "value": "Week 1",
+      "formula": null
+    },
+    {
+      "cell": "F2",
+      "value": "Week 2",
+      "formula": null
+    },
+    {
+      "cell": "J2",
+      "value": "Week 3",
+      "formula": null
+    },
+    {
+      "cell": "N2",
+      "value": "Week 4",
+      "formula": null
+    },
+    {
+      "cell": "R2",
+      "value": "Week 5",
+      "formula": null
+    },
+    {
+      "cell": "V2",
+      "value": "Week 6",
+      "formula": null
+    },
+    {
+      "cell": "Z2",
+      "value": "Week 7",
+      "formula": null
+    },
+    {
+      "cell": "AD2",
+      "value": "Week 8",
+      "formula": null
+    },
+    {
+      "cell": "AH2",
+      "value": "Week 9",
+      "formula": null
+    },
+    {
+      "cell": "B4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  weeks, FILTER(Setup!$E$2:$E36, Setup!$E$2:$E36<>\"\"\"\"),\n  week, B2,\n  weekI, MATCH(week, weeks, 0),\n  schedule, Setup!$K$14:$AD$220,\n  maxMatchesPerWeek, ROWS(schedule) - 1,\n  teams, Setup!$B$2:$B$11,\n  logos, Setup!$A$2:$A$11,\n  rawMatches, OFFSET(\"&\"schedule, 1, weekI*2 - 2, maxMatchesPerWeek, 2),\n  filteredMatches, RANDOMIZE_ROWS(FILTER(rawMatches, CHOOSECOLS(rawMatches, 1)<>\"\"\"\")),\n  null, \"\"placeholder{\u20ac{\u00a5\u00a7\"\",\n  IF(ISNA(filteredMatches), \"\"\"\", REDUCE(null, SEQUENCE(ROWS(filteredMatches)), LAMBDA(a\"&\"cc, idx, LET(\n    match, CHOOSEROWS(filteredMatches, idx),\n    formatted, IF(idx=1, TRANSPOSE(match), VSTACK(\"\"\"\", TRANSPOSE(match))),\n    logos, BYROW(formatted, LAMBDA(team, XLOOKUP(team, teams, logos, \"\"\"\"))),\n    withLogos, HSTACK(logos, formatted),\n \"&\"   IF(acc=null, withLogos, VSTACK(acc, withLogos))\n  ))))\n)\"),\"\")"
+    },
+    {
+      "cell": "C4",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "D4",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "F4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  weeks, FILTER(Setup!$E$2:$E36, Setup!$E$2:$E36<>\"\"\"\"),\n  week, F2,\n  weekI, MATCH(week, weeks, 0),\n  schedule, Setup!$K$14:$AD$220,\n  maxMatchesPerWeek, ROWS(schedule) - 1,\n  teams, Setup!$B$2:$B$11,\n  logos, Setup!$A$2:$A$11,\n  rawMatches, OFFSET(\"&\"schedule, 1, weekI*2 - 2, maxMatchesPerWeek, 2),\n  filteredMatches, RANDOMIZE_ROWS(FILTER(rawMatches, CHOOSECOLS(rawMatches, 1)<>\"\"\"\")),\n  null, \"\"placeholder{\u20ac{\u00a5\u00a7\"\",\n  IF(ISNA(filteredMatches), \"\"\"\", REDUCE(null, SEQUENCE(ROWS(filteredMatches)), LAMBDA(a\"&\"cc, idx, LET(\n    match, CHOOSEROWS(filteredMatches, idx),\n    formatted, IF(idx=1, TRANSPOSE(match), VSTACK(\"\"\"\", TRANSPOSE(match))),\n    logos, BYROW(formatted, LAMBDA(team, XLOOKUP(team, teams, logos, \"\"\"\"))),\n    withLogos, HSTACK(logos, formatted),\n \"&\"   IF(acc=null, withLogos, VSTACK(acc, withLogos))\n  ))))\n)\"),\"\")"
+    },
+    {
+      "cell": "G4",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "H4",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "J4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  weeks, FILTER(Setup!$E$2:$E36, Setup!$E$2:$E36<>\"\"\"\"),\n  week, J2,\n  weekI, MATCH(week, weeks, 0),\n  schedule, Setup!$K$14:$AD$220,\n  maxMatchesPerWeek, ROWS(schedule) - 1,\n  teams, Setup!$B$2:$B$11,\n  logos, Setup!$A$2:$A$11,\n  rawMatches, OFFSET(\"&\"schedule, 1, weekI*2 - 2, maxMatchesPerWeek, 2),\n  filteredMatches, RANDOMIZE_ROWS(FILTER(rawMatches, CHOOSECOLS(rawMatches, 1)<>\"\"\"\")),\n  null, \"\"placeholder{\u20ac{\u00a5\u00a7\"\",\n  IF(ISNA(filteredMatches), \"\"\"\", REDUCE(null, SEQUENCE(ROWS(filteredMatches)), LAMBDA(a\"&\"cc, idx, LET(\n    match, CHOOSEROWS(filteredMatches, idx),\n    formatted, IF(idx=1, TRANSPOSE(match), VSTACK(\"\"\"\", TRANSPOSE(match))),\n    logos, BYROW(formatted, LAMBDA(team, XLOOKUP(team, teams, logos, \"\"\"\"))),\n    withLogos, HSTACK(logos, formatted),\n \"&\"   IF(acc=null, withLogos, VSTACK(acc, withLogos))\n  ))))\n)\"),\"\")"
+    },
+    {
+      "cell": "K4",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "L4",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "N4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  weeks, FILTER(Setup!$E$2:$E36, Setup!$E$2:$E36<>\"\"\"\"),\n  week, N2,\n  weekI, MATCH(week, weeks, 0),\n  schedule, Setup!$K$14:$AD$220,\n  maxMatchesPerWeek, ROWS(schedule) - 1,\n  teams, Setup!$B$2:$B$11,\n  logos, Setup!$A$2:$A$11,\n  rawMatches, OFFSET(\"&\"schedule, 1, weekI*2 - 2, maxMatchesPerWeek, 2),\n  filteredMatches, RANDOMIZE_ROWS(FILTER(rawMatches, CHOOSECOLS(rawMatches, 1)<>\"\"\"\")),\n  null, \"\"placeholder{\u20ac{\u00a5\u00a7\"\",\n  IF(ISNA(filteredMatches), \"\"\"\", REDUCE(null, SEQUENCE(ROWS(filteredMatches)), LAMBDA(a\"&\"cc, idx, LET(\n    match, CHOOSEROWS(filteredMatches, idx),\n    formatted, IF(idx=1, TRANSPOSE(match), VSTACK(\"\"\"\", TRANSPOSE(match))),\n    logos, BYROW(formatted, LAMBDA(team, XLOOKUP(team, teams, logos, \"\"\"\"))),\n    withLogos, HSTACK(logos, formatted),\n \"&\"   IF(acc=null, withLogos, VSTACK(acc, withLogos))\n  ))))\n)\"),\"\")"
+    },
+    {
+      "cell": "O4",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "P4",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "R4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  weeks, FILTER(Setup!$E$2:$E36, Setup!$E$2:$E36<>\"\"\"\"),\n  week, R2,\n  weekI, MATCH(week, weeks, 0),\n  schedule, Setup!$K$14:$AD$220,\n  maxMatchesPerWeek, ROWS(schedule) - 1,\n  teams, Setup!$B$2:$B$11,\n  logos, Setup!$A$2:$A$11,\n  rawMatches, OFFSET(\"&\"schedule, 1, weekI*2 - 2, maxMatchesPerWeek, 2),\n  filteredMatches, RANDOMIZE_ROWS(FILTER(rawMatches, CHOOSECOLS(rawMatches, 1)<>\"\"\"\")),\n  null, \"\"placeholder{\u20ac{\u00a5\u00a7\"\",\n  IF(ISNA(filteredMatches), \"\"\"\", REDUCE(null, SEQUENCE(ROWS(filteredMatches)), LAMBDA(a\"&\"cc, idx, LET(\n    match, CHOOSEROWS(filteredMatches, idx),\n    formatted, IF(idx=1, TRANSPOSE(match), VSTACK(\"\"\"\", TRANSPOSE(match))),\n    logos, BYROW(formatted, LAMBDA(team, XLOOKUP(team, teams, logos, \"\"\"\"))),\n    withLogos, HSTACK(logos, formatted),\n \"&\"   IF(acc=null, withLogos, VSTACK(acc, withLogos))\n  ))))\n)\"),\"\")"
+    },
+    {
+      "cell": "S4",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "V4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  weeks, FILTER(Setup!$E$2:$E36, Setup!$E$2:$E36<>\"\"\"\"),\n  week, V2,\n  weekI, MATCH(week, weeks, 0),\n  schedule, Setup!$K$14:$AD$220,\n  maxMatchesPerWeek, ROWS(schedule) - 1,\n  teams, Setup!$B$2:$B$11,\n  logos, Setup!$A$2:$A$11,\n  rawMatches, OFFSET(\"&\"schedule, 1, weekI*2 - 2, maxMatchesPerWeek, 2),\n  filteredMatches, RANDOMIZE_ROWS(FILTER(rawMatches, CHOOSECOLS(rawMatches, 1)<>\"\"\"\")),\n  null, \"\"placeholder{\u20ac{\u00a5\u00a7\"\",\n  IF(ISNA(filteredMatches), \"\"\"\", REDUCE(null, SEQUENCE(ROWS(filteredMatches)), LAMBDA(a\"&\"cc, idx, LET(\n    match, CHOOSEROWS(filteredMatches, idx),\n    formatted, IF(idx=1, TRANSPOSE(match), VSTACK(\"\"\"\", TRANSPOSE(match))),\n    logos, BYROW(formatted, LAMBDA(team, XLOOKUP(team, teams, logos, \"\"\"\"))),\n    withLogos, HSTACK(logos, formatted),\n \"&\"   IF(acc=null, withLogos, VSTACK(acc, withLogos))\n  ))))\n)\"),\"\")"
+    },
+    {
+      "cell": "W4",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "Z4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  weeks, FILTER(Setup!$E$2:$E36, Setup!$E$2:$E36<>\"\"\"\"),\n  week, Z2,\n  weekI, MATCH(week, weeks, 0),\n  schedule, Setup!$K$14:$AD$220,\n  maxMatchesPerWeek, ROWS(schedule) - 1,\n  teams, Setup!$B$2:$B$11,\n  logos, Setup!$A$2:$A$11,\n  rawMatches, OFFSET(\"&\"schedule, 1, weekI*2 - 2, maxMatchesPerWeek, 2),\n  filteredMatches, RANDOMIZE_ROWS(FILTER(rawMatches, CHOOSECOLS(rawMatches, 1)<>\"\"\"\")),\n  null, \"\"placeholder{\u20ac{\u00a5\u00a7\"\",\n  IF(ISNA(filteredMatches), \"\"\"\", REDUCE(null, SEQUENCE(ROWS(filteredMatches)), LAMBDA(a\"&\"cc, idx, LET(\n    match, CHOOSEROWS(filteredMatches, idx),\n    formatted, IF(idx=1, TRANSPOSE(match), VSTACK(\"\"\"\", TRANSPOSE(match))),\n    logos, BYROW(formatted, LAMBDA(team, XLOOKUP(team, teams, logos, \"\"\"\"))),\n    withLogos, HSTACK(logos, formatted),\n \"&\"   IF(acc=null, withLogos, VSTACK(acc, withLogos))\n  ))))\n)\"),\"\")"
+    },
+    {
+      "cell": "AA4",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "AD4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  weeks, FILTER(Setup!$E$2:$E36, Setup!$E$2:$E36<>\"\"\"\"),\n  week, AD2,\n  weekI, MATCH(week, weeks, 0),\n  schedule, Setup!$K$14:$AD$220,\n  maxMatchesPerWeek, ROWS(schedule) - 1,\n  teams, Setup!$B$2:$B$11,\n  logos, Setup!$A$2:$A$11,\n  rawMatches, OFFSET\"&\"(schedule, 1, weekI*2 - 2, maxMatchesPerWeek, 2),\n  filteredMatches, RANDOMIZE_ROWS(FILTER(rawMatches, CHOOSECOLS(rawMatches, 1)<>\"\"\"\")),\n  null, \"\"placeholder{\u20ac{\u00a5\u00a7\"\",\n  IF(ISNA(filteredMatches), \"\"\"\", REDUCE(null, SEQUENCE(ROWS(filteredMatches)), LAMBDA(\"&\"acc, idx, LET(\n    match, CHOOSEROWS(filteredMatches, idx),\n    formatted, IF(idx=1, TRANSPOSE(match), VSTACK(\"\"\"\", TRANSPOSE(match))),\n    logos, BYROW(formatted, LAMBDA(team, XLOOKUP(team, teams, logos, \"\"\"\"))),\n    withLogos, HSTACK(logos, formatted),\n\"&\"    IF(acc=null, withLogos, VSTACK(acc, withLogos))\n  ))))\n)\"),\"\")"
+    },
+    {
+      "cell": "AE4",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "AH4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  weeks, FILTER(Setup!$E$2:$E36, Setup!$E$2:$E36<>\"\"\"\"),\n  week, AH2,\n  weekI, MATCH(week, weeks, 0),\n  schedule, Setup!$K$14:$AD$220,\n  maxMatchesPerWeek, ROWS(schedule) - 1,\n  teams, Setup!$B$2:$B$11,\n  logos, Setup!$A$2:$A$11,\n  rawMatches, OFFSET\"&\"(schedule, 1, weekI*2 - 2, maxMatchesPerWeek, 2),\n  filteredMatches, RANDOMIZE_ROWS(FILTER(rawMatches, CHOOSECOLS(rawMatches, 1)<>\"\"\"\")),\n  null, \"\"placeholder{\u20ac{\u00a5\u00a7\"\",\n  IF(ISNA(filteredMatches), \"\"\"\", REDUCE(null, SEQUENCE(ROWS(filteredMatches)), LAMBDA(\"&\"acc, idx, LET(\n    match, CHOOSEROWS(filteredMatches, idx),\n    formatted, IF(idx=1, TRANSPOSE(match), VSTACK(\"\"\"\", TRANSPOSE(match))),\n    logos, BYROW(formatted, LAMBDA(team, XLOOKUP(team, teams, logos, \"\"\"\"))),\n    withLogos, HSTACK(logos, formatted),\n\"&\"    IF(acc=null, withLogos, VSTACK(acc, withLogos))\n  ))))\n)\"),\"\")"
+    },
+    {
+      "cell": "AI4",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "AL4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  weeks, FILTER(Setup!$E$2:$E36, Setup!$E$2:$E36<>\"\"\"\"),\n  week, AL2,\n  weekI, MATCH(week, weeks, 0),\n  schedule, Setup!$K$14:$AD$220,\n  maxMatchesPerWeek, ROWS(schedule) - 1,\n  teams, Setup!$B$2:$B$11,\n  logos, Setup!$A$2:$A$11,\n  rawMatches, OFFSET\"&\"(schedule, 1, weekI*2 - 2, maxMatchesPerWeek, 2),\n  filteredMatches, RANDOMIZE_ROWS(FILTER(rawMatches, CHOOSECOLS(rawMatches, 1)<>\"\"\"\")),\n  null, \"\"placeholder{\u20ac{\u00a5\u00a7\"\",\n  IF(ISNA(filteredMatches), \"\"\"\", REDUCE(null, SEQUENCE(ROWS(filteredMatches)), LAMBDA(\"&\"acc, idx, LET(\n    match, CHOOSEROWS(filteredMatches, idx),\n    formatted, IF(idx=1, TRANSPOSE(match), VSTACK(\"\"\"\", TRANSPOSE(match))),\n    logos, BYROW(formatted, LAMBDA(team, XLOOKUP(team, teams, logos, \"\"\"\"))),\n    withLogos, HSTACK(logos, formatted),\n\"&\"    IF(acc=null, withLogos, VSTACK(acc, withLogos))\n  ))))\n)\"),\"\")"
+    },
+    {
+      "cell": "B5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C5",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "D5",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "F5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "G5",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "H5",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "J5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "K5",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "L5",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "N5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O5",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "P5",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "R5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S5",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "V5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W5",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "Z5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA5",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "AD5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AE5",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "AH5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AI5",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "B6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "F6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "G6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "J6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "K6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "N6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "R6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "V6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Z6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AD6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AE6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AH6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AI6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "B7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C7",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "D7",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "F7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "G7",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "H7",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "J7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "K7",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "L7",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "N7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O7",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "P7",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "R7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S7",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "T7",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "V7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W7",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "Z7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA7",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "AD7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AE7",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "AH7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AI7",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "B8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C8",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "D8",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "F8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "G8",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "H8",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "J8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "K8",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "L8",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "N8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O8",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "P8",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "R8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S8",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "T8",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "V8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W8",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "Z8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA8",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "AD8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AE8",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "AH8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AI8",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "B9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "F9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "G9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "J9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "K9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "N9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "R9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "V9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Z9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AD9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AE9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AH9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AI9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "B10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C10",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "D10",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "F10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "G10",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "H10",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "J10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "K10",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "L10",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "N10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O10",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "P10",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "R10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S10",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "T10",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "V10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W10",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "Z10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA10",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "AD10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AE10",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "AH10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AI10",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "B11",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C11",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "D11",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "F11",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "G11",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "H11",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "J11",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "K11",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "L11",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "N11",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O11",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "P11",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "R11",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S11",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "T11",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "V11",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W11",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "Z11",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA11",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "AD11",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AE11",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "AH11",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AI11",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "B12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "F12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "G12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "J12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "K12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "N12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "R12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "V12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Z12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AD12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AE12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AH12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AI12",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "B13",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C13",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "D13",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "F13",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "G13",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "H13",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "J13",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "K13",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "L13",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "N13",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O13",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "P13",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "R13",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S13",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "V13",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W13",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "Z13",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA13",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "AD13",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AE13",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "AH13",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AI13",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "B14",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C14",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "D14",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "F14",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "G14",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "H14",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "J14",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "K14",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "L14",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "N14",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O14",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "P14",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "R14",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S14",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "V14",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W14",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "Z14",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA14",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "AD14",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AE14",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "AH14",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AI14",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    }
+  ],
+  "Setup": [
+    {
+      "cell": "A1",
+      "value": "Logo",
+      "formula": null
+    },
+    {
+      "cell": "B1",
+      "value": "Team Name",
+      "formula": null
+    },
+    {
+      "cell": "C1",
+      "value": "Players",
+      "formula": null
+    },
+    {
+      "cell": "E1",
+      "value": "Week values (in order):",
+      "formula": null
+    },
+    {
+      "cell": "G1",
+      "value": "Randomization Seed:",
+      "formula": null
+    },
+    {
+      "cell": "M1",
+      "value": null,
+      "formula": "TRANSPOSE(A2:B11)"
+    },
+    {
+      "cell": "B2",
+      "value": "Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "C2",
+      "value": "Cliip / Kaizer",
+      "formula": null
+    },
+    {
+      "cell": "E2",
+      "value": "Week 1",
+      "formula": null
+    },
+    {
+      "cell": "G2",
+      "value": "43.0",
+      "formula": null
+    },
+    {
+      "cell": "M2",
+      "value": "Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "N2",
+      "value": "Defying Gravity",
+      "formula": null
+    },
+    {
+      "cell": "O2",
+      "value": "Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "P2",
+      "value": "Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "Q2",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "R2",
+      "value": "SONper SONic Legends",
+      "formula": null
+    },
+    {
+      "cell": "S2",
+      "value": "Light Work",
+      "formula": null
+    },
+    {
+      "cell": "T2",
+      "value": "The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "U2",
+      "value": "The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "B3",
+      "value": "Defying Gravity",
+      "formula": null
+    },
+    {
+      "cell": "C3",
+      "value": "Boby_shew / Pyro",
+      "formula": null
+    },
+    {
+      "cell": "E3",
+      "value": "Week 2",
+      "formula": null
+    },
+    {
+      "cell": "K3",
+      "value": null,
+      "formula": "A2:B11"
+    },
+    {
+      "cell": "L3",
+      "value": "Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "N3",
+      "value": "Week 6",
+      "formula": "OFFSET($M$3, COLUMN(N3) - COLUMN($M$3), ROW(N3) - ROW($M$3))"
+    },
+    {
+      "cell": "O3",
+      "value": "Week 1",
+      "formula": null
+    },
+    {
+      "cell": "P3",
+      "value": "Week 5",
+      "formula": null
+    },
+    {
+      "cell": "Q3",
+      "value": "Week 4",
+      "formula": null
+    },
+    {
+      "cell": "R3",
+      "value": "Week 2",
+      "formula": null
+    },
+    {
+      "cell": "S3",
+      "value": "Week 9",
+      "formula": null
+    },
+    {
+      "cell": "T3",
+      "value": "Week 8",
+      "formula": null
+    },
+    {
+      "cell": "U3",
+      "value": "Week 3",
+      "formula": null
+    },
+    {
+      "cell": "V3",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "B4",
+      "value": "Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "C4",
+      "value": "Ultramag / Zeek",
+      "formula": null
+    },
+    {
+      "cell": "E4",
+      "value": "Week 3",
+      "formula": null
+    },
+    {
+      "cell": "L4",
+      "value": "Defying Gravity",
+      "formula": null
+    },
+    {
+      "cell": "M4",
+      "value": "Week 6",
+      "formula": null
+    },
+    {
+      "cell": "O4",
+      "value": "Week 3",
+      "formula": "OFFSET($M$3, COLUMN(O4) - COLUMN($M$3), ROW(O4) - ROW($M$3))"
+    },
+    {
+      "cell": "P4",
+      "value": "Week 7",
+      "formula": null
+    },
+    {
+      "cell": "Q4",
+      "value": "Week 8",
+      "formula": null
+    },
+    {
+      "cell": "R4",
+      "value": "Week 4",
+      "formula": null
+    },
+    {
+      "cell": "S4",
+      "value": "Week 2",
+      "formula": null
+    },
+    {
+      "cell": "T4",
+      "value": "Week 1",
+      "formula": null
+    },
+    {
+      "cell": "U4",
+      "value": "Week 5",
+      "formula": null
+    },
+    {
+      "cell": "V4",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "B5",
+      "value": "Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "C5",
+      "value": "Schmtty / 4ldnn",
+      "formula": null
+    },
+    {
+      "cell": "E5",
+      "value": "Week 4",
+      "formula": null
+    },
+    {
+      "cell": "L5",
+      "value": "Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "M5",
+      "value": "Week 1",
+      "formula": null
+    },
+    {
+      "cell": "N5",
+      "value": "Week 3",
+      "formula": null
+    },
+    {
+      "cell": "P5",
+      "value": "Week 2",
+      "formula": "OFFSET($M$3, COLUMN(P5) - COLUMN($M$3), ROW(P5) - ROW($M$3))"
+    },
+    {
+      "cell": "Q5",
+      "value": "Week 7",
+      "formula": null
+    },
+    {
+      "cell": "R5",
+      "value": "Week 8",
+      "formula": null
+    },
+    {
+      "cell": "S5",
+      "value": "Week 6",
+      "formula": null
+    },
+    {
+      "cell": "T5",
+      "value": "Week 5",
+      "formula": null
+    },
+    {
+      "cell": "U5",
+      "value": "Week 9",
+      "formula": null
+    },
+    {
+      "cell": "V5",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "B6",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "C6",
+      "value": "Guzaboo / Whowen",
+      "formula": null
+    },
+    {
+      "cell": "E6",
+      "value": "Week 5",
+      "formula": null
+    },
+    {
+      "cell": "L6",
+      "value": "Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "M6",
+      "value": "Week 5",
+      "formula": null
+    },
+    {
+      "cell": "N6",
+      "value": "Week 7",
+      "formula": null
+    },
+    {
+      "cell": "O6",
+      "value": "Week 2",
+      "formula": null
+    },
+    {
+      "cell": "Q6",
+      "value": "Week 6",
+      "formula": "OFFSET($M$3, COLUMN(Q6) - COLUMN($M$3), ROW(Q6) - ROW($M$3))"
+    },
+    {
+      "cell": "R6",
+      "value": "Week 3",
+      "formula": null
+    },
+    {
+      "cell": "S6",
+      "value": "Week 1",
+      "formula": null
+    },
+    {
+      "cell": "T6",
+      "value": "Week 9",
+      "formula": null
+    },
+    {
+      "cell": "U6",
+      "value": "Week 4",
+      "formula": null
+    },
+    {
+      "cell": "V6",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "B7",
+      "value": "SONper SONic Legends",
+      "formula": null
+    },
+    {
+      "cell": "C7",
+      "value": "Ricky_Dee / Wes4rs",
+      "formula": null
+    },
+    {
+      "cell": "E7",
+      "value": "Week 6",
+      "formula": null
+    },
+    {
+      "cell": "L7",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "M7",
+      "value": "Week 4",
+      "formula": null
+    },
+    {
+      "cell": "N7",
+      "value": "Week 8",
+      "formula": null
+    },
+    {
+      "cell": "O7",
+      "value": "Week 7",
+      "formula": null
+    },
+    {
+      "cell": "P7",
+      "value": "Week 6",
+      "formula": null
+    },
+    {
+      "cell": "R7",
+      "value": "Week 9",
+      "formula": "OFFSET($M$3, COLUMN(R7) - COLUMN($M$3), ROW(R7) - ROW($M$3))"
+    },
+    {
+      "cell": "S7",
+      "value": "Week 5",
+      "formula": null
+    },
+    {
+      "cell": "T7",
+      "value": "Week 3",
+      "formula": null
+    },
+    {
+      "cell": "U7",
+      "value": "Week 2",
+      "formula": null
+    },
+    {
+      "cell": "V7",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "B8",
+      "value": "Light Work",
+      "formula": null
+    },
+    {
+      "cell": "C8",
+      "value": "Kylee / Andrew H",
+      "formula": null
+    },
+    {
+      "cell": "E8",
+      "value": "Week 7",
+      "formula": null
+    },
+    {
+      "cell": "L8",
+      "value": "SONper SONic Legends",
+      "formula": null
+    },
+    {
+      "cell": "M8",
+      "value": "Week 2",
+      "formula": null
+    },
+    {
+      "cell": "N8",
+      "value": "Week 4",
+      "formula": null
+    },
+    {
+      "cell": "O8",
+      "value": "Week 8",
+      "formula": null
+    },
+    {
+      "cell": "P8",
+      "value": "Week 3",
+      "formula": null
+    },
+    {
+      "cell": "Q8",
+      "value": "Week 9",
+      "formula": null
+    },
+    {
+      "cell": "S8",
+      "value": "Week 7",
+      "formula": "OFFSET($M$3, COLUMN(S8) - COLUMN($M$3), ROW(S8) - ROW($M$3))"
+    },
+    {
+      "cell": "T8",
+      "value": "Week 6",
+      "formula": null
+    },
+    {
+      "cell": "U8",
+      "value": "Week 1",
+      "formula": null
+    },
+    {
+      "cell": "V8",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "B9",
+      "value": "The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "C9",
+      "value": "skeak_ / zyber210",
+      "formula": null
+    },
+    {
+      "cell": "E9",
+      "value": "Week 8",
+      "formula": null
+    },
+    {
+      "cell": "L9",
+      "value": "Light Work",
+      "formula": null
+    },
+    {
+      "cell": "M9",
+      "value": "Week 9",
+      "formula": null
+    },
+    {
+      "cell": "N9",
+      "value": "Week 2",
+      "formula": null
+    },
+    {
+      "cell": "O9",
+      "value": "Week 6",
+      "formula": null
+    },
+    {
+      "cell": "P9",
+      "value": "Week 1",
+      "formula": null
+    },
+    {
+      "cell": "Q9",
+      "value": "Week 5",
+      "formula": null
+    },
+    {
+      "cell": "R9",
+      "value": "Week 7",
+      "formula": null
+    },
+    {
+      "cell": "T9",
+      "value": "Week 4",
+      "formula": "OFFSET($M$3, COLUMN(T9) - COLUMN($M$3), ROW(T9) - ROW($M$3))"
+    },
+    {
+      "cell": "U9",
+      "value": "Week 8",
+      "formula": null
+    },
+    {
+      "cell": "V9",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "B10",
+      "value": "The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "C10",
+      "value": "Hexaract / Slayer13",
+      "formula": null
+    },
+    {
+      "cell": "E10",
+      "value": "Week 9",
+      "formula": null
+    },
+    {
+      "cell": "L10",
+      "value": "The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "M10",
+      "value": "Week 8",
+      "formula": null
+    },
+    {
+      "cell": "N10",
+      "value": "Week 1",
+      "formula": null
+    },
+    {
+      "cell": "O10",
+      "value": "Week 5",
+      "formula": null
+    },
+    {
+      "cell": "P10",
+      "value": "Week 9",
+      "formula": null
+    },
+    {
+      "cell": "Q10",
+      "value": "Week 3",
+      "formula": null
+    },
+    {
+      "cell": "R10",
+      "value": "Week 6",
+      "formula": null
+    },
+    {
+      "cell": "S10",
+      "value": "Week 4",
+      "formula": null
+    },
+    {
+      "cell": "U10",
+      "value": "Week 7",
+      "formula": "OFFSET($M$3, COLUMN(U10) - COLUMN($M$3), ROW(U10) - ROW($M$3))"
+    },
+    {
+      "cell": "V10",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "E11",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "L11",
+      "value": "The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "M11",
+      "value": "Week 3",
+      "formula": null
+    },
+    {
+      "cell": "N11",
+      "value": "Week 5",
+      "formula": null
+    },
+    {
+      "cell": "O11",
+      "value": "Week 9",
+      "formula": null
+    },
+    {
+      "cell": "P11",
+      "value": "Week 4",
+      "formula": null
+    },
+    {
+      "cell": "Q11",
+      "value": "Week 2",
+      "formula": null
+    },
+    {
+      "cell": "R11",
+      "value": "Week 1",
+      "formula": null
+    },
+    {
+      "cell": "S11",
+      "value": "Week 8",
+      "formula": null
+    },
+    {
+      "cell": "T11",
+      "value": "Week 7",
+      "formula": null
+    },
+    {
+      "cell": "V11",
+      "value": "Week 10",
+      "formula": "OFFSET($M$3, COLUMN(V11) - COLUMN($M$3), ROW(V11) - ROW($M$3))"
+    },
+    {
+      "cell": "M12",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "N12",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "O12",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "P12",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "Q12",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "R12",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "S12",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "T12",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "U12",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "K14",
+      "value": "Week 1",
+      "formula": "LET(\n  weeks, E2:E11,\n  null, \"placeholder!@#$\",\n  REDUCE(null, weeks, LAMBDA(acc, week, LET(\n    spaced, HSTACK(week, \"\"),\n    IF(acc=null, spaced, HSTACK(acc, spaced))\n  )))\n)"
+    },
+    {
+      "cell": "M14",
+      "value": "Week 2",
+      "formula": null
+    },
+    {
+      "cell": "O14",
+      "value": "Week 3",
+      "formula": null
+    },
+    {
+      "cell": "Q14",
+      "value": "Week 4",
+      "formula": null
+    },
+    {
+      "cell": "S14",
+      "value": "Week 5",
+      "formula": null
+    },
+    {
+      "cell": "U14",
+      "value": "Week 6",
+      "formula": null
+    },
+    {
+      "cell": "W14",
+      "value": "Week 7",
+      "formula": null
+    },
+    {
+      "cell": "Y14",
+      "value": "Week 8",
+      "formula": null
+    },
+    {
+      "cell": "AA14",
+      "value": "Week 9",
+      "formula": null
+    },
+    {
+      "cell": "AC14",
+      "value": "Week 10",
+      "formula": null
+    },
+    {
+      "cell": "K15",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  table, $M$3:$V$12,\n  numTeams, ROWS(table),\n  weeks, TRANSPOSE(FILTER(E2:E1000, E2:E1000<>\"\"\"\")),\n  teams, K3:L12,\n  row_start, MIN(ROW(table)),\n  col_start, MIN(COLUMN(table)),\n  xVals, ARRAYFORMULA(MOD(SEQUENCE(numTeams*numTeams, 1, 0), numTeams)\"&\"),\n  yVals, SORT(xVals),\n  coords, FILTER(HSTACK(yVals, xVals), xVals > yVals),\n  null, \"\"placeholder#@$%\"\",\n  ans, REDUCE(null, weeks, LAMBDA(acc, week, LET(\n    filterForCoords, BYROW(coords, LAMBDA(coord, OFFSET($M$3, CHOOSECOLS(coord, 2), CHOOSECOLS(c\"&\"oord, 1))=week)),\n    filteredCoords, BYROW(FILTER(coords, filterForCoords), LAMBDA(coord, TRANSPOSE(SORT(TRANSPOSE(coord), 1, MOD(SUM(coord), 2))))),\n    matches, MAP(filteredCoords, LAMBDA(idx, IFERROR(INDEX(teams, idx + 1, 2), \"\"\"\"))),\n    result, IF(C\"&\"OLUMNS(matches)<2, HSTACK(\"\"\"\", \"\"\"\"), matches),\n    IF(acc=null, result, HSTACK(acc, result))\n  ))),\n  MAP(ans, LAMBDA(val, IFNA(val, \"\"\"\")))\n)\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "L15",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "M15",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "N15",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "O15",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "P15",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "Q15",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "R15",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "S15",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "T15",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "U15",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "V15",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "W15",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "X15",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "Y15",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "Z15",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "AA15",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "AB15",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "AC15",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "K16",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "L16",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "M16",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "N16",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "O16",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "P16",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "Q16",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "R16",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "S16",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "T16",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "U16",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "V16",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "W16",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "X16",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "Y16",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "Z16",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "AA16",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "AB16",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "AD16",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "K17",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "L17",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "M17",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "N17",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "O17",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "P17",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "Q17",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "R17",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "S17",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "T17",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "U17",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "V17",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "W17",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "X17",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "Y17",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "Z17",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "AA17",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "AB17",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "AC17",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "K18",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "L18",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "M18",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "N18",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "O18",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "P18",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "Q18",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "R18",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "S18",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "T18",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "U18",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "V18",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "W18",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "X18",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "Y18",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "Z18",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "AA18",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "AB18",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "AD18",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "K19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "L19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "M19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "N19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "P19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Q19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "R19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "T19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "U19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "V19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "X19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Y19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Z19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AB19",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AC19",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "K20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "L20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "M20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "N20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "P20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Q20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "R20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "T20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "U20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "V20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "X20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Y20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Z20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AB20",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AD20",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "K21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "L21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "M21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "N21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "P21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Q21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "R21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "T21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "U21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "V21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "X21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Y21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Z21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AB21",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AC21",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "K22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "L22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "M22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "N22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "P22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Q22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "R22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "T22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "U22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "V22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "X22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Y22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Z22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AB22",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AD22",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "K23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "L23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "M23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "N23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "O23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "P23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Q23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "R23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "S23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "T23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "U23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "V23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "W23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "X23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Y23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "Z23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AA23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AB23",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "AC23",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    }
+  ],
+  "RBE League Play Standings": [
+    {
+      "cell": "B2",
+      "value": "X",
+      "formula": null
+    },
+    {
+      "cell": "C2",
+      "value": "Standings",
+      "formula": null
+    },
+    {
+      "cell": "D2",
+      "value": "MD",
+      "formula": null
+    },
+    {
+      "cell": "E2",
+      "value": "GD",
+      "formula": null
+    },
+    {
+      "cell": "F2",
+      "value": "Status",
+      "formula": null
+    },
+    {
+      "cell": "B3",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"LET(\n  weeks, FILTER(Setup!E2:E14, Setup!E2:E14<>\"\"\"\"),\n  teams, FILTER(Setup!A2:B14, Setup!B2:B14<>\"\"\"\"),\n  firstTeam, 'RBE League Play'!C4,\n  cellsToNextColumn, 4,\n  cellsToNextRow, 3,\n  maxMatchesPerWeek, 11,\n  columnStarts, SEQUENCE(1, ROWS(weeks), 0,\"&\" cellsToNextColumn),\n  rowStarts, SEQUENCE(1, maxMatchesPerWeek, 0, cellsToNextRow),\n  temp, MAP(columnStarts, LAMBDA(colOffset, OFFSET(firstTeam, 0, colOffset, cellsToNextRow*maxMatchesPerWeek, 1))),\n  initTable, HSTACK(teams, SEQUENCE(ROWS(teams), 1, 0,\"&\" 0), SEQUENCE(ROWS(teams), 1, 0, 0)),\n  standings, REDUCE(initTable, columnStarts, LAMBDA(tableBetweenCols, colOffset, REDUCE(\n    tableBetweenCols, rowStarts, LAMBDA(table, rowOffset, LET(\n      team1, OFFSET(firstTeam, rowOffset, colOffset),\n      team2\"&\", OFFSET(firstTeam, rowOffset + 1, colOffset),\n      score1, OFFSET(firstTeam, rowOffset, colOffset + 1),\n      score2, OFFSET(firstTeam, rowOffset + 1, colOffset + 1),\n      team1PrevMD, XLOOKUP(team1, CHOOSECOLS(table, 2), CHOOSECOLS(table, 3)),\n      t\"&\"eam1PrevGD, XLOOKUP(team1, CHOOSECOLS(table, 2), CHOOSECOLS(table, 4)),\n      team2PrevMD, XLOOKUP(team2, CHOOSECOLS(table, 2), CHOOSECOLS(table, 3)),\n      team2PrevGD, XLOOKUP(team2, CHOOSECOLS(table, 2), CHOOSECOLS(table, 4)),\n      MDdelta, IFNA(IFS(s\"&\"core1 > score2, 1, score1 < score2, -1), 0),\n      GDdelta, score1 - score2,\n      team1NextMD, team1PrevMD + MDdelta,\n      team2NextMD, team2PrevMD - MDdelta,\n      team1NextGD, team1PrevGD + GDdelta,\n      team2NextGD, team2PrevGD - GDdelta,\n      BYRO\"&\"W(table, LAMBDA(tableRow, IF(\n        CHOOSECOLS(tableRow, 2)=team1, HSTACK(CHOOSECOLS(tableRow, 1, 2), team1NextMD, team1NextGD),\n        IF(CHOOSECOLS(tableRow, 2)=team2, HSTACK(CHOOSECOLS(tableRow, 1, 2), team2NextMD, team2NextGD),\n        tableRow\n   \"&\"   ))))\n    ))\n  ))),\n  SORT(standings, 3, FALSE, 4, FALSE)\n)\"),\"\")"
+    },
+    {
+      "cell": "C3",
+      "value": "SONper SONic Legends",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"SONper SONic Legends\")"
+    },
+    {
+      "cell": "D3",
+      "value": "4",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),4.0)"
+    },
+    {
+      "cell": "E3",
+      "value": "8",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),8.0)"
+    },
+    {
+      "cell": "F3",
+      "value": "Advance to Playoffs",
+      "formula": null
+    },
+    {
+      "cell": "B4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C4",
+      "value": "Mommy Mag",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mommy Mag\")"
+    },
+    {
+      "cell": "D4",
+      "value": "3",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),3.0)"
+    },
+    {
+      "cell": "E4",
+      "value": "7",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),7.0)"
+    },
+    {
+      "cell": "B5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C5",
+      "value": "Pink Goats",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Pink Goats\")"
+    },
+    {
+      "cell": "D5",
+      "value": "2",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),2.0)"
+    },
+    {
+      "cell": "E5",
+      "value": "6",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),6.0)"
+    },
+    {
+      "cell": "B6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C6",
+      "value": "Cliip That",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Cliip That\")"
+    },
+    {
+      "cell": "D6",
+      "value": "1",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),1.0)"
+    },
+    {
+      "cell": "E6",
+      "value": "5",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),5.0)"
+    },
+    {
+      "cell": "B7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C7",
+      "value": "Light Work",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Light Work\")"
+    },
+    {
+      "cell": "D7",
+      "value": "0",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),0.0)"
+    },
+    {
+      "cell": "E7",
+      "value": "0",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),0.0)"
+    },
+    {
+      "cell": "B8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C8",
+      "value": "Mow Foes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Mow Foes\")"
+    },
+    {
+      "cell": "D8",
+      "value": "-1",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),-1.0)"
+    },
+    {
+      "cell": "E8",
+      "value": "1",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),1.0)"
+    },
+    {
+      "cell": "B9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C9",
+      "value": "The Moldy Potatoes",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Moldy Potatoes\")"
+    },
+    {
+      "cell": "D9",
+      "value": "-1",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),-1.0)"
+    },
+    {
+      "cell": "E9",
+      "value": "-3",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),-3.0)"
+    },
+    {
+      "cell": "B10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C10",
+      "value": "Defying Gravity",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"Defying Gravity\")"
+    },
+    {
+      "cell": "D10",
+      "value": "-4",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),-4.0)"
+    },
+    {
+      "cell": "E10",
+      "value": "-12",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),-12.0)"
+    },
+    {
+      "cell": "B11",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "C11",
+      "value": "The Hex Girls",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"The Hex Girls\")"
+    },
+    {
+      "cell": "D11",
+      "value": "-4",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),-4.0)"
+    },
+    {
+      "cell": "E11",
+      "value": "-12",
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),-12.0)"
+    }
+  ],
+  "Round Schedule": [
+    {
+      "cell": "A1",
+      "value": "SCHEDULE",
+      "formula": null
+    },
+    {
+      "cell": "A2",
+      "value": "Week",
+      "formula": null
+    },
+    {
+      "cell": "B2",
+      "value": "Date",
+      "formula": null
+    },
+    {
+      "cell": "C2",
+      "value": "Match",
+      "formula": null
+    },
+    {
+      "cell": "D2",
+      "value": "Result",
+      "formula": null
+    },
+    {
+      "cell": "H2",
+      "value": "Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "I2",
+      "value": "Cliip / Kaizer",
+      "formula": null
+    },
+    {
+      "cell": "J2",
+      "value": "LAN Attendies",
+      "formula": null
+    },
+    {
+      "cell": "A3",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "B3",
+      "value": "Mon, Sept 21",
+      "formula": null
+    },
+    {
+      "cell": "C3",
+      "value": "SSL vs The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "D3",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E3",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "H3",
+      "value": "Defying Gravity",
+      "formula": null
+    },
+    {
+      "cell": "I3",
+      "value": "Boby_shew / Pyro",
+      "formula": null
+    },
+    {
+      "cell": "J3",
+      "value": "Pyro",
+      "formula": null
+    },
+    {
+      "cell": "B4",
+      "value": "Tue, Sept 22",
+      "formula": null
+    },
+    {
+      "cell": "C4",
+      "value": "Defying Gravity vs The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "D4",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E4",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "H4",
+      "value": "Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "I4",
+      "value": "Ultramag / Zeek",
+      "formula": null
+    },
+    {
+      "cell": "J4",
+      "value": "Boby",
+      "formula": null
+    },
+    {
+      "cell": "B5",
+      "value": "Wed, Sept 23",
+      "formula": null
+    },
+    {
+      "cell": "C5",
+      "value": "Mommy Mag vs Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "D5",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E5",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "H5",
+      "value": "Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "I5",
+      "value": "Schmtty / 4ldnn",
+      "formula": null
+    },
+    {
+      "cell": "J5",
+      "value": "Wes",
+      "formula": null
+    },
+    {
+      "cell": "B6",
+      "value": "Fri, Sept 25",
+      "formula": null
+    },
+    {
+      "cell": "C6",
+      "value": "Mow Foes vs Light Work",
+      "formula": null
+    },
+    {
+      "cell": "D6",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E6",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "H6",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "I6",
+      "value": "Guzaboo / Whowen",
+      "formula": null
+    },
+    {
+      "cell": "J6",
+      "value": "Ricky",
+      "formula": null
+    },
+    {
+      "cell": "C7",
+      "value": "BYE: Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "H7",
+      "value": "SONper SONic Legends",
+      "formula": null
+    },
+    {
+      "cell": "I7",
+      "value": "Ricky_Dee / Wes4rs",
+      "formula": null
+    },
+    {
+      "cell": "J7",
+      "value": "Zeek",
+      "formula": null
+    },
+    {
+      "cell": "H8",
+      "value": "Light Work",
+      "formula": null
+    },
+    {
+      "cell": "I8",
+      "value": "Kylee / Andrew H",
+      "formula": null
+    },
+    {
+      "cell": "J8",
+      "value": "Kaizer",
+      "formula": null
+    },
+    {
+      "cell": "A9",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "B9",
+      "value": "Mon, Sept 28",
+      "formula": null
+    },
+    {
+      "cell": "C9",
+      "value": "Pink Goats vs The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "D9",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E9",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "H9",
+      "value": "The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "I9",
+      "value": "skeak_ / zyber210",
+      "formula": null
+    },
+    {
+      "cell": "J9",
+      "value": "Cliip",
+      "formula": null
+    },
+    {
+      "cell": "B10",
+      "value": "Tue, Sept 29",
+      "formula": null
+    },
+    {
+      "cell": "C10",
+      "value": "SSL vs Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "D10",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E10",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "H10",
+      "value": "The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "I10",
+      "value": "Hexaract / Slayer13",
+      "formula": null
+    },
+    {
+      "cell": "J10",
+      "value": "Guzaboo",
+      "formula": null
+    },
+    {
+      "cell": "B11",
+      "value": "46296.0",
+      "formula": null
+    },
+    {
+      "cell": "C11",
+      "value": "Mommy Mag vs Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "D11",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E11",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "J11",
+      "value": "Whowen",
+      "formula": null
+    },
+    {
+      "cell": "B12",
+      "value": "46297.0",
+      "formula": null
+    },
+    {
+      "cell": "C12",
+      "value": "Defying Gravity vs Light Work",
+      "formula": null
+    },
+    {
+      "cell": "D12",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E12",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "J12",
+      "value": "Kylee",
+      "formula": null
+    },
+    {
+      "cell": "C13",
+      "value": "BYE: The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "J13",
+      "value": "Andrew",
+      "formula": null
+    },
+    {
+      "cell": "J14",
+      "value": "skeak",
+      "formula": null
+    },
+    {
+      "cell": "A15",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "B15",
+      "value": "46300.0",
+      "formula": null
+    },
+    {
+      "cell": "C15",
+      "value": "Pink Goats vs The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "D15",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E15",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "J15",
+      "value": "Hexaract",
+      "formula": null
+    },
+    {
+      "cell": "B16",
+      "value": "46301.0",
+      "formula": null
+    },
+    {
+      "cell": "C16",
+      "value": "The Hex Girls vs Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "D16",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "E16",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "J16",
+      "value": "Slayer",
+      "formula": null
+    },
+    {
+      "cell": "B17",
+      "value": "46302.0",
+      "formula": null
+    },
+    {
+      "cell": "C17",
+      "value": "Defying Gravity vs Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "D17",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "E17",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "B18",
+      "value": "46304.0",
+      "formula": null
+    },
+    {
+      "cell": "C18",
+      "value": "SSL vs Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "D18",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E18",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "C19",
+      "value": "BYE: Light Work",
+      "formula": null
+    },
+    {
+      "cell": "A21",
+      "value": "4.0",
+      "formula": null
+    },
+    {
+      "cell": "B21",
+      "value": "46307.0",
+      "formula": null
+    },
+    {
+      "cell": "C21",
+      "value": "Pink Goats vs Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "D21",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "E21",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "B22",
+      "value": "46308.0",
+      "formula": null
+    },
+    {
+      "cell": "C22",
+      "value": "The Hex Girls vs Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "D22",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "E22",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "B23",
+      "value": "46309.0",
+      "formula": null
+    },
+    {
+      "cell": "C23",
+      "value": "SSL vs Defying Gravity",
+      "formula": null
+    },
+    {
+      "cell": "D23",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E23",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "B24",
+      "value": "46311.0",
+      "formula": null
+    },
+    {
+      "cell": "C24",
+      "value": "The Moldy Potatoes vs Light Work",
+      "formula": null
+    },
+    {
+      "cell": "D24",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E24",
+      "value": "0.0",
+      "formula": null
+    },
+    {
+      "cell": "C25",
+      "value": "BYE: Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "A27",
+      "value": "5.0",
+      "formula": null
+    },
+    {
+      "cell": "B27",
+      "value": "46314.0",
+      "formula": null
+    },
+    {
+      "cell": "C27",
+      "value": "Pink Goats vs Light Work",
+      "formula": null
+    },
+    {
+      "cell": "H27",
+      "value": "The Hex Girls vs Defying Gravity",
+      "formula": null
+    },
+    {
+      "cell": "B28",
+      "value": "46315.0",
+      "formula": null
+    },
+    {
+      "cell": "C28",
+      "value": "The Moldy Potatoes vs Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "H28",
+      "value": "Pink Goats vs Light Work",
+      "formula": null
+    },
+    {
+      "cell": "B29",
+      "value": "46316.0",
+      "formula": null
+    },
+    {
+      "cell": "C29",
+      "value": "Cliip That vs Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "D29",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "E29",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "H29",
+      "value": "The Moldy Potatoes vs Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "H30",
+      "value": "Cliip That vs Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "H31",
+      "value": "BYE: SSL",
+      "formula": null
+    },
+    {
+      "cell": "A33",
+      "value": "6.0",
+      "formula": null
+    },
+    {
+      "cell": "B33",
+      "value": "46321.0",
+      "formula": null
+    },
+    {
+      "cell": "C33",
+      "value": "Pink Goats vs Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "H33",
+      "value": "Pink Goats vs Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "B34",
+      "value": "46322.0",
+      "formula": null
+    },
+    {
+      "cell": "C34",
+      "value": "Light Work vs Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "H34",
+      "value": "Light Work vs Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "B35",
+      "value": "46323.0",
+      "formula": null
+    },
+    {
+      "cell": "C35",
+      "value": "The Moldy Potatoes vs SSL",
+      "formula": null
+    },
+    {
+      "cell": "H35",
+      "value": "The Moldy Potatoes vs SSL",
+      "formula": null
+    },
+    {
+      "cell": "H36",
+      "value": "Cliip That vs The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "A39",
+      "value": "7.0",
+      "formula": null
+    },
+    {
+      "cell": "B39",
+      "value": "46328.0",
+      "formula": null
+    },
+    {
+      "cell": "C39",
+      "value": "Pink Goats vs Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "H39",
+      "value": "Pink Goats vs Mommy Mag",
+      "formula": null
+    },
+    {
+      "cell": "B40",
+      "value": "46329.0",
+      "formula": null
+    },
+    {
+      "cell": "C40",
+      "value": "The Moldy Potatoes vs The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "H40",
+      "value": "The Moldy Potatoes vs The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "B41",
+      "value": "46331.0",
+      "formula": null
+    },
+    {
+      "cell": "C41",
+      "value": "Light Work vs SSL",
+      "formula": null
+    },
+    {
+      "cell": "H41",
+      "value": "Mow Foes vs Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "H42",
+      "value": "Light Work vs SSL",
+      "formula": null
+    },
+    {
+      "cell": "A45",
+      "value": "8.0",
+      "formula": null
+    },
+    {
+      "cell": "B45",
+      "value": "46335.0",
+      "formula": null
+    },
+    {
+      "cell": "C45",
+      "value": "Light Work vs The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "H45",
+      "value": "Pink Goats vs Mow Foes",
+      "formula": null
+    },
+    {
+      "cell": "B46",
+      "value": "46336.0",
+      "formula": null
+    },
+    {
+      "cell": "C46",
+      "value": "Mommy Mag vs SSL",
+      "formula": null
+    },
+    {
+      "cell": "H46",
+      "value": "Light Work vs The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "B47",
+      "value": "46337.0",
+      "formula": null
+    },
+    {
+      "cell": "C47",
+      "value": "Cliip That vs The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "H47",
+      "value": "Mommy Mag vs SSL",
+      "formula": null
+    },
+    {
+      "cell": "H48",
+      "value": "Cliip That vs The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "A51",
+      "value": "9.0",
+      "formula": null
+    },
+    {
+      "cell": "B51",
+      "value": "46342.0",
+      "formula": null
+    },
+    {
+      "cell": "C51",
+      "value": "Mommy Mag vs The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "H51",
+      "value": "Mommy Mag vs The Hex Girls",
+      "formula": null
+    },
+    {
+      "cell": "B52",
+      "value": "46343.0",
+      "formula": null
+    },
+    {
+      "cell": "C52",
+      "value": "Pink Goats vs SSL",
+      "formula": null
+    },
+    {
+      "cell": "H52",
+      "value": "Pink Goats vs SSL",
+      "formula": null
+    },
+    {
+      "cell": "B53",
+      "value": "46345.0",
+      "formula": null
+    },
+    {
+      "cell": "C53",
+      "value": "Light Work vs Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "H53",
+      "value": "Light Work vs Cliip That",
+      "formula": null
+    },
+    {
+      "cell": "B54",
+      "value": "46346.0",
+      "formula": null
+    },
+    {
+      "cell": "C54",
+      "value": "Mow Foes vs The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "H54",
+      "value": "Mow Foes vs The Moldy Potatoes",
+      "formula": null
+    },
+    {
+      "cell": "H55",
+      "value": "BYE: Defying Gravity",
+      "formula": null
+    },
+    {
+      "cell": "A57",
+      "value": "LAN FINALS:  ",
+      "formula": null
+    }
+  ],
+  "Prediction Scoring": [
+    {
+      "cell": "A1",
+      "value": "Round",
+      "formula": null
+    },
+    {
+      "cell": "B1",
+      "value": "Match",
+      "formula": null
+    },
+    {
+      "cell": "C1",
+      "value": "Predicted Winner",
+      "formula": null
+    },
+    {
+      "cell": "D1",
+      "value": "Predicted Loser",
+      "formula": null
+    },
+    {
+      "cell": "E1",
+      "value": "Points Possible",
+      "formula": null
+    },
+    {
+      "cell": "F1",
+      "value": "Predicted Winner's Seed",
+      "formula": null
+    },
+    {
+      "cell": "G1",
+      "value": "Actual Winner",
+      "formula": null
+    },
+    {
+      "cell": "H1",
+      "value": "Actual Loser",
+      "formula": null
+    },
+    {
+      "cell": "I1",
+      "value": "Actual Loser's Seed",
+      "formula": null
+    },
+    {
+      "cell": "J1",
+      "value": "Correct Prediction?",
+      "formula": null
+    },
+    {
+      "cell": "K1",
+      "value": "Is Upset?",
+      "formula": null
+    },
+    {
+      "cell": "L1",
+      "value": "Traditional Points",
+      "formula": null
+    },
+    {
+      "cell": "M1",
+      "value": "Upset Points",
+      "formula": null
+    },
+    {
+      "cell": "A2",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "B2",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "C2",
+      "value": null,
+      "formula": "'RBE Playoffs'!G4"
+    },
+    {
+      "cell": "D2",
+      "value": null,
+      "formula": "'RBE Playoffs'!C22"
+    },
+    {
+      "cell": "E2",
+      "value": "2",
+      "formula": "POW(2, A2)"
+    },
+    {
+      "cell": "F2",
+      "value": null,
+      "formula": "IFNA(MATCH(C2, seeding, 0), \"\")"
+    },
+    {
+      "cell": "G2",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"IMPORTRANGE(\"\"https://docs.google.com/spreadsheets/d/1uPxXHvojzRn7uLZLo5hxtpSdP2BtqMZ827R5T9uJrtA/\"\", \"\"'Prediction Scoring'!C2:D10\"\")\"),\"\")"
+    },
+    {
+      "cell": "H2",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "I2",
+      "value": null,
+      "formula": "IFNA(MATCH(H2, seeding, 0), \"\")"
+    },
+    {
+      "cell": "J2",
+      "value": "0",
+      "formula": "AND(C2=G2, G2<>\"\")"
+    },
+    {
+      "cell": "K2",
+      "value": "0",
+      "formula": "F2>I2"
+    },
+    {
+      "cell": "L2",
+      "value": "0",
+      "formula": "IF(J2, E2, 0)"
+    },
+    {
+      "cell": "M2",
+      "value": "0",
+      "formula": "IF(J2, L2+IF(K2, F2-I2, 0), 0)"
+    },
+    {
+      "cell": "A3",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "B3",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "C3",
+      "value": null,
+      "formula": "'RBE Playoffs'!G12"
+    },
+    {
+      "cell": "D3",
+      "value": null,
+      "formula": "'RBE Playoffs'!C26"
+    },
+    {
+      "cell": "E3",
+      "value": "2",
+      "formula": null
+    },
+    {
+      "cell": "F3",
+      "value": null,
+      "formula": "IFNA(MATCH(C3, seeding, 0), \"\")"
+    },
+    {
+      "cell": "G3",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "H3",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "I3",
+      "value": null,
+      "formula": "IFNA(MATCH(H3, seeding, 0), \"\")"
+    },
+    {
+      "cell": "J3",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "K3",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "L3",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "M3",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "A4",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "B4",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "C4",
+      "value": null,
+      "formula": "'RBE Playoffs'!K5"
+    },
+    {
+      "cell": "D4",
+      "value": null,
+      "formula": "'RBE Playoffs'!G24"
+    },
+    {
+      "cell": "E4",
+      "value": "4",
+      "formula": null
+    },
+    {
+      "cell": "F4",
+      "value": null,
+      "formula": "IFNA(MATCH(C4, seeding, 0), \"\")"
+    },
+    {
+      "cell": "G4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "H4",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "I4",
+      "value": null,
+      "formula": "IFNA(MATCH(H4, seeding, 0), \"\")"
+    },
+    {
+      "cell": "J4",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "K4",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "L4",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "M4",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "A5",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "B5",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "C5",
+      "value": null,
+      "formula": "'RBE Playoffs'!K6"
+    },
+    {
+      "cell": "D5",
+      "value": null,
+      "formula": "'RBE Playoffs'!C25"
+    },
+    {
+      "cell": "E5",
+      "value": "4",
+      "formula": null
+    },
+    {
+      "cell": "F5",
+      "value": null,
+      "formula": "IFNA(MATCH(C5, seeding, 0), \"\")"
+    },
+    {
+      "cell": "G5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "H5",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "I5",
+      "value": null,
+      "formula": "IFNA(MATCH(H5, seeding, 0), \"\")"
+    },
+    {
+      "cell": "J5",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "K5",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "L5",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "M5",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "A6",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "B6",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "C6",
+      "value": null,
+      "formula": "'RBE Playoffs'!K13"
+    },
+    {
+      "cell": "D6",
+      "value": null,
+      "formula": "'RBE Playoffs'!G20"
+    },
+    {
+      "cell": "E6",
+      "value": "4",
+      "formula": null
+    },
+    {
+      "cell": "F6",
+      "value": null,
+      "formula": "IFNA(MATCH(C6, seeding, 0), \"\")"
+    },
+    {
+      "cell": "G6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "H6",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "I6",
+      "value": null,
+      "formula": "IFNA(MATCH(H6, seeding, 0), \"\")"
+    },
+    {
+      "cell": "J6",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "K6",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "L6",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "M6",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "A7",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "B7",
+      "value": "4.0",
+      "formula": null
+    },
+    {
+      "cell": "C7",
+      "value": null,
+      "formula": "'RBE Playoffs'!K14"
+    },
+    {
+      "cell": "D7",
+      "value": null,
+      "formula": "'RBE Playoffs'!C21"
+    },
+    {
+      "cell": "E7",
+      "value": "4",
+      "formula": null
+    },
+    {
+      "cell": "F7",
+      "value": null,
+      "formula": "IFNA(MATCH(C7, seeding, 0), \"\")"
+    },
+    {
+      "cell": "G7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "H7",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "I7",
+      "value": null,
+      "formula": "IFNA(MATCH(H7, seeding, 0), \"\")"
+    },
+    {
+      "cell": "J7",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "K7",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "L7",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "M7",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "A8",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "B8",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "C8",
+      "value": null,
+      "formula": "'RBE Playoffs'!O9"
+    },
+    {
+      "cell": "D8",
+      "value": null,
+      "formula": "'RBE Playoffs'!K19"
+    },
+    {
+      "cell": "E8",
+      "value": "8",
+      "formula": null
+    },
+    {
+      "cell": "F8",
+      "value": null,
+      "formula": "IFNA(MATCH(C8, seeding, 0), \"\")"
+    },
+    {
+      "cell": "G8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "H8",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "I8",
+      "value": null,
+      "formula": "IFNA(MATCH(H8, seeding, 0), \"\")"
+    },
+    {
+      "cell": "J8",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "K8",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "L8",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "M8",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "A9",
+      "value": "3.0",
+      "formula": null
+    },
+    {
+      "cell": "B9",
+      "value": "2.0",
+      "formula": null
+    },
+    {
+      "cell": "C9",
+      "value": null,
+      "formula": "'RBE Playoffs'!O10"
+    },
+    {
+      "cell": "D9",
+      "value": null,
+      "formula": "'RBE Playoffs'!K23"
+    },
+    {
+      "cell": "E9",
+      "value": "8",
+      "formula": null
+    },
+    {
+      "cell": "F9",
+      "value": null,
+      "formula": "IFNA(MATCH(C9, seeding, 0), \"\")"
+    },
+    {
+      "cell": "G9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "H9",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "I9",
+      "value": null,
+      "formula": "IFNA(MATCH(H9, seeding, 0), \"\")"
+    },
+    {
+      "cell": "J9",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "K9",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "L9",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "M9",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "A10",
+      "value": "4.0",
+      "formula": null
+    },
+    {
+      "cell": "B10",
+      "value": "1.0",
+      "formula": null
+    },
+    {
+      "cell": "C10",
+      "value": null,
+      "formula": "'RBE Playoffs'!S6"
+    },
+    {
+      "cell": "D10",
+      "value": null,
+      "formula": "'RBE Playoffs'!S7"
+    },
+    {
+      "cell": "E10",
+      "value": "16",
+      "formula": null
+    },
+    {
+      "cell": "F10",
+      "value": null,
+      "formula": "IFNA(MATCH(C10, seeding, 0), \"\")"
+    },
+    {
+      "cell": "G10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "H10",
+      "value": null,
+      "formula": "IFERROR(__xludf.DUMMYFUNCTION(\"\"\"COMPUTED_VALUE\"\"\"),\"\")"
+    },
+    {
+      "cell": "I10",
+      "value": null,
+      "formula": "IFNA(MATCH(H10, seeding, 0), \"\")"
+    },
+    {
+      "cell": "J10",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "K10",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "L10",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "M10",
+      "value": "0",
+      "formula": null
+    },
+    {
+      "cell": "B11",
+      "value": "PPG:",
+      "formula": null
+    },
+    {
+      "cell": "C11",
+      "value": "7.0",
+      "formula": null
+    }
+  ],
+  "Schedule": [
+    {
+      "cell": "A1",
+      "value": "Schedule",
+      "formula": null
+    },
+    {
+      "cell": "C2",
+      "value": "Team A",
+      "formula": null
+    },
+    {
+      "cell": "E2",
+      "value": "Team B",
+      "formula": null
+    },
+    {
+      "cell": "K2",
+      "value": "Monday",
+      "formula": null
+    },
+    {
+      "cell": "L2",
+      "value": "Tuesday",
+      "formula": null
+    },
+    {
+      "cell": "M2",
+      "value": "Wednesday",
+      "formula": null
+    },
+    {
+      "cell": "N2",
+      "value": "Thursday",
+      "formula": null
+    },
+    {
+      "cell": "O2",
+      "value": "Friday",
+      "formula": null
+    },
+    {
+      "cell": "P2",
+      "value": "Saturday",
+      "formula": null
+    },
+    {
+      "cell": "A3",
+      "value": "Week of Sep 22",
+      "formula": null
+    },
+    {
+      "cell": "F3",
+      "value": "Result",
+      "formula": null
+    },
+    {
+      "cell": "I3",
+      "value": "GigaWes",
+      "formula": null
+    },
+    {
+      "cell": "J3",
+      "value": "Pyro & Wes4rs",
+      "formula": null
+    },
+    {
+      "cell": "A4",
+      "value": "Monday",
+      "formula": null
+    },
+    {
+      "cell": "C4",
+      "value": "GigaWes",
+      "formula": null
+    },
+    {
+      "cell": "E4",
+      "value": "Psycho",
+      "formula": null
+    },
+    {
+      "cell": "F4",
+      "value": "45717.0",
+      "formula": null
+    },
+    {
+      "cell": "I4",
+      "value": "Grand Uncs",
+      "formula": null
+    },
+    {
+      "cell": "J4",
+      "value": "Boby_Shew & White Viper",
+      "formula": null
+    },
+    {
+      "cell": "A5",
+      "value": "Tuesday",
+      "formula": null
+    },
+    {
+      "cell": "C5",
+      "value": "Grand Uncs",
+      "formula": null
+    },
+    {
+      "cell": "E5",
+      "value": "Droofino",
+      "formula": null
+    },
+    {
+      "cell": "F5",
+      "value": "0-3",
+      "formula": null
+    },
+    {
+      "cell": "I5",
+      "value": "Polarity",
+      "formula": null
+    },
+    {
+      "cell": "J5",
+      "value": "Schmtty & Ultramag",
+      "formula": null
+    },
+    {
+      "cell": "A6",
+      "value": "Wednesday",
+      "formula": null
+    },
+    {
+      "cell": "C6",
+      "value": "Polarity",
+      "formula": null
+    },
+    {
+      "cell": "E6",
+      "value": "Zenith",
+      "formula": null
+    },
+    {
+      "cell": "F6",
+      "value": "3-0",
+      "formula": null
+    },
+    {
+      "cell": "I6",
+      "value": "Vanguard",
+      "formula": null
+    },
+    {
+      "cell": "J6",
+      "value": "Kaizer & Elite1Panther",
+      "formula": null
+    },
+    {
+      "cell": "A7",
+      "value": "Saturday",
+      "formula": null
+    },
+    {
+      "cell": "C7",
+      "value": "Vanguard",
+      "formula": null
+    },
+    {
+      "cell": "E7",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "F7",
+      "value": "3-0",
+      "formula": null
+    },
+    {
+      "cell": "I7",
+      "value": "Psycho",
+      "formula": null
+    },
+    {
+      "cell": "J7",
+      "value": "WynnHarmonic & Ricky_Dee",
+      "formula": null
+    },
+    {
+      "cell": "I8",
+      "value": "Droofino",
+      "formula": null
+    },
+    {
+      "cell": "J8",
+      "value": "Droofguy & Gavino",
+      "formula": null
+    },
+    {
+      "cell": "A9",
+      "value": "Week of Sep 29",
+      "formula": null
+    },
+    {
+      "cell": "I9",
+      "value": "Zenith",
+      "formula": null
+    },
+    {
+      "cell": "J9",
+      "value": "Zeek & MagicRFK",
+      "formula": null
+    },
+    {
+      "cell": "A10",
+      "value": "Monday",
+      "formula": null
+    },
+    {
+      "cell": "C10",
+      "value": "GigaWes",
+      "formula": null
+    },
+    {
+      "cell": "E10",
+      "value": "Polarity",
+      "formula": null
+    },
+    {
+      "cell": "F10",
+      "value": "45660.0",
+      "formula": null
+    },
+    {
+      "cell": "I10",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "J10",
+      "value": "Guzaboo & Whowen",
+      "formula": null
+    },
+    {
+      "cell": "A11",
+      "value": "Tuesday",
+      "formula": null
+    },
+    {
+      "cell": "C11",
+      "value": "Psycho",
+      "formula": null
+    },
+    {
+      "cell": "E11",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "F11",
+      "value": "45660.0",
+      "formula": null
+    },
+    {
+      "cell": "A12",
+      "value": "Wednesday",
+      "formula": null
+    },
+    {
+      "cell": "C12",
+      "value": "Zenith",
+      "formula": null
+    },
+    {
+      "cell": "E12",
+      "value": "Droofino",
+      "formula": null
+    },
+    {
+      "cell": "F12",
+      "value": "0-3",
+      "formula": null
+    },
+    {
+      "cell": "A14",
+      "value": "Week of Oct 6",
+      "formula": null
+    },
+    {
+      "cell": "A15",
+      "value": "Monday",
+      "formula": null
+    },
+    {
+      "cell": "C15",
+      "value": "Droofino",
+      "formula": null
+    },
+    {
+      "cell": "E15",
+      "value": "Psycho",
+      "formula": null
+    },
+    {
+      "cell": "F15",
+      "value": "3-0",
+      "formula": null
+    },
+    {
+      "cell": "A16",
+      "value": "Tuesday",
+      "formula": null
+    },
+    {
+      "cell": "C16",
+      "value": "Vanguard",
+      "formula": null
+    },
+    {
+      "cell": "E16",
+      "value": "Zenith",
+      "formula": null
+    },
+    {
+      "cell": "F16",
+      "value": "45691.0",
+      "formula": null
+    },
+    {
+      "cell": "A17",
+      "value": "Wednesday",
+      "formula": null
+    },
+    {
+      "cell": "C17",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "E17",
+      "value": "Polarity",
+      "formula": null
+    },
+    {
+      "cell": "F17",
+      "value": "45660.0",
+      "formula": null
+    },
+    {
+      "cell": "J18",
+      "value": "Attendies",
+      "formula": null
+    },
+    {
+      "cell": "A19",
+      "value": "Week of Oct 13",
+      "formula": null
+    },
+    {
+      "cell": "J19",
+      "value": "Pyro",
+      "formula": null
+    },
+    {
+      "cell": "A20",
+      "value": "Monday",
+      "formula": null
+    },
+    {
+      "cell": "C20",
+      "value": "GigaWes",
+      "formula": null
+    },
+    {
+      "cell": "E20",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "F20",
+      "value": "3-0",
+      "formula": null
+    },
+    {
+      "cell": "J20",
+      "value": "Wes",
+      "formula": null
+    },
+    {
+      "cell": "A21",
+      "value": "Tuesday",
+      "formula": null
+    },
+    {
+      "cell": "C21",
+      "value": "Droofino",
+      "formula": null
+    },
+    {
+      "cell": "E21",
+      "value": "Polarity",
+      "formula": null
+    },
+    {
+      "cell": "F21",
+      "value": "45660.0",
+      "formula": null
+    },
+    {
+      "cell": "J21",
+      "value": "Boby_shew",
+      "formula": null
+    },
+    {
+      "cell": "A22",
+      "value": "Wednesday",
+      "formula": null
+    },
+    {
+      "cell": "C22",
+      "value": "Grand Uncs",
+      "formula": null
+    },
+    {
+      "cell": "E22",
+      "value": "Psycho",
+      "formula": null
+    },
+    {
+      "cell": "F22",
+      "value": "45717.0",
+      "formula": null
+    },
+    {
+      "cell": "J22",
+      "value": "Schmtty",
+      "formula": null
+    },
+    {
+      "cell": "K22",
+      "value": "& wife",
+      "formula": null
+    },
+    {
+      "cell": "J23",
+      "value": "Kaizer",
+      "formula": null
+    },
+    {
+      "cell": "K23",
+      "value": "& wife",
+      "formula": null
+    },
+    {
+      "cell": "A24",
+      "value": "Week of Oct 20",
+      "formula": null
+    },
+    {
+      "cell": "J24",
+      "value": "Panther",
+      "formula": null
+    },
+    {
+      "cell": "A25",
+      "value": "Monday",
+      "formula": null
+    },
+    {
+      "cell": "C25",
+      "value": "Vanguard",
+      "formula": null
+    },
+    {
+      "cell": "E25",
+      "value": "Psycho",
+      "formula": null
+    },
+    {
+      "cell": "F25",
+      "value": "45718.0",
+      "formula": null
+    },
+    {
+      "cell": "J25",
+      "value": "Wynn",
+      "formula": null
+    },
+    {
+      "cell": "A26",
+      "value": "Wednesday",
+      "formula": null
+    },
+    {
+      "cell": "C26",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "E26",
+      "value": "Zenith",
+      "formula": null
+    },
+    {
+      "cell": "F26",
+      "value": "45660.0",
+      "formula": null
+    },
+    {
+      "cell": "J26",
+      "value": "Ricky",
+      "formula": null
+    },
+    {
+      "cell": "A27",
+      "value": "Thursday",
+      "formula": null
+    },
+    {
+      "cell": "C27",
+      "value": "Grand Uncs",
+      "formula": null
+    },
+    {
+      "cell": "E27",
+      "value": "GigaWes",
+      "formula": null
+    },
+    {
+      "cell": "F27",
+      "value": "45660.0",
+      "formula": null
+    },
+    {
+      "cell": "J27",
+      "value": "Droof",
+      "formula": null
+    },
+    {
+      "cell": "J28",
+      "value": "Gavino",
+      "formula": null
+    },
+    {
+      "cell": "A29",
+      "value": "Week of Oct 27",
+      "formula": null
+    },
+    {
+      "cell": "J29",
+      "value": "Guz",
+      "formula": null
+    },
+    {
+      "cell": "A30",
+      "value": "Monday",
+      "formula": null
+    },
+    {
+      "cell": "C30",
+      "value": "GigaWes",
+      "formula": null
+    },
+    {
+      "cell": "E30",
+      "value": "Vanguard",
+      "formula": null
+    },
+    {
+      "cell": "F30",
+      "value": "45717.0",
+      "formula": null
+    },
+    {
+      "cell": "J30",
+      "value": "Fireflame?",
+      "formula": null
+    },
+    {
+      "cell": "A31",
+      "value": "Wednesday",
+      "formula": null
+    },
+    {
+      "cell": "C31",
+      "value": "Psycho",
+      "formula": null
+    },
+    {
+      "cell": "E31",
+      "value": "Zenith",
+      "formula": null
+    },
+    {
+      "cell": "F31",
+      "value": "45718.0",
+      "formula": null
+    },
+    {
+      "cell": "J31",
+      "value": "Dav?",
+      "formula": null
+    },
+    {
+      "cell": "A32",
+      "value": "Thursday",
+      "formula": null
+    },
+    {
+      "cell": "C32",
+      "value": "Grand Uncs",
+      "formula": null
+    },
+    {
+      "cell": "E32",
+      "value": "Polarity",
+      "formula": null
+    },
+    {
+      "cell": "F32",
+      "value": "45691.0",
+      "formula": null
+    },
+    {
+      "cell": "A34",
+      "value": "Week of Nov 3",
+      "formula": null
+    },
+    {
+      "cell": "A35",
+      "value": "Monday",
+      "formula": null
+    },
+    {
+      "cell": "C35",
+      "value": "Droofino",
+      "formula": null
+    },
+    {
+      "cell": "E35",
+      "value": "Vanguard",
+      "formula": null
+    },
+    {
+      "cell": "F35",
+      "value": "3-0",
+      "formula": null
+    },
+    {
+      "cell": "A36",
+      "value": "Tuesday",
+      "formula": null
+    },
+    {
+      "cell": "C36",
+      "value": "Psycho",
+      "formula": null
+    },
+    {
+      "cell": "E36",
+      "value": "Polarity",
+      "formula": null
+    },
+    {
+      "cell": "F36",
+      "value": "45660.0",
+      "formula": null
+    },
+    {
+      "cell": "A37",
+      "value": "Wednesday",
+      "formula": null
+    },
+    {
+      "cell": "C37",
+      "value": "Grand Uncs",
+      "formula": null
+    },
+    {
+      "cell": "E37",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "F37",
+      "value": "45691.0",
+      "formula": null
+    },
+    {
+      "cell": "A39",
+      "value": "Week of Nov 10",
+      "formula": null
+    },
+    {
+      "cell": "A40",
+      "value": "Monday",
+      "formula": null
+    },
+    {
+      "cell": "C40",
+      "value": "Vanguard",
+      "formula": null
+    },
+    {
+      "cell": "E40",
+      "value": "Polarity",
+      "formula": null
+    },
+    {
+      "cell": "F40",
+      "value": "45718.0",
+      "formula": null
+    },
+    {
+      "cell": "A41",
+      "value": "Tuesday",
+      "formula": null
+    },
+    {
+      "cell": "C41",
+      "value": "GigaWes",
+      "formula": null
+    },
+    {
+      "cell": "E41",
+      "value": "Droofino",
+      "formula": null
+    },
+    {
+      "cell": "F41",
+      "value": "45660.0",
+      "formula": null
+    },
+    {
+      "cell": "A42",
+      "value": "Wednesday",
+      "formula": null
+    },
+    {
+      "cell": "C42",
+      "value": "Grand Uncs",
+      "formula": null
+    },
+    {
+      "cell": "E42",
+      "value": "Zenith",
+      "formula": null
+    },
+    {
+      "cell": "F42",
+      "value": "N/A",
+      "formula": null
+    },
+    {
+      "cell": "A44",
+      "value": "Week of Nov 17",
+      "formula": null
+    },
+    {
+      "cell": "A45",
+      "value": "Tuesday",
+      "formula": null
+    },
+    {
+      "cell": "C45",
+      "value": "GigaWes",
+      "formula": null
+    },
+    {
+      "cell": "E45",
+      "value": "Zenith",
+      "formula": null
+    },
+    {
+      "cell": "F45",
+      "value": "N/A",
+      "formula": null
+    },
+    {
+      "cell": "A46",
+      "value": "Wednesday",
+      "formula": null
+    },
+    {
+      "cell": "C46",
+      "value": "Droofino",
+      "formula": null
+    },
+    {
+      "cell": "E46",
+      "value": "Pink Goats",
+      "formula": null
+    },
+    {
+      "cell": "A47",
+      "value": "Thursday",
+      "formula": null
+    },
+    {
+      "cell": "C47",
+      "value": "Vanguard",
+      "formula": null
+    },
+    {
+      "cell": "E47",
+      "value": "Grand Uncs",
+      "formula": null
+    },
+    {
+      "cell": "F47",
+      "value": "45717.0",
+      "formula": null
+    }
+  ]
+}
