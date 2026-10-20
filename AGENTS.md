@@ -15,3 +15,5 @@
 - Admin access uses a server-verified password session, not email verification. Store only salted password hashes and session keys as Sites runtime secrets; never commit a password. Keep public viewing open.
 
 - The top-right header shows the transparent BYU logo and “Created by Zeek.” Keep Owner/Viewer identity labels out of this header; admin access remains in the sidebar.
+
+- At mobile widths, league standings use vertical cards with the full team name/logo above separate score statistics; keep long names clear of scores and preserve roomy spacing. Desktop standings remain a table.
