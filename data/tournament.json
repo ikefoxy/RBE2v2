@@ -832,7 +832,7 @@
       "id": "mp-0",
       "teamId": "mp",
       "slot": 0,
-      "rank": "Grand Plat",
+      "rank": "Plat 2",
       "aliases": [
         "Sheak"
       ]
@@ -841,7 +841,7 @@
       "id": "mp-1",
       "teamId": "mp",
       "slot": 1,
-      "rank": "Grand Plat",
+      "rank": "Plat 3",
       "aliases": [
         "zpher"
       ]
@@ -861,5 +861,5 @@
       "aliases": []
     }
   ],
-  "contentVersion": 3
+  "contentVersion": 4
 }

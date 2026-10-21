@@ -13,7 +13,7 @@ assert.ok(seed.withdrawals.every(n=>!seed.matches.some(m=>m.id===n.id)));
 assert.equal(seed.withdrawals.find(n=>n.teamId==='ssl').date,'2026-10-14');
 assert.equal(seed.players.length,16);assert.equal(new Set(seed.players.map(p=>p.id)).size,16);
 for(const t of seed.teams)assert.equal(seed.players.filter(p=>p.teamId===t.id).length,2);
-for(const [teamId,ranks] of Object.entries({mf:['GC2','GC3'],lw:['GC1','Grand Plat'],hg:['Grand Plat','Grand Plat'],pg:['GC1','GC1'],mm:['SSL','GC2']}))assert.deepEqual(seed.players.filter(p=>p.teamId===teamId).map(p=>p.rank),ranks);
+for(const [teamId,ranks] of Object.entries({mf:['GC2','GC3'],lw:['GC1','Grand Plat'],hg:['Grand Plat','Grand Plat'],pg:['GC1','GC1'],mp:['Plat 2','Plat 3'],mm:['SSL','GC2']}))assert.deepEqual(seed.players.filter(p=>p.teamId===teamId).map(p=>p.rank),ranks);
 assert.ok(seed.players.every(p=>p.rank));
 const ranks=standings(seed);
 assert.deepEqual(ranks.map(t=>[t.short,t.w,t.l,t.gw,t.gl]),[
@@ -50,3 +50,15 @@ const custom=fresh();custom.lockedSeeds=standings(custom).map(t=>t.id);[custom.l
 // Upgrade v2 records without losing edited scores, valid dates, or existing recordings.
 const legacy=fresh();legacy.contentVersion=2;legacy.videos=legacy.videos.filter(v=>v.id!=='iVYHQ0uzUuU-mm-ct');legacy.videos.find(v=>v.id==='iVYHQ0uzUuU').teams=['ssl','hg','mm','ct'];legacy.matches[0].scoreB=1;legacy.matches.find(m=>m.id==='w6-mp-ssl').date='';legacy.matches.find(m=>m.id==='w7-ssl-lw').date='2026-11-06';legacy.playoffs={l1:{scoreA:2,scoreB:1,bestOf:3,participants:['ct','mm']},w5:{scoreA:2,scoreB:1,bestOf:3,participants:['ct','mm']}};normalize(legacy);assert.equal(legacy.matches[0].scoreB,1);assert.equal(legacy.matches.find(m=>m.id==='w6-mp-ssl').date,'2026-10-28');assert.equal(legacy.matches.find(m=>m.id==='w7-ssl-lw').date,'2026-11-06');assert.equal(legacy.videos.length,17);assert.ok(legacy.legacyPlayoffs.l1);assert.equal(legacy.playoffs.w5.scoreA,null);assert.ok(!legacy.playoffs.l1);normalize(legacy);assert.equal(legacy.videos.length,17);
 console.log('PASS: seven-opponent round robin, screenshot dates, defaults excluded, all player ranks, shared-stream titles, recording/player linkage, next-match updates, single elimination BO3/BO5/BO5, seed swaps, and safe data upgrades.');
+
+// Apply this rank correction once without changing scores, IDs, names, or later admin edits.
+const v3=fresh();v3.contentVersion=3;v3.players.filter(p=>p.teamId==='mp').forEach(p=>p.rank='Grand Plat');
+const before=JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos});normalize(v3);
+assert.equal(v3.contentVersion,4);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
+assert.equal(JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos}),before);
+v3.players.find(p=>p.id==='mp-0').rank='GC1';normalize(v3);assert.equal(v3.players.find(p=>p.id==='mp-0').rank,'GC1');
+const {rankOptions,rankConfig,isRank}=require(path.join(tmp,'lib/ranks.js'));
+assert.ok(isRank('Plat 2')&&isRank('Plat 3'));assert.ok(!isRank('Plat 4')&&!isRank('__proto__'));
+assert.equal(rankConfig['Plat 2'].label,'Platinum II');assert.equal(rankConfig['Plat 3'].label,'Platinum III');
+for(const p of seed.players)assert.ok(rankOptions.includes(p.rank));
+console.log('PASS: Platinum II/III rank mappings, shared rank configuration, safe v3 upgrade, and later admin rank preservation.');

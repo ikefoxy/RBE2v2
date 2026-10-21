@@ -1,4 +1,5 @@
 import {env} from 'cloudflare:workers';
+import {isRank} from '../../../lib/ranks';
 import {isAdmin} from '../../../lib/admin-auth';
 import {seed,normalize,bracket,standings,validateScore,reconcile,syncRecording,youtubeId,type Tournament,type Video} from '../../../lib/tournament';
 export const dynamic='force-dynamic';
@@ -27,7 +28,7 @@ export async function POST(req:Request){
  }else if(p.type==='team'){
  const t=d.teams.find(t=>t.id===p.id);if(!t)throw Error('Unknown team.');if(!Array.isArray(p.players)||p.players.length!==2||p.players.some((x:unknown)=>typeof x!=='string'||!x.trim()||(x as string).length>80))throw Error('Enter two player names.');t.players=p.players.map((x:string)=>x.trim());action=`Updated ${t.name} roster`;
  }else if(p.type==='player'){
- const player=d.players.find(x=>x.id===p.id);if(!player)throw Error('Unknown player.');if(typeof p.name!=='string'||!p.name.trim()||p.name.length>80)throw Error('Enter a player name.');if(!['','GC1','GC2','GC3','SSL','Grand Plat'].includes(p.rank))throw Error('Choose a supported rank.');d.teams.find(t=>t.id===player.teamId)!.players[player.slot]=p.name.trim();player.rank=p.rank||null;action=`Updated player ${p.name.trim()}`;
+ const player=d.players.find(x=>x.id===p.id);if(!player)throw Error('Unknown player.');if(typeof p.name!=='string'||!p.name.trim()||p.name.length>80)throw Error('Enter a player name.');if(p.rank!==''&&!isRank(p.rank))throw Error('Choose a supported rank.');d.teams.find(t=>t.id===player.teamId)!.players[player.slot]=p.name.trim();player.rank=p.rank||null;action=`Updated player ${p.name.trim()}`;
  }else if(p.type==='video-create'){
  youtubeId(p.url);const url=new URL(p.url).href;
  const league=d.matches.find(m=>m.id===p.matchId);const playoff=typeof p.matchId==='string'&&p.matchId.startsWith('playoff:')?bracket(d).find(m=>m.id===p.matchId.slice(8)):null;

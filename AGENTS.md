@@ -19,3 +19,5 @@
 - At mobile widths, league standings use vertical cards with the full team name/logo above separate score statistics; keep long names clear of scores and preserve roomy spacing. Desktop standings remain a table.
 
 - Refresh results must fetch fresh saved D1 data without caching, show loading and a timestamped confirmation, preserve newer revisions, and provide retry feedback on failure. Do not imply it imports new scores from the workbook or YouTube.
+
+- skeak_ (mp-0) is Plat 2; zyber210 (mp-1) is Plat 3. Rank labels/assets, admin options, and API validation share lib/ranks.ts. New rank assets have alpha transparency; keep all player entry points and duo links consistent.

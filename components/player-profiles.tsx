@@ -4,9 +4,9 @@ import {ArrowUpRight,Play,X} from 'lucide-react';
 import {standings,complete,recordingsForPlayer,recordingWeek,type Tournament} from '../lib/tournament';
 import TeamLogo from './team-logo';
 import RocketLeagueIcon from './rocket-league-icon';
-const badges:Record<string,string>={GC1:'gc1',GC2:'gc2',GC3:'gc3',SSL:'ssl','Grand Plat':'grand-plat'};
-export function RankIcon({rank}:{rank:string|null}){return rank?<img className="rank-icon" src={'/assets/ranks/'+badges[rank]+'.png?v=3'} alt={rank}/>:<RocketLeagueIcon/>}
-export function RankBadge({rank}:{rank:string|null}){return rank?<div className="rank-badge"><img src={'/assets/ranks/'+badges[rank]+'.png?v=3'} alt=""/><span>{rank==='SSL'?'Supersonic Legend':rank.startsWith('GC')?'Grand Champion '+['I','II','III'][Number(rank.slice(-1))-1]:rank}</span></div>:<div className="rank-badge unassigned"><RocketLeagueIcon size={43}/><span>Top rank not provided</span></div>}
+import {rankConfig,isRank} from '../lib/ranks';
+export function RankIcon({rank}:{rank:string|null}){return isRank(rank)?<img className="rank-icon" src={rankConfig[rank].asset+'?v=4'} alt={rankConfig[rank].label}/>:<RocketLeagueIcon/>}
+export function RankBadge({rank}:{rank:string|null}){return isRank(rank)?<div className="rank-badge"><img src={rankConfig[rank].asset+'?v=4'} alt=""/><span>{rankConfig[rank].label}</span></div>:<div className="rank-badge unassigned"><RocketLeagueIcon size={43}/><span>Top rank not provided</span></div>}
 export function PlayerGrid({data,onSelect}:{data:Tournament;onSelect:(id:string)=>void}){return <div className="player-grid">{data.players.map(p=>{const t=data.teams.find(t=>t.id===p.teamId)!;return <button className="player-card panel" key={p.id} onClick={()=>onSelect(p.id)}><div className="player-card-team"><TeamLogo src={t.logo}/><span>{t.name}</span><ArrowUpRight size={15}/></div><RankBadge rank={p.rank}/><h2><RocketLeagueIcon/>{t.players[p.slot]}</h2><p>View player profile</p></button>})}</div>}
 export function PlayerDialog({data,id,onClose,onTeam}:{data:Tournament;id:string|null;onClose:()=>void;onTeam:(id:string)=>void}){
  const ref=useRef<HTMLDialogElement>(null);useEffect(()=>{if(id)ref.current?.showModal();else ref.current?.close()},[id]);

@@ -1,9 +1,10 @@
 import initial from '../data/tournament.json';
+import type {Rank} from './ranks';
 export type Team={id:string;name:string;short:string;players:string[];logo:string;color:string};
 export type Match={id:string;week:number;a:string;b:string;scoreA:number|null;scoreB:number|null;date:string;bestOf:number};
 export type Video={id:string;title:string;week:number;url:string;teams:string[];matchId?:string;playerIds?:string[]};
 export type Result={scoreA:number|null;scoreB:number|null;bestOf:number;participants?:string[]};
-export type Player={id:string;teamId:string;slot:number;rank:string|null;aliases:string[]};
+export type Player={id:string;teamId:string;slot:number;rank:Rank|null;aliases:string[]};
 export type Withdrawal={id:string;week:number;teamId:string;date:string;status:'withdrawn'};
 export type Tournament={teams:Team[];players:Player[];withdrawals:Withdrawal[];contentVersion:number;matches:Match[];videos:Video[];playoffs:Record<string,Result>;legacyPlayoffs?:Record<string,Result>;lockedSeeds:string[];lanDate:string;lanVenue:string;conflicts:{match:string;league:(number|null)[];roundSchedule:number[];resolution:string}[];revision:number;updatedAt:string;audit:{at:string;action:string}[]};
 export const seed=initial as Tournament;
@@ -26,6 +27,10 @@ export function normalize(d:Tournament):Tournament{
   const allowed=new Set(bracketDefs.map(m=>m.id));
   for(const [id,r] of Object.entries(d.playoffs)){if(!allowed.has(id)){(d.legacyPlayoffs??={})[id]=r;delete d.playoffs[id]}else if(r.bestOf!==bracketDefs.find(m=>m.id===id)!.bestOf){(d.legacyPlayoffs??={})[id]=structuredClone(r);d.playoffs[id]={scoreA:null,scoreB:null,bestOf:bracketDefs.find(m=>m.id===id)!.bestOf}}}
   reconcile(d);d.contentVersion=3;
+ }
+ if(d.contentVersion<4){
+  for(const p of d.players){if(p.id==='mp-0')p.rank='Plat 2';if(p.id==='mp-1')p.rank='Plat 3'}
+  d.contentVersion=4;
  }
  return d;
 }
