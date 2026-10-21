@@ -61,7 +61,7 @@
       "short": "LW",
       "players": [
         "Walnutty",
-        "Instristic"
+        "Intrinsic"
       ],
       "logo": "/assets/image3.png",
       "color": "#ffcd44"
@@ -824,8 +824,7 @@
       "slot": 1,
       "rank": "Grand Plat",
       "aliases": [
-        "Andrew H",
-        "intristic"
+        "Andrew H"
       ]
     },
     {
@@ -861,5 +860,5 @@
       "aliases": []
     }
   ],
-  "contentVersion": 4
+  "contentVersion": 5
 }

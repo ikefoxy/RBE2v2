@@ -54,7 +54,7 @@ console.log('PASS: seven-opponent round robin, screenshot dates, defaults exclud
 // Apply this rank correction once without changing scores, IDs, names, or later admin edits.
 const v3=fresh();v3.contentVersion=3;v3.players.filter(p=>p.teamId==='mp').forEach(p=>p.rank='Grand Plat');
 const before=JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos});normalize(v3);
-assert.equal(v3.contentVersion,4);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
+assert.equal(v3.contentVersion,5);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
 assert.equal(JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos}),before);
 v3.players.find(p=>p.id==='mp-0').rank='GC1';normalize(v3);assert.equal(v3.players.find(p=>p.id==='mp-0').rank,'GC1');
 const {rankOptions,rankConfig,isRank}=require(path.join(tmp,'lib/ranks.js'));
@@ -62,3 +62,10 @@ assert.ok(isRank('Plat 2')&&isRank('Plat 3'));assert.ok(!isRank('Plat 4')&&!isRa
 assert.equal(rankConfig['Plat 2'].label,'Platinum II');assert.equal(rankConfig['Plat 3'].label,'Platinum III');
 for(const p of seed.players)assert.ok(rankOptions.includes(p.rank));
 console.log('PASS: Platinum II/III rank mappings, shared rank configuration, safe v3 upgrade, and later admin rank preservation.');
+
+const spelling=fresh();spelling.contentVersion=4;spelling.teams.find(t=>t.id==='lw').players[1]='Instristic';spelling.players.find(p=>p.id==='lw-1').aliases.push('intristic');
+const scoreSnapshot=JSON.stringify(spelling.matches);normalize(spelling);
+assert.equal(spelling.teams.find(t=>t.id==='lw').players[1],'Intrinsic');assert.equal(spelling.players.find(p=>p.id==='lw-1').rank,'Grand Plat');
+assert.ok(!spelling.players.find(p=>p.id==='lw-1').aliases.some(a=>/^(instristic|intristic)$/i.test(a)));assert.equal(JSON.stringify(spelling.matches),scoreSnapshot);
+assert.equal(seed.teams.find(t=>t.id==='lw').players[1],'Intrinsic');
+console.log('PASS: Intrinsic spelling corrected in seed and saved state without changing rank, player ID, or scores.');

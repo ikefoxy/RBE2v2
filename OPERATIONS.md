@@ -46,3 +46,5 @@ For browser regression checks, change a disposable local match result in D1, cli
 ## Player rank configuration
 
 `lib/ranks.ts` defines the supported rank keys, display labels, asset paths, admin options and validation. Platinum II (`Plat 2`) uses `public/assets/ranks/plat2.png`; Platinum III (`Plat 3`) uses `public/assets/ranks/plat3.png`. `data/tournament.json` maps skeak_ (`mp-0`) to Plat 2 and zyber210 (`mp-1`) to Plat 3. Content version 4 applies those two corrections to older saved state while preserving scores, rosters, recordings and seeds; subsequent admin edits remain editable. Shared RankIcon/RankBadge components update Teams, Players, team dialogs, player dialogs and duo-partner links together.
+
+Content version 5 corrects Light Work player `lw-1` to **Intrinsic** and removes misspelled aliases from public display. Stable player IDs preserve duo links, recordings and match statistics.

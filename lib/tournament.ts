@@ -12,7 +12,7 @@ export const seed=initial as Tournament;
 export function normalize(d:Tournament):Tournament{
  if(!d.contentVersion||d.contentVersion<2){
   d.players=structuredClone(seed.players);d.withdrawals=structuredClone(seed.withdrawals);
-  for(const t of d.teams){if(t.id==='mf'&&['4ldnn','4dln'].includes(t.players[1]))t.players[1]='Schmtt';if(t.id==='lw'){if(t.players[0]==='Kylee')t.players[0]='Walnutty';if(t.players[1]==='Andrew H')t.players[1]='Instristic'}}
+  for(const t of d.teams){if(t.id==='mf'&&['4ldnn','4dln'].includes(t.players[1]))t.players[1]='Schmtt';if(t.id==='lw'){if(t.players[0]==='Kylee')t.players[0]='Walnutty';if(t.players[1]==='Andrew H')t.players[1]='Intrinsic'}}
   const v=d.videos.find(v=>v.id==='iVYHQ0uzUuU');if(v)v.title='Mommy Mag vs Cliip That';d.contentVersion=2;
  }
  if(d.contentVersion<3){
@@ -31,6 +31,11 @@ export function normalize(d:Tournament):Tournament{
  if(d.contentVersion<4){
   for(const p of d.players){if(p.id==='mp-0')p.rank='Plat 2';if(p.id==='mp-1')p.rank='Plat 3'}
   d.contentVersion=4;
+ }
+ if(d.contentVersion<5){
+  const team=d.teams.find(t=>t.id==='lw');if(team&&['instristic','intristic','andrew h'].includes(team.players[1].toLowerCase()))team.players[1]='Intrinsic';
+  const player=d.players.find(p=>p.id==='lw-1');if(player)player.aliases=player.aliases.filter(a=>!['instristic','intristic'].includes(a.toLowerCase()));
+  d.contentVersion=5;
  }
  return d;
 }
