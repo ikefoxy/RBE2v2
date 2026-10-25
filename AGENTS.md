@@ -30,3 +30,5 @@
 - The Hex Girls use red (`#ff5b5b`) for team accents and numeric gradients; retain their original logo artwork. Saved data upgrades this identity with content version 7.
 
 - Cliip That use deeper logo-matched blue (`#3f79e8`) for team accents and numeric gradients; saved data upgrades this identity with content version 8.
+
+- Standings use balanced fixed column proportions and consistent two-line headers. Full standings switch to two-column cards on tablets and one-column cards on phones; keep labels above values and Weekly Results on its own row.

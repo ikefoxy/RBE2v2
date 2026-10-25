@@ -32,8 +32,27 @@
 
 .creator-credit{display:flex;align-items:center;gap:12px;white-space:nowrap;font-size:11px;color:var(--muted)}.creator-credit strong{font-weight:600;color:var(--text)}.creator-credit img{width:48px;height:35px;object-fit:contain;display:block}@media(max-width:520px){.topbar-right{gap:12px}.creator-credit{font-size:10px;gap:8px}.creator-credit img{width:39px;height:29px}.topbar .breadcrumb{font-size:9px}.topbar .breadcrumb span{padding:0 5px}}
 
-.mobile-standings{display:none}
-@media(max-width:640px){.desktop-standings{display:none}.mobile-standings{display:grid;gap:14px;padding:0 16px 18px}.mobile-standing{border:1px solid var(--line);border-radius:9px;padding:18px 16px;background:#101a2b;min-width:0}.mobile-standing-heading{display:flex;align-items:center;gap:12px;padding-bottom:17px;border-bottom:1px solid var(--line)}.mobile-standing-heading>.rank{flex-shrink:0}.mobile-standing-heading .team-name{min-width:0;flex:1;gap:12px;font-size:14px;line-height:1.5;white-space:normal}.mobile-standing-heading .team-name>span{min-width:0;overflow-wrap:anywhere}.mobile-standing-heading .team-logo{width:36px;height:36px;flex-shrink:0}.mobile-standing-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:20px;margin:18px 0 0}.mobile-standing-stats>div{min-width:0}.mobile-standing-stats dt{font-size:10px;line-height:1.5;color:var(--muted)}.mobile-standing-stats dd{font-size:20px;font-weight:600;line-height:1.5;margin:4px 0 0;font-variant-numeric:tabular-nums}.mobile-standing-stats dd>span{color:var(--muted);font-weight:400}.mobile-standing-form{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;margin-top:17px;border-top:1px solid var(--line)}.mobile-standing-form>span{font-size:10px;color:var(--muted)}.mobile-standing-form .form{flex-wrap:wrap;justify-content:flex-end;gap:6px}.mobile-standing-form .form>span.muted{width:auto;height:auto;background:none;font-size:10px}}
+/* Team names and statistics stay separate at every narrow width. */
+.mobile-standings{display:none;gap:16px;padding:0 20px 20px}
+.mobile-standing{border:1px solid var(--line);border-radius:9px;padding:20px;background:#101a2b;min-width:0}
+.mobile-standing-heading{display:flex;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.mobile-standing-heading>.rank{flex-shrink:0}
+.mobile-standing-heading .team-name{min-width:0;flex:1;gap:12px;font-size:14px;line-height:1.5;white-space:normal}
+.mobile-standing-heading .team-name>span{min-width:0;overflow-wrap:anywhere}
+.mobile-standing-heading .team-logo{width:36px;height:36px;flex-shrink:0}
+.mobile-standing-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 20px;margin:18px 0 0}
+.mobile-standing-stats>div{min-width:0}
+.mobile-standing-stats dt{font-size:11px;line-height:1.5;color:var(--muted);min-height:33px;display:flex;align-items:flex-end}
+.mobile-standing-stats dd{font-size:22px;font-weight:600;line-height:1.4;margin:6px 0 0;font-variant-numeric:tabular-nums}
+.mobile-standing-form{display:flex;flex-direction:column;align-items:flex-start;gap:11px;padding-top:18px;margin-top:22px;border-top:1px solid var(--line)}
+.mobile-standing-form>span{font-size:11px;color:var(--muted)}
+.mobile-standing-form .form{flex-wrap:wrap;gap:6px}
+.mobile-standing-form .form span{width:22px;height:24px;font-size:10px}
+.mobile-standing-form .form>span.muted{width:auto;height:auto;background:none;font-size:10px}
+@media(max-width:1100px){.standings-full-view .desktop-standings{display:none}.standings-full-view .mobile-standings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.standings-full-view .mobile-standings{grid-template-columns:1fr}}
+@media(max-width:640px){.desktop-standings{display:none}.mobile-standings{display:grid;padding:0 14px 16px}.mobile-standing{padding:18px 16px}}
+
 
 .refresh-button{min-width:32px;min-height:32px;align-items:center;justify-content:center;border-radius:6px}.refresh-button:hover{background:var(--surface2);color:#bfd0ff}.refresh-button:disabled{cursor:wait;opacity:.8}.refresh-spinning{animation:refresh-spin .8s linear infinite}.refresh-feedback{padding:11px 14px;margin:-12px 0 22px;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:#b5c9ea;font-size:11px;line-height:1.6}@keyframes refresh-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.refresh-spinning{animation:none}}
 
@@ -52,4 +71,16 @@
 @supports (background-clip:text){.mobile-standing-stats dd>.team-number{color:transparent}}
 @media(forced-colors:active){.team-number,.mobile-standing-stats dd>.team-number,.profile-stats b>.team-number,.team-card-stats b>.team-number{background:none;color:CanvasText}}
 
-.standings th.differential-heading{white-space:normal;min-width:86px;line-height:1.5}
+/* Fixed column proportions prevent long headings from squeezing the scores. */
+.standings{table-layout:fixed;font-size:12px}
+.standings th,.standings td{text-align:center;padding:16px 10px;vertical-align:middle}
+.standings th{font-size:10px;line-height:1.5;white-space:normal;height:58px;font-weight:500}
+.standings th span{display:block}
+.standings th:first-child,.standings td:first-child{padding-left:10px;width:auto}
+.standings th:nth-child(2),.standings td:nth-child(2){text-align:left;width:auto}
+.standings .team-name{font-size:12px;white-space:normal;min-width:0;line-height:1.5;gap:12px}
+.standings .team-name>span{overflow-wrap:anywhere}
+.standings .form{justify-content:center;flex-wrap:wrap;gap:4px}
+.standings .form span{width:18px;height:22px;font-size:9px}
+.standings-summary th,.standings-summary td{padding-left:8px;padding-right:8px}
+.standings-summary .team-name{font-size:11px;gap:9px}
