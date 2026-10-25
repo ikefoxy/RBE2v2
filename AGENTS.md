@@ -24,3 +24,5 @@
 
 - Upcoming matchup estimates use 70% rank strength, 20% series record, 10% game record. Rank points follow Bronze I (1) to SSL (22); unknown/Unranked ranks are neutral. Round only the final estimate to two decimals, keep complementary sides totaling 100%, and keep the public calculation description simple; no calculator or per-match calculation panel. Keep actual standings and seed rules independent of this estimate.
 - Watch search combines team/player/title terms with team and week filters, and defaults to newest week/date first. Preserve both shared-stream entries and all original links.
+
+- Team-owned numbers (upcoming probabilities, scores, records, seed positions and win rates) share the `TeamNumber` gradient using the current team color. Keep labels and tournament-wide totals neutral; retain two-decimal upcoming estimates and accessible forced-color fallback.
