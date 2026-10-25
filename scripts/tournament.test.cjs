@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),cp=r
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'rbe-logic-'));
 process.on('exit',()=>fs.rmSync(tmp,{recursive:true,force:true}));
 cp.execFileSync(process.execPath,['node_modules/typescript/bin/tsc','lib/tournament.ts','--outDir',tmp,'--module','commonjs','--resolveJsonModule','--esModuleInterop','--skipLibCheck','--target','es2022']);
-const {seed,normalize,roundRobinCheck,standings,forecast,bracket,validateScore,reconcile,nextMatch,youtubeId,syncRecording,recordingsForMatch,recordingsForPlayer,filterRecordings,teamRankPoints,forecastWeights}=require(path.join(tmp,'lib/tournament.js'));
+const {seed,normalize,roundRobinCheck,standings,forecast,bracket,validateScore,reconcile,nextMatch,youtubeId,syncRecording,recordingsForMatch,recordingsForPlayer,filterRecordings,teamRankPoints,forecastWeights,forecastBreakdown}=require(path.join(tmp,'lib/tournament.js'));
 const fresh=()=>structuredClone(seed);
 assert.equal(roundRobinCheck(seed).valid,true);assert.equal(seed.matches.length,28);
 assert.ok(roundRobinCheck(seed).teams.every(t=>t.total===7&&t.opponents===7));
@@ -101,3 +101,19 @@ assert.equal(filterRecordings(seed,{query:'Defying Gravity'}).length,3);assert.e
 assert.deepEqual(seed.videos.map(v=>v.id),sourceIds);
 const newReplay=fresh();newReplay.videos.push({id:'new-six',title:'New Week 6 replay',url:'https://youtu.be/abcdefghijk',week:6,teams:['mp','ssl'],matchId:'w6-mp-ssl'});assert.equal(filterRecordings(newReplay)[0].id,'new-six');assert.equal(filterRecordings(newReplay,{team:'ssl',week:'6',query:'Wes'})[0].id,'new-six');
 console.log('PASS: rank-led forecasts, record influence, neutral unknown ranks, complete rank ladder, symmetric probabilities, newest-first replays and combined search filters.');
+
+// A live-record regression: whole-percent rounding hid Mommy Mag's game-record edge.
+const mmSsl=fresh();const mmMp=mmSsl.matches.find(m=>m.id==='w5-mm-mp');mmMp.scoreA=3;mmMp.scoreB=0;
+const math=forecastBreakdown(mmSsl,'mm','ssl');
+assert.equal(math.a.rank,21);assert.equal(math.b.rank,21);
+assert.deepEqual([math.a.record.w,math.a.record.l,math.a.record.gw,math.a.record.gl],[3,0,9,2]);
+assert.deepEqual([math.b.record.w,math.b.record.l,math.b.record.gw,math.b.record.gl],[3,0,9,4]);
+assert.equal(math.components.rank,.5);assert.equal(math.components.series,.5);
+assert.ok(Math.abs(math.components.games-15/28)<1e-12);
+assert.ok(Math.abs(math.rawProbability-(35+10+75/14))<1e-12);
+assert.equal(forecast(mmSsl,'mm','ssl'),50.36);assert.equal(forecast(mmSsl,'ssl','mm'),49.64);
+for(const m of mmSsl.matches){const a=forecast(mmSsl,m.a,m.b),b=forecast(mmSsl,m.b,m.a);assert.equal(Math.round(a*100)+Math.round(b*100),10000)}
+const beforeEdit=forecast(mmSsl,'mm','ssl');mmSsl.players.find(p=>p.id==='mm-1').rank='GC3';assert.ok(forecast(mmSsl,'mm','ssl')>beforeEdit);
+mmSsl.players.find(p=>p.id==='mm-1').rank='GC2';mmMp.scoreB=1;assert.ok(forecast(mmSsl,'mm','ssl')<beforeEdit);
+assert.equal(forecastBreakdown(mmSsl,'missing','ssl'),null);
+console.log('PASS: MM/SSL live-record math, two-decimal complementary estimates, and immediate rank/result recalculation.');

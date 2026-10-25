@@ -67,19 +67,24 @@ export function standings(d:Tournament){
 // Rank is the primary signal; small, smoothed league samples cannot dominate it.
 export const forecastWeights={rank:.7,series:.2,games:.1} as const;
 export function teamRankPoints(d:Tournament,id:string){const players=d.players.filter(p=>p.teamId===id);const points=players.map(p=>rankPoints(p.rank));return players.length===2&&points.every((p):p is number=>p!==null)?(points[0]!+points[1]!)/2:null}
-export function forecast(d:Tournament,a:string,b:string):number{
- if(a===b)return 50;
- // Resolve the rounding tie consistently, so reversing the teams always complements to 100.
- if(a.localeCompare(b)>0)return 100-forecast(d,b,a);
- const records=standings(d),x=records.find(t=>t.id===a),y=records.find(t=>t.id===b);if(!x||!y)return 50;
+export function forecastBreakdown(d:Tournament,a:string,b:string){
+ const records=standings(d),x=records.find(t=>t.id===a),y=records.find(t=>t.id===b);if(!x||!y)return null;
  const rankA=teamRankPoints(d,a),rankB=teamRankPoints(d,b);
  // A six-step (two full tiers) average-rank gap gives a 10:1 rank-only advantage.
  const rankChance=(rankA===null||rankB===null)?0.5:1/(1+10**((rankB-rankA)/6));
  const share=(a:number,b:number)=>a/(a+b);
  const series=share((x.w+1)/(x.w+x.l+2),(y.w+1)/(y.w+y.l+2));
  const games=share((x.gw+1)/(x.gw+x.gl+2),(y.gw+1)/(y.gw+y.gl+2));
- return Math.max(1,Math.min(99,Math.round(100*(forecastWeights.rank*rankChance+forecastWeights.series*series+forecastWeights.games*games))));
+ const components={rank:rankChance,series,games};
+ const contributions={rank:100*forecastWeights.rank*rankChance,series:100*forecastWeights.series*series,games:100*forecastWeights.games*games};
+ const rawProbability=contributions.rank+contributions.series+contributions.games;
+ // Round only the final result to hundredths. Canonical orientation keeps both sides complementary.
+ const canonical=a.localeCompare(b)<=0;
+ const basisPoints=Math.max(100,Math.min(9900,Math.round((canonical?rawProbability:100-rawProbability)*100)));
+ const probability=(canonical?basisPoints:10000-basisPoints)/100;
+ return {a:{record:x,rank:rankA,seriesRate:(x.w+1)/(x.w+x.l+2),gameRate:(x.gw+1)/(x.gw+x.gl+2)},b:{record:y,rank:rankB,seriesRate:(y.w+1)/(y.w+y.l+2),gameRate:(y.gw+1)/(y.gw+y.gl+2)},components,contributions,rawProbability,probability};
 }
+export function forecast(d:Tournament,a:string,b:string):number{return a===b?50:forecastBreakdown(d,a,b)?.probability??50}
 
 type Slot={seed:number}|{win:string};
 type BracketDef={id:string;label:string;group:string;a:Slot;b:Slot;bestOf:number};
