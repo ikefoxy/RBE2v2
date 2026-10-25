@@ -54,7 +54,7 @@ console.log('PASS: seven-opponent round robin, screenshot dates, defaults exclud
 // Apply this rank correction once without changing scores, IDs, names, or later admin edits.
 const v3=fresh();v3.contentVersion=3;v3.players.filter(p=>p.teamId==='mp').forEach(p=>p.rank='Grand Plat');
 const before=JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos});normalize(v3);
-assert.equal(v3.contentVersion,7);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
+assert.equal(v3.contentVersion,8);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
 assert.equal(JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos}),before);
 v3.players.find(p=>p.id==='mp-0').rank='GC1';normalize(v3);assert.equal(v3.players.find(p=>p.id==='mp-0').rank,'GC1');
 const {rankOptions,rankConfig,isRank}=require(path.join(tmp,'lib/ranks.js'));
@@ -120,7 +120,13 @@ console.log('PASS: MM/SSL live-record math, two-decimal complementary estimates,
 
 // Upgrade saved team identity without changing any owner-managed tournament data.
 const redHex=fresh();redHex.contentVersion=6;redHex.teams.find(t=>t.id==='hg').color='#b875fa';
-const beforeColor=structuredClone(redHex);normalize(redHex);beforeColor.teams.find(t=>t.id==='hg').color='#ff5b5b';beforeColor.contentVersion=7;
+const beforeColor=structuredClone(redHex);normalize(redHex);beforeColor.teams.find(t=>t.id==='hg').color='#ff5b5b';beforeColor.contentVersion=8;
 assert.deepEqual(redHex,beforeColor);assert.equal(seed.teams.find(t=>t.id==='hg').color,'#ff5b5b');
 normalize(redHex);assert.deepEqual(redHex,beforeColor);
 console.log('PASS: Hex Girls red identity upgrades saved data without altering results, ranks or recordings.');
+
+const blueCliip=fresh();blueCliip.contentVersion=7;blueCliip.teams.find(t=>t.id==='ct').color='#35beff';
+const beforeBlue=structuredClone(blueCliip);normalize(blueCliip);beforeBlue.teams.find(t=>t.id==='ct').color='#3f79e8';beforeBlue.contentVersion=8;
+assert.deepEqual(blueCliip,beforeBlue);assert.equal(seed.teams.find(t=>t.id==='ct').color,'#3f79e8');
+normalize(blueCliip);assert.deepEqual(blueCliip,beforeBlue);
+console.log('PASS: Cliip That deeper blue identity updates saved data and preserves other teams and results.');

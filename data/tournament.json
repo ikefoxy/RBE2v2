@@ -9,7 +9,7 @@
         "Kaizer"
       ],
       "logo": "/assets/image5.png",
-      "color": "#35beff"
+      "color": "#3f79e8"
     },
     {
       "id": "mm",
@@ -860,5 +860,5 @@
       "aliases": []
     }
   ],
-  "contentVersion": 7
+  "contentVersion": 8
 }

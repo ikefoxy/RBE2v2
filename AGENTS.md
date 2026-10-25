@@ -28,3 +28,5 @@
 - Team-owned numbers (upcoming probabilities, scores, records, seed positions and win rates) share the `TeamNumber` gradient using the current team color. Keep labels and tournament-wide totals neutral; retain two-decimal upcoming estimates and accessible forced-color fallback.
 
 - The Hex Girls use red (`#ff5b5b`) for team accents and numeric gradients; retain their original logo artwork. Saved data upgrades this identity with content version 7.
+
+- Cliip That use deeper logo-matched blue (`#3f79e8`) for team accents and numeric gradients; saved data upgrades this identity with content version 8.
