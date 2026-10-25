@@ -86,7 +86,7 @@
         "Slayer13"
       ],
       "logo": "/assets/image2.png",
-      "color": "#b875fa"
+      "color": "#ff5b5b"
     }
   ],
   "matches": [
@@ -860,5 +860,5 @@
       "aliases": []
     }
   ],
-  "contentVersion": 6
+  "contentVersion": 7
 }

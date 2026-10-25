@@ -26,3 +26,5 @@
 - Watch search combines team/player/title terms with team and week filters, and defaults to newest week/date first. Preserve both shared-stream entries and all original links.
 
 - Team-owned numbers (upcoming probabilities, scores, records, seed positions and win rates) share the `TeamNumber` gradient using the current team color. Keep labels and tournament-wide totals neutral; retain two-decimal upcoming estimates and accessible forced-color fallback.
+
+- The Hex Girls use red (`#ff5b5b`) for team accents and numeric gradients; retain their original logo artwork. Saved data upgrades this identity with content version 7.

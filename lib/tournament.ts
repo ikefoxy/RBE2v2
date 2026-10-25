@@ -41,6 +41,10 @@ export function normalize(d:Tournament):Tournament{
   for(const p of d.players){if(p.id==='hg-1')p.rank='GC1';if(p.id==='hg-0')p.rank='Champion 2';if(p.id==='lw-1')p.rank='Champion 1'}
   d.contentVersion=6;
  }
+ if(d.contentVersion<7){
+  const hexGirls=d.teams.find(t=>t.id==='hg');if(hexGirls)hexGirls.color=seed.teams.find(t=>t.id==='hg')!.color;
+  d.contentVersion=7;
+ }
  return d;
 }
 export function youtubeId(value:string){const u=new URL(value);if(u.protocol!=='https:'||!['youtube.com','www.youtube.com','youtu.be'].includes(u.hostname))throw Error('Use a YouTube HTTPS link.');const id=u.hostname==='youtu.be'?u.pathname.slice(1).split('/')[0]:u.searchParams.get('v')||u.pathname.split('/')[2];if(!id||!/^[\w-]{11}$/.test(id))throw Error('Enter a valid YouTube video URL.');return id}
