@@ -51,3 +51,5 @@
 .mobile-standing-stats dd>.team-number{font-size:inherit;font-weight:inherit;color:var(--team-color)}
 @supports (background-clip:text){.mobile-standing-stats dd>.team-number{color:transparent}}
 @media(forced-colors:active){.team-number,.mobile-standing-stats dd>.team-number,.profile-stats b>.team-number,.team-card-stats b>.team-number{background:none;color:CanvasText}}
+
+.standings th.differential-heading{white-space:normal;min-width:86px;line-height:1.5}
