@@ -2,6 +2,8 @@
 export const rankConfig={
  'Plat 2':{label:'Platinum II',asset:'/assets/ranks/plat2.png'},
  'Plat 3':{label:'Platinum III',asset:'/assets/ranks/plat3.png'},
+ 'Champion 1':{label:'Champion I',asset:'/assets/ranks/champion1.png'},
+ 'Champion 2':{label:'Champion II',asset:'/assets/ranks/champion2.png'},
  GC1:{label:'Grand Champion I',asset:'/assets/ranks/gc1.png'},
  GC2:{label:'Grand Champion II',asset:'/assets/ranks/gc2.png'},
  GC3:{label:'Grand Champion III',asset:'/assets/ranks/gc3.png'},

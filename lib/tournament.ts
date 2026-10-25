@@ -37,6 +37,10 @@ export function normalize(d:Tournament):Tournament{
   const player=d.players.find(p=>p.id==='lw-1');if(player)player.aliases=player.aliases.filter(a=>!['instristic','intristic'].includes(a.toLowerCase()));
   d.contentVersion=5;
  }
+ if(d.contentVersion<6){
+  for(const p of d.players){if(p.id==='hg-1')p.rank='GC1';if(p.id==='hg-0')p.rank='Champion 2';if(p.id==='lw-1')p.rank='Champion 1'}
+  d.contentVersion=6;
+ }
  return d;
 }
 export function youtubeId(value:string){const u=new URL(value);if(u.protocol!=='https:'||!['youtube.com','www.youtube.com','youtu.be'].includes(u.hostname))throw Error('Use a YouTube HTTPS link.');const id=u.hostname==='youtu.be'?u.pathname.slice(1).split('/')[0]:u.searchParams.get('v')||u.pathname.split('/')[2];if(!id||!/^[\w-]{11}$/.test(id))throw Error('Enter a valid YouTube video URL.');return id}

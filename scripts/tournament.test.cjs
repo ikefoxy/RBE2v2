@@ -13,7 +13,7 @@ assert.ok(seed.withdrawals.every(n=>!seed.matches.some(m=>m.id===n.id)));
 assert.equal(seed.withdrawals.find(n=>n.teamId==='ssl').date,'2026-10-14');
 assert.equal(seed.players.length,16);assert.equal(new Set(seed.players.map(p=>p.id)).size,16);
 for(const t of seed.teams)assert.equal(seed.players.filter(p=>p.teamId===t.id).length,2);
-for(const [teamId,ranks] of Object.entries({mf:['GC2','GC3'],lw:['GC1','Grand Plat'],hg:['Grand Plat','Grand Plat'],pg:['GC1','GC1'],mp:['Plat 2','Plat 3'],mm:['SSL','GC2']}))assert.deepEqual(seed.players.filter(p=>p.teamId===teamId).map(p=>p.rank),ranks);
+for(const [teamId,ranks] of Object.entries({mf:['GC2','GC3'],lw:['GC1','Champion 1'],hg:['Champion 2','GC1'],pg:['GC1','GC1'],mp:['Plat 2','Plat 3'],mm:['SSL','GC2']}))assert.deepEqual(seed.players.filter(p=>p.teamId===teamId).map(p=>p.rank),ranks);
 assert.ok(seed.players.every(p=>p.rank));
 const ranks=standings(seed);
 assert.deepEqual(ranks.map(t=>[t.short,t.w,t.l,t.gw,t.gl]),[
@@ -54,7 +54,7 @@ console.log('PASS: seven-opponent round robin, screenshot dates, defaults exclud
 // Apply this rank correction once without changing scores, IDs, names, or later admin edits.
 const v3=fresh();v3.contentVersion=3;v3.players.filter(p=>p.teamId==='mp').forEach(p=>p.rank='Grand Plat');
 const before=JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos});normalize(v3);
-assert.equal(v3.contentVersion,5);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
+assert.equal(v3.contentVersion,6);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
 assert.equal(JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos}),before);
 v3.players.find(p=>p.id==='mp-0').rank='GC1';normalize(v3);assert.equal(v3.players.find(p=>p.id==='mp-0').rank,'GC1');
 const {rankOptions,rankConfig,isRank}=require(path.join(tmp,'lib/ranks.js'));
@@ -65,7 +65,15 @@ console.log('PASS: Platinum II/III rank mappings, shared rank configuration, saf
 
 const spelling=fresh();spelling.contentVersion=4;spelling.teams.find(t=>t.id==='lw').players[1]='Instristic';spelling.players.find(p=>p.id==='lw-1').aliases.push('intristic');
 const scoreSnapshot=JSON.stringify(spelling.matches);normalize(spelling);
-assert.equal(spelling.teams.find(t=>t.id==='lw').players[1],'Intrinsic');assert.equal(spelling.players.find(p=>p.id==='lw-1').rank,'Grand Plat');
+assert.equal(spelling.teams.find(t=>t.id==='lw').players[1],'Intrinsic');assert.equal(spelling.players.find(p=>p.id==='lw-1').rank,'Champion 1');
 assert.ok(!spelling.players.find(p=>p.id==='lw-1').aliases.some(a=>/^(instristic|intristic)$/i.test(a)));assert.equal(JSON.stringify(spelling.matches),scoreSnapshot);
 assert.equal(seed.teams.find(t=>t.id==='lw').players[1],'Intrinsic');
 console.log('PASS: Intrinsic spelling corrected in seed and saved state without changing rank, player ID, or scores.');
+
+const v5=fresh();v5.contentVersion=5;for(const p of v5.players)if(['hg-0','hg-1','lw-1'].includes(p.id))p.rank='Grand Plat';
+const unchanged=JSON.stringify({matches:v5.matches,teams:v5.teams,playoffs:v5.playoffs,lockedSeeds:v5.lockedSeeds,videos:v5.videos});normalize(v5);
+for(const [id,rank] of Object.entries({'hg-0':'Champion 2','hg-1':'GC1','lw-1':'Champion 1'}))assert.equal(v5.players.find(p=>p.id===id).rank,rank);
+assert.equal(JSON.stringify({matches:v5.matches,teams:v5.teams,playoffs:v5.playoffs,lockedSeeds:v5.lockedSeeds,videos:v5.videos}),unchanged);
+v5.players.find(p=>p.id==='hg-0').rank='GC2';normalize(v5);assert.equal(v5.players.find(p=>p.id==='hg-0').rank,'GC2');
+assert.ok(isRank('Champion 1')&&isRank('Champion 2'));assert.equal(rankConfig['Champion 1'].label,'Champion I');assert.equal(rankConfig['Champion 2'].label,'Champion II');assert.ok(!isRank('Champion 4'));
+console.log('PASS: Slayer GC1, Hex Champion II, Intrinsic Champion I, shared configuration and one-time saved-state upgrade.');

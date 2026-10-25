@@ -822,7 +822,7 @@
       "id": "lw-1",
       "teamId": "lw",
       "slot": 1,
-      "rank": "Grand Plat",
+      "rank": "Champion 1",
       "aliases": [
         "Andrew H"
       ]
@@ -849,16 +849,16 @@
       "id": "hg-0",
       "teamId": "hg",
       "slot": 0,
-      "rank": "Grand Plat",
+      "rank": "Champion 2",
       "aliases": []
     },
     {
       "id": "hg-1",
       "teamId": "hg",
       "slot": 1,
-      "rank": "Grand Plat",
+      "rank": "GC1",
       "aliases": []
     }
   ],
-  "contentVersion": 5
+  "contentVersion": 6
 }
