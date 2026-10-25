@@ -21,3 +21,6 @@
 - Refresh results must fetch fresh saved D1 data without caching, show loading and a timestamped confirmation, preserve newer revisions, and provide retry feedback on failure. Do not imply it imports new scores from the workbook or YouTube.
 
 - skeak_ (mp-0) is Plat 2; zyber210 (mp-1) is Plat 3. Rank labels/assets, admin options, and API validation share lib/ranks.ts. New rank assets have alpha transparency; keep all player entry points and duo links consistent.
+
+- Upcoming matchup estimates use 70% rank strength, 20% series record, 10% game record. Rank points follow Bronze I (1) to SSL (22); unknown/Unranked ranks are neutral. Keep actual standings and seed rules independent of this estimate.
+- Watch search combines team/player/title terms with team and week filters, and defaults to newest week/date first. Preserve both shared-stream entries and all original links.

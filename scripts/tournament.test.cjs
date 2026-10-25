@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),cp=r
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'rbe-logic-'));
 process.on('exit',()=>fs.rmSync(tmp,{recursive:true,force:true}));
 cp.execFileSync(process.execPath,['node_modules/typescript/bin/tsc','lib/tournament.ts','--outDir',tmp,'--module','commonjs','--resolveJsonModule','--esModuleInterop','--skipLibCheck','--target','es2022']);
-const {seed,normalize,roundRobinCheck,standings,forecast,bracket,validateScore,reconcile,nextMatch,youtubeId,syncRecording,recordingsForMatch,recordingsForPlayer}=require(path.join(tmp,'lib/tournament.js'));
+const {seed,normalize,roundRobinCheck,standings,forecast,bracket,validateScore,reconcile,nextMatch,youtubeId,syncRecording,recordingsForMatch,recordingsForPlayer,filterRecordings,teamRankPoints,forecastWeights}=require(path.join(tmp,'lib/tournament.js'));
 const fresh=()=>structuredClone(seed);
 assert.equal(roundRobinCheck(seed).valid,true);assert.equal(seed.matches.length,28);
 assert.ok(roundRobinCheck(seed).teams.every(t=>t.total===7&&t.opponents===7));
@@ -38,7 +38,7 @@ const sync=fresh(),m=nextMatch(sync);const video={id:'new',title:'New match',url
 const firstPlayer=video.playerIds[0];video.teams=['pg','ssl'];syncRecording(sync,video);assert.ok(!recordingsForPlayer(sync,firstPlayer).includes(video));assert.equal(video.playerIds.length,4);
 const upcoming=fresh();assert.equal(nextMatch(upcoming).id,'w5-mm-mp');const next=nextMatch(upcoming);next.scoreA=3;next.scoreB=1;assert.equal(nextMatch(upcoming).date,'2026-10-26');nextMatch(upcoming).date='2026-10-18';assert.equal(nextMatch(upcoming).date,'2026-10-18');upcoming.matches.forEach(m=>{m.scoreA=3;m.scoreB=0});assert.equal(nextMatch(upcoming),undefined);
 for(const m of seed.matches){validateScore(m.scoreA,m.scoreB,m.bestOf);assert.ok(forecast(seed,m.a,m.b)>0&&forecast(seed,m.a,m.b)<100)}
-const empty=fresh();empty.matches.forEach(m=>{m.scoreA=null;m.scoreB=null});assert.equal(forecast(empty,'ct','mm'),50);
+const empty=fresh();empty.matches.forEach(m=>{m.scoreA=null;m.scoreB=null});empty.players.forEach(p=>p.rank='GC1');assert.equal(forecast(empty,'ct','mm'),50);
 for(const [a,b,bo] of [[1,1,5],[2,1,5],[-1,3,5],[3,null,5],[3,4,5],[2.5,3,5]])assert.throws(()=>validateScore(a,b,bo));
 const d=fresh();assert.deepEqual(bracket(d).map(m=>m.bestOf),[3,3,3,3,5,5,5]);assert.equal(bracket(d).length,7);
 assert.deepEqual(bracket(d).slice(0,4).map(m=>[m.a,m.b]),[[ranks[0].id,ranks[7].id],[ranks[3].id,ranks[4].id],[ranks[1].id,ranks[6].id],[ranks[2].id,ranks[5].id]]);
@@ -77,3 +77,27 @@ assert.equal(JSON.stringify({matches:v5.matches,teams:v5.teams,playoffs:v5.playo
 v5.players.find(p=>p.id==='hg-0').rank='GC2';normalize(v5);assert.equal(v5.players.find(p=>p.id==='hg-0').rank,'GC2');
 assert.ok(isRank('Champion 1')&&isRank('Champion 2'));assert.equal(rankConfig['Champion 1'].label,'Champion I');assert.equal(rankConfig['Champion 2'].label,'Champion II');assert.ok(!isRank('Champion 4'));
 console.log('PASS: Slayer GC1, Hex Champion II, Intrinsic Champion I, shared configuration and one-time saved-state upgrade.');
+
+// Forecast behavior: rank leads, records still matter, absent ranks are neutral.
+assert.deepEqual(forecastWeights,{rank:.7,series:.2,games:.1});
+const model=fresh();model.matches.forEach(m=>{m.scoreA=null;m.scoreB=null});model.players.forEach(p=>p.rank='GC1');
+assert.equal(teamRankPoints(model,'ct'),19);assert.equal(forecast(model,'ct','mm'),50);
+model.players.filter(p=>p.teamId==='ct').forEach(p=>p.rank='GC3');model.players.filter(p=>p.teamId==='mm').forEach(p=>p.rank='Champion 1');
+const beforeRecords=forecast(model,'ct','mm');assert.ok(beforeRecords>50);
+for(const m of model.matches){if([m.a,m.b].includes('ct')){m.scoreA=m.a==='ct'?0:3;m.scoreB=m.b==='ct'?0:3}else if([m.a,m.b].includes('mm')){m.scoreA=m.a==='mm'?3:0;m.scoreB=m.b==='mm'?3:0}}
+assert.ok(forecast(model,'ct','mm')>50,'A clear rank gap outweighs opposite series records');assert.ok(forecast(model,'ct','mm')<beforeRecords,'League records still affect the estimate');
+const withRecords=forecast(model,'ct','mm');const recordsBefore=JSON.stringify(standings(model));model.players.filter(p=>p.teamId==='ct').forEach(p=>p.rank='SSL');assert.ok(forecast(model,'ct','mm')>withRecords);assert.equal(JSON.stringify(standings(model)),recordsBefore);
+for(const m of model.matches)assert.equal(forecast(model,m.a,m.b)+forecast(model,m.b,m.a),100);
+const unknown=fresh();unknown.matches.forEach(m=>{m.scoreA=null;m.scoreB=null});unknown.players.filter(p=>p.teamId==='ct').forEach(p=>p.rank='Unranked');assert.equal(teamRankPoints(unknown,'ct'),null);assert.equal(forecast(unknown,'ct','mm'),50);
+unknown.players.find(p=>p.id==='ct-0').rank='GC1';assert.equal(forecast(unknown,'ct','mm'),50);unknown.players.find(p=>p.id==='ct-1').rank=null;assert.equal(forecast(unknown,'ct','mm'),50);
+assert.deepEqual(Object.values(rankConfig).map(r=>r.points).filter(p=>p!==null),Array.from({length:22},(_,i)=>i+1));
+// Replay search combines title, team names/abbreviations, player aliases and all controls.
+const sourceIds=seed.videos.map(v=>v.id);const latest=filterRecordings(seed);assert.equal(latest.length,17);assert.ok(latest.every((v,i)=>!i||latest[i-1].week>=v.week));assert.equal(youtubeId(latest[0].url),'diNVZ6eNIiw');
+assert.deepEqual(filterRecordings(seed,{query:'mommy mag',week:'1',team:'ct'}).map(v=>v.title),['Mommy Mag vs Cliip That']);
+assert.deepEqual(filterRecordings(seed,{query:'SSL',week:'1'}).map(v=>v.title),['SONper SONic Legends vs The Hex Girls']);
+assert.ok(filterRecordings(seed,{query:'sonpersonic'}).every(v=>v.teams.includes('ssl')));assert.ok(filterRecordings(seed,{query:'sonpersonic'}).length);
+assert.ok(filterRecordings(seed,{query:'Andrew H'}).every(v=>v.teams.includes('lw')));assert.ok(filterRecordings(seed,{query:'zeek'}).every(v=>v.teams.includes('mm')));
+assert.equal(filterRecordings(seed,{query:'Defying Gravity'}).length,3);assert.equal(filterRecordings(seed,{week:'1',team:'ct',query:'Mow Foes'}).length,0);assert.equal(filterRecordings(seed,{query:'no replay matches this'}).length,0);
+assert.deepEqual(seed.videos.map(v=>v.id),sourceIds);
+const newReplay=fresh();newReplay.videos.push({id:'new-six',title:'New Week 6 replay',url:'https://youtu.be/abcdefghijk',week:6,teams:['mp','ssl'],matchId:'w6-mp-ssl'});assert.equal(filterRecordings(newReplay)[0].id,'new-six');assert.equal(filterRecordings(newReplay,{team:'ssl',week:'6',query:'Wes'})[0].id,'new-six');
+console.log('PASS: rank-led forecasts, record influence, neutral unknown ranks, complete rank ladder, symmetric probabilities, newest-first replays and combined search filters.');

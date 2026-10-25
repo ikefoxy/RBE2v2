@@ -1,5 +1,5 @@
 import initial from '../data/tournament.json';
-import type {Rank} from './ranks';
+import {rankPoints,type Rank} from './ranks';
 export type Team={id:string;name:string;short:string;players:string[];logo:string;color:string};
 export type Match={id:string;week:number;a:string;b:string;scoreA:number|null;scoreB:number|null;date:string;bestOf:number};
 export type Video={id:string;title:string;week:number;url:string;teams:string[];matchId?:string;playerIds?:string[]};
@@ -64,8 +64,23 @@ export function standings(d:Tournament){
   return {...t,w,l,gw,gl,md:w-l,gd:gw-gl,sw:w+l?w/(w+l):0,gwr:gw+gl?gw/(gw+gl):0,form:form.slice(-5)};
  }).sort((a,b)=>b.md-a.md||b.gd-a.gd||a.name.localeCompare(b.name)).map((t,i)=>({...t,rank:i+1}));
 }
-// Equal weight to Laplace-smoothed series and game win rates; normalized for the pairing.
-export function forecast(d:Tournament,a:string,b:string){const s=standings(d);const strength=(id:string)=>{const t=s.find(t=>t.id===id)!;return ((t.w+1)/(t.w+t.l+2)+(t.gw+1)/(t.gw+t.gl+2))/2};const x=strength(a),y=strength(b);return Math.round(x/(x+y)*100)}
+// Rank is the primary signal; small, smoothed league samples cannot dominate it.
+export const forecastWeights={rank:.7,series:.2,games:.1} as const;
+export function teamRankPoints(d:Tournament,id:string){const players=d.players.filter(p=>p.teamId===id);const points=players.map(p=>rankPoints(p.rank));return players.length===2&&points.every((p):p is number=>p!==null)?(points[0]!+points[1]!)/2:null}
+export function forecast(d:Tournament,a:string,b:string):number{
+ if(a===b)return 50;
+ // Resolve the rounding tie consistently, so reversing the teams always complements to 100.
+ if(a.localeCompare(b)>0)return 100-forecast(d,b,a);
+ const records=standings(d),x=records.find(t=>t.id===a),y=records.find(t=>t.id===b);if(!x||!y)return 50;
+ const rankA=teamRankPoints(d,a),rankB=teamRankPoints(d,b);
+ // A six-step (two full tiers) average-rank gap gives a 10:1 rank-only advantage.
+ const rankChance=(rankA===null||rankB===null)?0.5:1/(1+10**((rankB-rankA)/6));
+ const share=(a:number,b:number)=>a/(a+b);
+ const series=share((x.w+1)/(x.w+x.l+2),(y.w+1)/(y.w+y.l+2));
+ const games=share((x.gw+1)/(x.gw+x.gl+2),(y.gw+1)/(y.gw+y.gl+2));
+ return Math.max(1,Math.min(99,Math.round(100*(forecastWeights.rank*rankChance+forecastWeights.series*series+forecastWeights.games*games))));
+}
+
 type Slot={seed:number}|{win:string};
 type BracketDef={id:string;label:string;group:string;a:Slot;b:Slot;bestOf:number};
 const S=(seed:number):Slot=>({seed}),W=(win:string):Slot=>({win});
@@ -82,3 +97,15 @@ export function bracket(d:Tournament){
 }
 export function reconcile(d:Tournament){for(const m of bracket(d)){const r=d.playoffs[m.id];if(r&&(r.participants?.[0]!==m.a||r.participants?.[1]!==m.b)){d.playoffs[m.id]={scoreA:null,scoreB:null,bestOf:r.bestOf}}}return d}
 export function validateScore(a:number|null,b:number|null,bestOf:number){if(![3,5,7].includes(bestOf))throw Error('Choose best of 3, 5, or 7.');if(a===null&&b===null)return;if(a===null||b===null)throw Error('Enter both scores, or clear both.');const target=(bestOf+1)/2;if(!Number.isInteger(a)||!Number.isInteger(b)||a<0||b<0||a>target||b>target||a===b||Math.max(a,b)!==target)throw Error(`A completed best-of-${bestOf} series needs one winner at ${target} games.`)}
+
+export function filterRecordings(d:Tournament,{query='',week='all',team='all'}:{query?:string;week?:string;team?:string}={}){
+ const clean=(s:string)=>s.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+ const terms=clean(query).split(/\s+/).filter(Boolean);
+ const date=(v:Video)=>d.matches.find(m=>m.id===v.matchId)?.date||d.matches.find(m=>m.week===v.week&&v.teams.length===2&&v.teams.includes(m.a)&&v.teams.includes(m.b))?.date||d.withdrawals.find(n=>n.week===v.week&&v.teams.includes(n.teamId))?.date||'';
+ return d.videos.map((v,index)=>({v,index,date:date(v)})).filter(({v})=>{
+  if(week!=='all'&&v.week!==Number(week)||team!=='all'&&!v.teams.includes(team))return false;
+  const teams=d.teams.filter(t=>v.teams.includes(t.id)),players=d.players.filter(p=>v.teams.includes(p.teamId));
+  const hay=clean([v.title,recordingWeek(v.week),...teams.flatMap(t=>[t.name,t.short,...t.players]),...players.flatMap(p=>p.aliases)].join(' '));
+  return terms.every(term=>hay.includes(term)||hay.replace(/ /g,'').includes(term));
+ }).sort((a,b)=>b.v.week-a.v.week||b.date.localeCompare(a.date)||b.index-a.index).map(({v})=>v);
+}

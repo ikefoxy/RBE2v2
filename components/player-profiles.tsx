@@ -5,8 +5,8 @@ import {standings,complete,recordingsForPlayer,recordingWeek,type Tournament} fr
 import TeamLogo from './team-logo';
 import RocketLeagueIcon from './rocket-league-icon';
 import {rankConfig,isRank} from '../lib/ranks';
-export function RankIcon({rank}:{rank:string|null}){return isRank(rank)?<img className="rank-icon" src={rankConfig[rank].asset+'?v=4'} alt={rankConfig[rank].label}/>:<RocketLeagueIcon/>}
-export function RankBadge({rank}:{rank:string|null}){return isRank(rank)?<div className="rank-badge"><img src={rankConfig[rank].asset+'?v=4'} alt=""/><span>{rankConfig[rank].label}</span></div>:<div className="rank-badge unassigned"><RocketLeagueIcon size={43}/><span>Top rank not provided</span></div>}
+export function RankIcon({rank}:{rank:string|null}){return isRank(rank)&&rankConfig[rank].asset?<img className="rank-icon" src={rankConfig[rank].asset+'?v=4'} alt={rankConfig[rank].label}/>:<span className="rank-placeholder" role="img" aria-label={isRank(rank)?rankConfig[rank].label:'Rank not provided'}><RocketLeagueIcon/></span>}
+export function RankBadge({rank}:{rank:string|null}){return isRank(rank)?<div className="rank-badge">{rankConfig[rank].asset?<img src={rankConfig[rank].asset+'?v=4'} alt=""/>:<RocketLeagueIcon size={60}/>}<span>{rankConfig[rank].label}</span></div>:<div className="rank-badge unassigned"><RocketLeagueIcon size={43}/><span>Top rank not provided</span></div>}
 export function PlayerGrid({data,onSelect}:{data:Tournament;onSelect:(id:string)=>void}){return <div className="player-grid">{data.players.map(p=>{const t=data.teams.find(t=>t.id===p.teamId)!;return <button className="player-card panel" key={p.id} onClick={()=>onSelect(p.id)}><div className="player-card-team"><TeamLogo src={t.logo}/><span>{t.name}</span><ArrowUpRight size={15}/></div><RankBadge rank={p.rank}/><h2><RocketLeagueIcon/>{t.players[p.slot]}</h2><p>View player profile</p></button>})}</div>}
 export function PlayerDialog({data,id,onClose,onTeam}:{data:Tournament;id:string|null;onClose:()=>void;onTeam:(id:string)=>void}){
  const ref=useRef<HTMLDialogElement>(null);useEffect(()=>{if(id)ref.current?.showModal();else ref.current?.close()},[id]);
