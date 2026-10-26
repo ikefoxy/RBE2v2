@@ -1,10 +1,10 @@
 import {env} from 'cloudflare:workers';
 import {isRank} from '../../../lib/ranks';
 import {isAdmin} from '../../../lib/admin-auth';
-import {seed,normalize,bracket,standings,validateScore,reconcile,syncRecording,youtubeId,type Tournament,type Video} from '../../../lib/tournament';
+import {bracket,standings,validateScore,reconcile,syncRecording,youtubeId,type Tournament,type Video} from '../../../lib/tournament';
+import {readTournament as read} from '../../../lib/tournament-store';
 export const dynamic='force-dynamic';
 const json=(value:unknown,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'no-store'}});
-async function read():Promise<Tournament>{const row=await env.DB!.prepare('SELECT state, revision FROM tournament WHERE id=1').first<{state:string;revision:number}>();return normalize(row?{...JSON.parse(row.state),revision:row.revision}:structuredClone(seed))}
 export async function GET(){try{return json({data:await read(),admin:await isAdmin()})}catch{return json({error:'Tournament data is temporarily unavailable. Please retry.'},503)}}
 export async function POST(req:Request){
  if(new URL(req.url).origin!==req.headers.get('origin'))return json({error:'Invalid request origin.'},403);

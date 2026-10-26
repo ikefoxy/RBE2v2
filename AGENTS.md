@@ -10,7 +10,7 @@
 - Team logos preserve source artwork and alpha; SVG display bounds remove empty margins. Do not add images 10–17 to public assets. Rank badges use transparent alpha.
 
 - Hexaract is Champion 2; Slayer13 is GC1. Guzaboo and Whowen are GC1. SSL uses the white/purple badge; Grand Plat uses the cyan badge. Player entry points use the supplied Rocket League logo and show rank icons before opening a profile. Public profiles require no sign-in.
-- Owner-created recordings appear in Watch, match links, team profiles and player profiles. Next on deck derives from current unscored fixtures and must refresh after score/date changes.
+- Owner-created recordings appear in Watch, match links, team profiles and player profiles. Next on deck uses only unscored fixtures in the current Monday–Sunday tournament week in Mountain Time and refreshes after score/date changes; never fall back to an older week. Schedule and admin Results default to that week.
 
 - Admin access uses a server-verified password session, not email verification. Store only salted password hashes and session keys as Sites runtime secrets; never commit a password. Keep public viewing open.
 
@@ -32,3 +32,6 @@
 - Cliip That use deeper logo-matched blue (`#3f79e8`) for team accents and numeric gradients; saved data upgrades this identity with content version 8.
 
 - Standings use equal widths for all statistical columns, compact 11px vertical cell padding, and consistent two-line headers. Full standings switch to two-column cards on tablets and one-column cards on phones; keep labels above values with compact spacing and Weekly Results in a separate footer row.
+
+- Render initial public results from the same saved D1 read as the API, with dynamic rendering. Never show workbook seed values before fetching an existing saved snapshot. On read failure, show loading/retry without resetting results; keep revision guards.
+- Mobile Admin access stays fixed in the top navigation, independent of its horizontal scroll, and uses the same authenticated controls/API as desktop. Keep phone form fields touch-sized and within the viewport.

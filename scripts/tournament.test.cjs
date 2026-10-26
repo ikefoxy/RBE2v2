@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),cp=r
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'rbe-logic-'));
 process.on('exit',()=>fs.rmSync(tmp,{recursive:true,force:true}));
 cp.execFileSync(process.execPath,['node_modules/typescript/bin/tsc','lib/tournament.ts','--outDir',tmp,'--module','commonjs','--resolveJsonModule','--esModuleInterop','--skipLibCheck','--target','es2022']);
-const {seed,normalize,roundRobinCheck,standings,forecast,bracket,validateScore,reconcile,nextMatch,youtubeId,syncRecording,recordingsForMatch,recordingsForPlayer,filterRecordings,teamRankPoints,forecastWeights,forecastBreakdown}=require(path.join(tmp,'lib/tournament.js'));
+const {seed,normalize,roundRobinCheck,standings,forecast,bracket,validateScore,reconcile,nextMatch,youtubeId,syncRecording,recordingsForMatch,recordingsForPlayer,filterRecordings,teamRankPoints,forecastWeights,forecastBreakdown,mountainDate,tournamentWeek}=require(path.join(tmp,'lib/tournament.js'));
 const fresh=()=>structuredClone(seed);
 assert.equal(roundRobinCheck(seed).valid,true);assert.equal(seed.matches.length,28);
 assert.ok(roundRobinCheck(seed).teams.every(t=>t.total===7&&t.opponents===7));
@@ -130,3 +130,17 @@ const beforeBlue=structuredClone(blueCliip);normalize(blueCliip);beforeBlue.team
 assert.deepEqual(blueCliip,beforeBlue);assert.equal(seed.teams.find(t=>t.id==='ct').color,'#3f79e8');
 normalize(blueCliip);assert.deepEqual(blueCliip,beforeBlue);
 console.log('PASS: Cliip That deeper blue identity updates saved data and preserves other teams and results.');
+
+// Overview follows the Mountain Time calendar week, never an older unfinished fixture.
+assert.equal(mountainDate(new Date('2026-10-26T05:59:59Z')),'2026-10-25');
+assert.equal(mountainDate(new Date('2026-10-26T06:00:00Z')),'2026-10-26');
+assert.equal(tournamentWeek(seed,'2026-10-25'),5);assert.equal(tournamentWeek(seed,'2026-10-26'),6);
+assert.equal(tournamentWeek(seed,'2026-11-01'),6);assert.equal(tournamentWeek(seed,'2026-11-02'),7);
+assert.equal(tournamentWeek(seed,'2026-01-01'),1);assert.equal(tournamentWeek(seed,'2027-01-01'),9);
+const weekly=fresh();assert.equal(nextMatch(weekly,6).id,'w6-mf-pg');
+const firstWeekly=nextMatch(weekly,6);firstWeekly.scoreA=3;firstWeekly.scoreB=0;
+assert.equal(nextMatch(weekly,6).id,'w6-lw-mm');nextMatch(weekly,6).date='2026-10-29';assert.equal(nextMatch(weekly,6).id,'w6-mp-ssl');
+weekly.matches.filter(m=>m.week===6).forEach(m=>{m.scoreA=3;m.scoreB=0});
+assert.equal(nextMatch(weekly,6),undefined);assert.equal(nextMatch(weekly).week,5);
+assert.equal(nextMatch(weekly,7).week,7);
+console.log('PASS: Mountain Time week rollover, current-week upcoming fixtures, score/date changes and no previous-week fallback.');

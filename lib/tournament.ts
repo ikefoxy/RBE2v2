@@ -56,7 +56,19 @@ export function recordingWeek(week:number){return week===10?'Playoffs':`Week ${w
 export function syncRecording(d:Tournament,v:Video){v.playerIds=d.players.filter(p=>v.teams.includes(p.teamId)).map(p=>p.id);if(v.matchId?.startsWith('playoff:')){const m=bracket(d).find(m=>'playoff:'+m.id===v.matchId);if(v.week!==10||!m?.a||!m.b||v.teams.length!==2||!v.teams.includes(m.a)||!v.teams.includes(m.b))delete v.matchId}if(!v.matchId?.startsWith('playoff:')){const m=d.matches.find(m=>m.week===v.week&&v.teams.length===2&&v.teams.includes(m.a)&&v.teams.includes(m.b));v.matchId=m?.id}return v}
 export function recordingsForPlayer(d:Tournament,id:string){const p=d.players.find(p=>p.id===id);return p?d.videos.filter(v=>v.playerIds?.includes(id)||(!v.playerIds&&v.teams.includes(p.teamId))):[]}
 export function recordingsForMatch(d:Tournament,m:Match){return d.videos.filter(v=>v.matchId===m.id||(!v.matchId&&v.week===m.week&&v.teams.includes(m.a)&&v.teams.includes(m.b)))}
-export function nextMatch(d:Tournament){return d.matches.filter(m=>!complete(m)).sort((a,b)=>(a.date||'9999').localeCompare(b.date||'9999')||a.week-b.week||a.id.localeCompare(b.id))[0]}
+export function mountainDate(now=new Date()){
+ const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now);
+ const part=(type:string)=>parts.find(p=>p.type===type)!.value;
+ return `${part('year')}-${part('month')}-${part('day')}`;
+}
+export function tournamentWeek(d:Tournament,today=mountainDate()){
+ // Calendar weeks follow the original round schedule, Monday through Sunday in Mountain Time.
+ const start=seed.matches.filter(m=>m.week===1&&m.date).map(m=>m.date).sort()[0];
+ const first=new Date(start+'T00:00:00Z');first.setUTCDate(first.getUTCDate()-(first.getUTCDay()+6)%7);
+ const elapsed=Math.floor((Date.parse(today+'T00:00:00Z')-first.getTime())/(7*86400000));
+ return Math.max(1,Math.min(Math.max(...d.matches.map(m=>m.week)),1+elapsed));
+}
+export function nextMatch(d:Tournament,week?:number){return d.matches.filter(m=>!complete(m)&&(week===undefined||m.week===week)).sort((a,b)=>(a.date||'9999').localeCompare(b.date||'9999')||a.week-b.week||a.id.localeCompare(b.id))[0]}
 export function roundRobinCheck(d:Tournament){
  const ids=new Set(d.teams.map(t=>t.id)),pairs=new Set<string>();let valid=d.teams.length===8&&d.matches.length===28;
  for(const m of d.matches){const key=[m.a,m.b].sort().join(':');if(!ids.has(m.a)||!ids.has(m.b)||m.a===m.b||pairs.has(key))valid=false;pairs.add(key)}

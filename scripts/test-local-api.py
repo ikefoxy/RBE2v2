@@ -1,5 +1,5 @@
 """Integration checks against the local preview only. Never point at production."""
-import json, urllib.request, urllib.error, http.cookiejar
+import re, json, urllib.request, urllib.error, http.cookiejar
 base='http://127.0.0.1:5173'
 jar=http.cookiejar.CookieJar()
 client=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
@@ -30,10 +30,18 @@ invalid={**p,'scoreA':1,'scoreB':1};assert post(invalid)[0]==400
 status,out=post(p);assert status==200,out
 saved=get()['data'];assert saved['revision']==d['revision']+1
 assert next(m for m in saved['matches'] if m['id']==match['id'])['scoreA']==3
+# The very first server response must show the saved total rather than a seed flash.
+def assert_server_snapshot(data):
+    count=sum(m['scoreA'] is not None and m['scoreB'] is not None for m in data['matches'])
+    html=client.open(base+'/').read().decode()
+    assert re.search(r'Series completed</span><strong>'+str(count).zfill(2)+r'</strong>',html), 'SSR must render the saved series count.'
+assert_server_snapshot(saved)
+
 assert post(p)[0]==409
 p.update(scoreA=match['scoreA'],scoreB=match['scoreB'],revision=saved['revision'])
 assert post(p)[0]==200
 assert next(m for m in get()['data']['matches'] if m['id']==match['id'])['scoreA'] is None
+assert_server_snapshot(get()['data'])
 print('PASS: password sign-in, cookie protection, cross-origin rejection, invalid score rejection, persistent score update, concurrent-edit rejection, and restoration of original scores.')
 # New controls: validate unique seeds, persist a swap, and restore live seeding.
 d=get()['data']

@@ -84,3 +84,30 @@
 .standings .form span{width:14px;height:20px;font-size:8px;flex-shrink:0}
 .standings-summary th,.standings-summary td{padding-left:6px;padding-right:6px}
 .standings-summary .team-name{font-size:11px;gap:9px}
+
+/* Mobile admin entry remains reachable even while the horizontal navigation scrolls. */
+.mobile-admin-access{display:none}
+.bootstrap-results{max-width:640px;padding:48px 24px;margin:auto}
+.bootstrap-results .primary{margin-top:18px}
+@media(max-width:800px){
+ .mobile-admin-access{position:fixed;right:12px;top:7px;z-index:30;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 16px;background:#1c3457;border:1px solid #577eaf;border-radius:24px;box-shadow:0 4px 20px #0006;font-size:12px;font-weight:600;color:#e0ecff}
+ .mobile-admin-access.active{background:#345fb2;border-color:#83a9e9}
+ .sidebar{padding-right:122px;overflow:hidden}
+ .sidebar nav{min-width:0;flex:1;overflow-x:auto;scrollbar-width:none}
+ .sidebar nav::-webkit-scrollbar{display:none}
+ .main-shell main{padding-bottom:24px}
+ .admin-gate{padding:26px 18px}
+ .edit-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:16px}
+ .edit-row>div,.edit-row>h3{grid-column:1/-1;min-width:0}
+ .edit-row label{min-width:0}
+ .edit-row label:has(input[type=date]){grid-column:1/-1}
+ .edit-row input,.edit-row select,.edit-row input[type=number]{width:100%;min-width:0;box-sizing:border-box;min-height:42px;font-size:16px}
+ .edit-row .primary{grid-column:1/-1;min-height:44px;margin-top:0}
+ .source-tabs{gap:6px}
+ .source-tabs button{min-height:40px;padding:9px 10px}
+ .video-editor{padding:16px}
+ .video-editor input,.video-editor select,.lan-editor input{width:100%;min-width:0;font-size:16px;min-height:42px}
+ .owner-banner>span{min-width:0;flex:1}
+}
+
+@media(max-width:520px){.sidebar .brand>span{display:none}.sidebar{gap:10px}.seed-grid select{min-height:42px;font-size:12px}}
