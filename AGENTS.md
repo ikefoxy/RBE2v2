@@ -40,3 +40,5 @@
 - Omit the standings ranking note and oversized explanatory footer panels. Keep the user-preferred Seed labels on team cards and profiles; manually locked playoff seed order remains separate.
 
 - Defying Gravity schedule cards show Week and Default without withdrawal explanations or Date TBA; preserve recordings. Emphasize the active team on default cards and the actual winner of completed competitive series. Defaults still never count as wins.
+
+- Match highlights are subtle rounded inset rows with identical padding, margins and minimum heights for both teams. Use a short inset accent line without shifting logos, text or score alignment; keep winner emphasis consistent on desktop and mobile.
