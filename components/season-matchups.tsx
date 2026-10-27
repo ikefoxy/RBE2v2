@@ -3,14 +3,13 @@ import {complete,seasonEntries,type Tournament} from '../lib/tournament';
 import TeamLogo from './team-logo';
 import TeamNumber from './team-number';
 
-const date=(value:string)=>value?new Date(value+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'America/Denver'}):'Date TBA';
 export function WeeklyResults({data,teamId}:{data:Tournament;teamId:string}){
- return <div className="form season-form" aria-label="Weekly results in week order">{seasonEntries(data,teamId).map(e=>{
-  let label:string,code:string;
-  if(e.kind==='bye'){code='B';label='BYE, no match scheduled'}
-  else if(e.kind==='default'){code='D';label='Defying Gravity withdrew, no result counted'}
-  else{const m=e.match,own=m.a===teamId,other=data.teams.find(t=>t.id===(own?m.b:m.a))!;code=complete(m)?((own?m.scoreA!:m.scoreB!)>(own?m.scoreB!:m.scoreA!)?'W':'L'):'–';label=(code==='W'?'Win':code==='L'?'Loss':'Upcoming')+' vs '+other.name}
-  return <span key={e.id} className={code==='–'?'pending':code} title={`Week ${e.week}: ${label}`} aria-label={`Week ${e.week}: ${label}`}>{code}</span>;
+ const matches=data.matches.filter(m=>[m.a,m.b].includes(teamId)&&complete(m)).sort((a,b)=>a.week-b.week||a.date.localeCompare(b.date)).slice(-5);
+ return <div className="form" aria-label="Last five completed series">{matches.map(m=>{
+  const own=m.a===teamId,opponent=data.teams.find(t=>t.id===(own?m.b:m.a))!;
+  const code=(own?m.scoreA!:m.scoreB!)>(own?m.scoreB!:m.scoreA!)?'W':'L';
+  const label=`Week ${m.week}: ${code==='W'?'Win':'Loss'} vs ${opponent.name}`;
+  return <span key={m.id} className={code} title={label} aria-label={label}>{code}</span>;
  })}</div>;
 }
 export default function SeasonMatchups({data,teamId,onTeam}:{data:Tournament;teamId:string;onTeam:(id:string)=>void}){
@@ -20,10 +19,8 @@ export default function SeasonMatchups({data,teamId,onTeam}:{data:Tournament;tea
   return <div className={'season-row season-'+e.kind} key={e.id}>
    <span className="season-week">Week {e.week}</span>
    <div className="season-opponent">{opponent?<button className="team-name" onClick={()=>onTeam(opponent.id)}><TeamLogo src={opponent.logo}/><span>{opponent.name}</span></button>:e.kind==='default'?<span className="team-name"><TeamLogo src="/assets/defying-gravity.png"/><span>Defying Gravity</span></span>:<span>BYE</span>}
-    <small>{e.kind==='default'?'Withdrew · no result counted':e.kind==='bye'?'No match scheduled':date(m!.date)}</small>
    </div>
-   <div className="season-outcome">{m&&complete(m)?<b><TeamNumber color={ownTeam.color}>{own?m.scoreA:m.scoreB}</TeamNumber><span> – </span><TeamNumber color={opponent!.color}>{own?m.scoreB:m.scoreA}</TeamNumber></b>:<span className={'season-status '+e.kind}>{e.kind==='default'?'Default':e.kind==='bye'?'BYE':'Upcoming'}</span>}
-    {e.kind==='default'&&<small>{date(e.notice.date)}</small>}
+   <div className="season-outcome">{m&&complete(m)?<b><TeamNumber color={ownTeam.color}>{own?m.scoreA:m.scoreB}</TeamNumber><span> – </span><TeamNumber color={opponent!.color}>{own?m.scoreB:m.scoreA}</TeamNumber></b>:e.kind==='bye'?null:<span className={'season-status '+e.kind}>{e.kind==='default'?'Default':'Upcoming'}</span>}
    </div>
   </div>;
  })}</div>;

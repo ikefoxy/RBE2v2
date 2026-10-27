@@ -121,18 +121,11 @@
 .season-opponent{min-width:0;display:grid;gap:5px}
 .season-opponent .team-name{min-width:0;white-space:normal;font-size:11px}
 .season-opponent .team-name>span{overflow-wrap:anywhere}
-.season-opponent small,.season-outcome small{font-size:9px;color:var(--muted);line-height:1.5}
 .season-outcome{display:grid;gap:5px;justify-items:end;min-width:60px}
 .season-outcome b{font-size:12px;font-variant-numeric:tabular-nums}
 .season-outcome b>span:not(.team-number){color:var(--muted)}
 .season-status{font-size:10px;color:#91a9cd}
 .season-status.default{color:#d6bc91}
 .season-status.bye{color:#9eacbf}
-.form .D{background:#3a3020;color:#e2c18c}
-.form .B{background:#252e40;color:#a7b4c9}
-.form .pending{background:#17243a;color:#778dab}
-.standings .form.season-form{display:grid;grid-template-columns:repeat(5,14px);gap:3px;justify-content:center}
-.standings .form.season-form span{height:16px}
-.mobile-standing-form .season-form{display:grid;grid-template-columns:repeat(5,18px);gap:4px}
 .bye-match .match-team{min-height:67px}
-@media(max-width:520px){.season-row{grid-template-columns:40px minmax(0,1fr) auto;gap:8px}.season-opponent .team-name{gap:7px;font-size:10px}.season-opponent .team-logo{width:25px;height:25px}.season-outcome{min-width:50px}.season-opponent small{font-size:8px}}
+@media(max-width:520px){.season-row{grid-template-columns:40px minmax(0,1fr) auto;gap:8px}.season-opponent .team-name{gap:7px;font-size:10px}.season-opponent .team-logo{width:25px;height:25px}.season-outcome{min-width:50px}}
