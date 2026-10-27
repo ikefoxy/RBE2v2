@@ -42,3 +42,5 @@
 - Defying Gravity schedule cards show Week and Default without withdrawal explanations or Date TBA; preserve recordings. Emphasize the active team on default cards and the actual winner of completed competitive series. Defaults still never count as wins.
 
 - Match highlights are subtle rounded inset rows with identical padding, margins and minimum heights for both teams. Use a short inset accent line without shifting logos, text or score alignment; keep winner emphasis consistent on desktop and mobile.
+
+- Every week places Defying Gravity defaults after all competitive match cards, in the first column of a new row regardless of stored default dates. Keep competitive matches ordered by date and BYEs below the grid.

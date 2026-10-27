@@ -145,3 +145,6 @@
 .match-card .winning-team>b{font-weight:700}
 
 .week-picker{min-width:0;max-width:100%;overflow-x:auto;scrollbar-width:none}.week-picker::-webkit-scrollbar{display:none}.week-picker button{flex-shrink:0}
+
+/* Defaults follow competitive fixtures and always begin their own left-aligned row. */
+.match-grid>.default-match{grid-column:1}
