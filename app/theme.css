@@ -127,5 +127,15 @@
 .season-status{font-size:10px;color:#91a9cd}
 .season-status.default{color:#d6bc91}
 .season-status.bye{color:#9eacbf}
-.bye-match .match-team{min-height:67px}
+.schedule-byes{display:flex;flex-wrap:wrap;gap:12px 24px;border-top:1px solid var(--line);margin-top:16px;padding:13px 0}
+.schedule-bye{display:inline-flex;align-items:center;gap:10px;min-width:0}
+.schedule-bye .team-name{font-size:11px;min-width:0;white-space:normal}
+.schedule-bye .team-logo{width:24px;height:24px}
+.bye-tag{font-size:9px;font-weight:600;letter-spacing:.6px;color:#9aaec9;flex-shrink:0}
 @media(max-width:520px){.season-row{grid-template-columns:40px minmax(0,1fr) auto;gap:8px}.season-opponent .team-name{gap:7px;font-size:10px}.season-opponent .team-logo{width:25px;height:25px}.season-outcome{min-width:50px}}
+
+.match-card .winning-team,.match-card .default-team{background:color-mix(in srgb,var(--team-color) 10%,transparent);border-left:3px solid var(--team-color);padding-left:14px}
+.match-card .winning-team .team-name>span,.match-card .default-team .team-name>span{font-weight:700;color:#f1f5fc}
+.match-card .winning-team>b{font-weight:750}
+
+.week-picker{min-width:0;max-width:100%;overflow-x:auto;scrollbar-width:none}.week-picker::-webkit-scrollbar{display:none}.week-picker button{flex-shrink:0}

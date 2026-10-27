@@ -21,7 +21,7 @@ Run `npm run typecheck`, `npm test`, and `python3 scripts/test-local-api.py`. AP
 ## Tournament model
 
 - Eight active teams, seven different opponents each, 28 league series. Defying Gravity withdrawals live separately, look like normal schedule cards labeled Default, and never affect wins, games, forecasts, or seeds. All supplied broadcasts remain available.
-- Match dates use Round Schedule, including the supplied Week 6–9 correction screenshot. All active fixtures have dates. A withdrawn fixture without a source date displays Date TBA rather than an invented date.
+- Match dates use Round Schedule, including the supplied Week 6–9 correction screenshot. All active fixtures have dates. Default cards use the recorded week rather than displaying Date TBA or inventing a date.
 - Scores use RBE League Play. Light Work vs The Moldy Potatoes uses its 3–0 league result despite the reversed Round Schedule score; Week 5 Light Work vs Pink Goats is 0–3 despite blank schedule scores. The source conflict is retained in data for provenance.
 - Standings use series differential, then game differential. Alphabetical order resolves remaining ties provisionally; the organizer can set final seeding.
 - Upcoming win estimates weight player ranks at 70%, series records at 20%, and game records at 10%. Completed fixtures display the result instead. Up next uses the earliest uncompleted fixture in the current Monday–Sunday tournament week in Mountain Time. It never falls back to an older unfinished week. If the current week is complete, Overview says so. Schedule and admin Results default to the current week.
@@ -67,6 +67,10 @@ Mobile has a fixed Admin button in the top navigation, independent of its horizo
 
 ## Complete weekly season histories
 
-`seasonEntries` derives every team's full nine-week history from saved active fixtures and withdrawal notices. Weeks with neither receive BYE entries. Each team has seven competitive matches, one Defying Gravity default and one BYE. Team profiles, player profiles and Schedule share this model. Weekly Results uses only W/L for the last five completed competitive series. Season matchup rows show scores, Default or BYE without dates or explanatory subtext. Default and BYE entries do not affect scores, totals, forecasts or seeds. Schedule retains known match dates and Date TBA for unknown default dates; profile season histories omit dates.
+`seasonEntries` derives every team's full nine-week history from saved active fixtures and withdrawal notices. Weeks with neither receive BYE entries. Each team has seven competitive matches, one Defying Gravity default and one BYE. Team profiles, player profiles and Schedule share this model. Weekly Results uses only W/L for the last five completed competitive series. Season matchup rows show scores, Default or BYE without dates or explanatory subtext. Default and BYE entries do not affect scores, totals, forecasts or seeds. Schedule retains competitive match dates; default cards show their week, and profile season histories omit dates.
 
 The user-preferred Seed labels remain on team cards and profiles; manually assigned playoff seed order remains separate. The explanatory ranking footer has been removed from Overview and Standings; ranking calculations remain unchanged.
+
+Schedule BYEs appear as a compact team/logo plus BYE row below the match grid, filtered by the selected week and team. They derive from the current saved tournament state rather than a separate cached list, so refreshes and admin saves update the same public views on desktop and mobile.
+
+Defying Gravity schedule cards use a Week/Default header and retain any recording link without explanatory withdrawal text or Date TBA. Completed competitive series highlight their winning team. Default cards emphasize the active team visually without awarding a win.
