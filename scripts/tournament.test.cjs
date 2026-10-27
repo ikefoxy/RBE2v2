@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),cp=r
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'rbe-logic-'));
 process.on('exit',()=>fs.rmSync(tmp,{recursive:true,force:true}));
 cp.execFileSync(process.execPath,['node_modules/typescript/bin/tsc','lib/tournament.ts','--outDir',tmp,'--module','commonjs','--resolveJsonModule','--esModuleInterop','--skipLibCheck','--target','es2022']);
-const {seed,normalize,roundRobinCheck,standings,forecast,bracket,validateScore,reconcile,nextMatch,youtubeId,syncRecording,recordingsForMatch,recordingsForPlayer,filterRecordings,teamRankPoints,forecastWeights,forecastBreakdown,mountainDate,tournamentWeek}=require(path.join(tmp,'lib/tournament.js'));
+const {seed,normalize,roundRobinCheck,standings,forecast,bracket,validateScore,reconcile,nextMatch,youtubeId,syncRecording,recordingsForMatch,recordingsForPlayer,filterRecordings,teamRankPoints,forecastWeights,forecastBreakdown,mountainDate,tournamentWeek,seasonEntries,weekByes}=require(path.join(tmp,'lib/tournament.js'));
 const fresh=()=>structuredClone(seed);
 assert.equal(roundRobinCheck(seed).valid,true);assert.equal(seed.matches.length,28);
 assert.ok(roundRobinCheck(seed).teams.every(t=>t.total===7&&t.opponents===7));
@@ -144,3 +144,13 @@ weekly.matches.filter(m=>m.week===6).forEach(m=>{m.scoreA=3;m.scoreB=0});
 assert.equal(nextMatch(weekly,6),undefined);assert.equal(nextMatch(weekly).week,5);
 assert.equal(nextMatch(weekly,7).week,7);
 console.log('PASS: Mountain Time week rollover, current-week upcoming fixtures, score/date changes and no previous-week fallback.');
+
+// Every team has one entry per round-schedule week, with defaults and BYEs excluded from play.
+const seasonBefore=JSON.stringify(seed),recordsBeforeSeason=JSON.stringify(standings(seed));
+const byeWeeks={ct:7,mm:4,mf:8,pg:1,ssl:5,lw:3,mp:2,hg:6};
+for(const t of seed.teams){const entries=seasonEntries(seed,t.id);assert.equal(entries.length,9);assert.deepEqual(entries.map(e=>e.week),[1,2,3,4,5,6,7,8,9]);assert.equal(entries.filter(e=>e.kind==='match').length,7);assert.equal(entries.filter(e=>e.kind==='default').length,1);assert.equal(entries.filter(e=>e.kind==='bye').length,1);assert.equal(entries.find(e=>e.kind==='bye').week,byeWeeks[t.id]);assert.equal(entries.find(e=>e.kind==='default').notice.id,seed.withdrawals.find(n=>n.teamId===t.id).id)}
+for(let week=1;week<=9;week++){const active=seed.matches.filter(m=>m.week===week).flatMap(m=>[m.a,m.b]);const defaults=seed.withdrawals.filter(n=>n.week===week).map(n=>n.teamId);const byes=weekByes(seed,week).map(t=>t.id);assert.equal(new Set([...active,...defaults,...byes]).size,8);assert.equal(active.length+defaults.length+byes.length,8)}
+assert.deepEqual(seasonEntries(seed,'not-a-team'),[]);assert.deepEqual(weekByes(seed,9),[]);
+assert.equal(JSON.stringify(seed),seasonBefore);assert.equal(JSON.stringify(standings(seed)),recordsBeforeSeason);
+const seasonEdit=fresh();const ownEntry=seasonEntries(seasonEdit,'ct').find(e=>e.kind==='match');ownEntry.match.scoreA=3;ownEntry.match.scoreB=2;assert.equal(seasonEntries(seasonEdit,'ct').find(e=>e.id===ownEntry.id).match.scoreB,2);
+console.log('PASS: all 72 team/week entries, seven active opponents plus one default and one BYE per team, and unchanged competitive records.');

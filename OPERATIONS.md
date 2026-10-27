@@ -64,3 +64,9 @@ Watch search matches replay titles, team names/abbreviations, roster names and p
 `lib/tournament-store.ts` supplies both the dynamic home page and the tournament API from the same saved D1 snapshot. The first HTML response includes saved totals and results, so hydration never starts with the workbook seed and then jumps to admin-edited scores. Only an empty database uses the seed. If the saved snapshot cannot be read, the page shows a loading/retry state instead of imported scores. Revision guards still preserve newer admin saves during polling.
 
 Mobile has a fixed Admin button in the top navigation, independent of its horizontal scroll. It opens the same password-protected editor and server API as desktop. Score/date controls, roster/rank inputs, bracket controls and recording forms fit phone widths. No editing access is granted by the visibility of this button.
+
+## Complete weekly season histories
+
+`seasonEntries` derives every team's full nine-week history from saved active fixtures and withdrawal notices. Weeks with neither receive BYE entries. Each team has seven competitive matches, one Defying Gravity default and one BYE. Team profiles, player profiles, Schedule and chronological Weekly Results markers share this model. W/L indicate completed competitive matches, D indicates a withdrawal default, B indicates a BYE and a dash indicates an upcoming match. Default and BYE entries do not affect scores, totals, forecasts or seeds. Unknown default dates remain Date TBA; BYEs carry no invented date.
+
+The user-preferred Seed labels remain on team cards and profiles; manually assigned playoff seed order remains separate. The explanatory ranking footer has been removed from Overview and Standings; ranking calculations remain unchanged.

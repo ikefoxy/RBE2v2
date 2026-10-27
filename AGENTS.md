@@ -35,3 +35,6 @@
 
 - Render initial public results from the same saved D1 read as the API, with dynamic rendering. Never show workbook seed values before fetching an existing saved snapshot. On read failure, show loading/retry without resetting results; keep revision guards.
 - Mobile Admin access stays fixed in the top navigation, independent of its horizontal scroll, and uses the same authenticated controls/API as desktop. Keep phone form fields touch-sized and within the viewport.
+
+- Team and player Season matchups represent all nine weeks: seven active-team matches, one Defying Gravity default, and one derived BYE per team. Schedule shows explicit BYE cards and existing defaults. Weekly Results uses nine chronological W/L/D/B/upcoming markers. Defaults and BYEs never create scores or affect records, forecasts or seeding; do not invent their dates.
+- Omit the standings ranking note and oversized explanatory footer panels. Keep the user-preferred Seed labels on team cards and profiles; manually locked playoff seed order remains separate.

@@ -76,6 +76,17 @@ export function roundRobinCheck(d:Tournament){
  return {valid:valid&&teams.every(t=>t.valid),pairings:pairs.size,teams};
 }
 export const complete=(m:{scoreA:number|null;scoreB:number|null})=>m.scoreA!==null&&m.scoreB!==null;
+export type SeasonEntry={kind:'match';id:string;week:number;match:Match}|{kind:'default';id:string;week:number;notice:Withdrawal}|{kind:'bye';id:string;week:number;teamId:string};
+export function seasonEntries(d:Tournament,teamId:string):SeasonEntry[]{
+ if(!d.teams.some(t=>t.id===teamId))return [];
+ const weeks=Math.max(...d.matches.map(m=>m.week),...d.withdrawals.map(n=>n.week));
+ return Array.from({length:weeks},(_,i)=>i+1).flatMap((week):SeasonEntry[]=>{
+  const matches=d.matches.filter(m=>m.week===week&&[m.a,m.b].includes(teamId)).map(match=>({kind:'match' as const,id:match.id,week,match}));
+  const defaults=d.withdrawals.filter(n=>n.week===week&&n.teamId===teamId).map(notice=>({kind:'default' as const,id:notice.id,week,notice}));
+  return matches.length||defaults.length?[...matches,...defaults]:[{kind:'bye',id:`bye-${week}-${teamId}`,week,teamId}];
+ });
+}
+export function weekByes(d:Tournament,week:number){return d.teams.filter(t=>seasonEntries(d,t.id).some(e=>e.week===week&&e.kind==='bye'))}
 export function standings(d:Tournament){
  return d.teams.map(t=>{
   const played=d.matches.filter(m=>(m.a===t.id||m.b===t.id)&&complete(m));let w=0,l=0,gw=0,gl=0;
