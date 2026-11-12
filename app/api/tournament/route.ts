@@ -1,7 +1,7 @@
 import {env} from 'cloudflare:workers';
 import {isRank} from '../../../lib/ranks';
 import {isAdmin} from '../../../lib/admin-auth';
-import {bracket,standings,validateScore,reconcile,syncRecording,youtubeId,type Tournament,type Video} from '../../../lib/tournament';
+import {bracket,lanDefinitions,validateLanDefinitions,standings,validateScore,reconcile,syncRecording,youtubeId,type Tournament,type Video} from '../../../lib/tournament';
 import {readTournament as read} from '../../../lib/tournament-store';
 export const dynamic='force-dynamic';
 const json=(value:unknown,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'no-store'}});
@@ -19,12 +19,19 @@ export async function POST(req:Request){
  }else if(p.type==='playoff'){
  const m=bracket(d).find(m=>m.id===p.id);if(!m||!m.a||!m.b)throw Error('Both bracket teams must be determined first.');validateScore(p.scoreA,p.scoreB,m.bestOf);
  if(!d.lockedSeeds.length&&p.scoreA!==null)d.lockedSeeds=standings(d).map(t=>t.id);
- d.playoffs[p.id]={scoreA:p.scoreA,scoreB:p.scoreB,bestOf:m.bestOf,participants:[m.a,m.b]};reconcile(d);action=`Updated ${m.label}`;
+ d.playoffs[p.id]={scoreA:p.scoreA,scoreB:p.scoreB,bestOf:m.bestOf,participants:[m.a,m.b]};reconcile(d);validateLanDefinitions(d,lanDefinitions(d));action=`Updated ${m.label}`;
+ }else if(p.type==='lan-match'){
+ const defs=lanDefinitions(d);const old=defs.find(m=>m.id===p.match?.id);
+ if(!p.match||typeof p.match.id!=='string')throw Error('Choose a match.');
+ const next=old?defs.map(m=>m.id===p.match.id?p.match:m):[...defs,p.match];validateLanDefinitions(d,next);d.lanMatches=next;reconcile(d);action=`Updated LAN match: ${p.match.label}`;
+ }else if(p.type==='lan-delete'){
+ const defs=lanDefinitions(d);if(!defs.some(m=>m.id===p.id))throw Error('Unknown LAN match.');
+ d.lanMatches=defs.filter(m=>m.id!==p.id).map(m=>({...m,a:'win'in m.a&&m.a.win===p.id?{empty:true as const}:m.a,b:'win'in m.b&&m.b.win===p.id?{empty:true as const}:m.b}));delete d.playoffs[p.id];reconcile(d);action='Removed LAN match';
  }else if(p.type==='seeds'){
  if(!Array.isArray(p.seeds)||p.seeds.length!==8||new Set(p.seeds).size!==8||p.seeds.some((id:string)=>!d.teams.some(t=>t.id===id)))throw Error('Each of the eight teams must appear once.');
- if(bracket(d).some(r=>r.scoreA!==null||r.scoreB!==null))throw Error('Reset playoff results before changing seeds.');d.lockedSeeds=p.seeds;action='Updated playoff seed order';
+ d.lockedSeeds=p.seeds;validateLanDefinitions(d,lanDefinitions(d));reconcile(d);action='Updated LAN seed order';
  }else if(p.type==='reseed'){
- d.lockedSeeds=[];d.playoffs={};action='Reset playoff results and restored live seeding';
+ d.lockedSeeds=[];d.playoffs={};action='Reset LAN scores and restored live seeding';
  }else if(p.type==='team'){
  const t=d.teams.find(t=>t.id===p.id);if(!t)throw Error('Unknown team.');if(!Array.isArray(p.players)||p.players.length!==2||p.players.some((x:unknown)=>typeof x!=='string'||!x.trim()||(x as string).length>80))throw Error('Enter two player names.');t.players=p.players.map((x:string)=>x.trim());action=`Updated ${t.name} roster`;
  }else if(p.type==='player'){

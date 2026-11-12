@@ -6,7 +6,7 @@ export type Video={id:string;title:string;week:number;url:string;teams:string[];
 export type Result={scoreA:number|null;scoreB:number|null;bestOf:number;participants?:string[]};
 export type Player={id:string;teamId:string;slot:number;rank:Rank|null;aliases:string[]};
 export type Withdrawal={id:string;week:number;teamId:string;date:string;status:'withdrawn'};
-export type Tournament={teams:Team[];players:Player[];withdrawals:Withdrawal[];contentVersion:number;matches:Match[];videos:Video[];playoffs:Record<string,Result>;legacyPlayoffs?:Record<string,Result>;lockedSeeds:string[];lanDate:string;lanVenue:string;conflicts:{match:string;league:(number|null)[];roundSchedule:number[];resolution:string}[];revision:number;updatedAt:string;audit:{at:string;action:string}[]};
+export type Tournament={teams:Team[];players:Player[];withdrawals:Withdrawal[];contentVersion:number;matches:Match[];videos:Video[];playoffs:Record<string,Result>;lanMatches?:BracketDef[];legacyPlayoffs?:Record<string,Result>;lockedSeeds:string[];lanDate:string;lanVenue:string;conflicts:{match:string;league:(number|null)[];roundSchedule:number[];resolution:string}[];revision:number;updatedAt:string;audit:{at:string;action:string}[]};
 export const seed=initial as Tournament;
 // Upgrade old persisted records without replacing scores, playoff results, or owner edits.
 export function normalize(d:Tournament):Tournament{
@@ -24,7 +24,7 @@ export function normalize(d:Tournament):Tournament{
    if(!d.videos.some(v=>v.id==='iVYHQ0uzUuU-mm-ct'))d.videos.splice(d.videos.indexOf(shared)+1,0,{...shared,id:'iVYHQ0uzUuU-mm-ct',title:'Mommy Mag vs Cliip That',teams:['mm','ct'],matchId:'w1-mm-ct'});
   }
   for(const v of d.videos)syncRecording(d,v);
-  const allowed=new Set(bracketDefs.map(m=>m.id));
+  const allowed=new Set(bracketDefs.filter(m=>m.division==='winners').map(m=>m.id));
   for(const [id,r] of Object.entries(d.playoffs)){if(!allowed.has(id)){(d.legacyPlayoffs??={})[id]=r;delete d.playoffs[id]}else if(r.bestOf!==bracketDefs.find(m=>m.id===id)!.bestOf){(d.legacyPlayoffs??={})[id]=structuredClone(r);d.playoffs[id]={scoreA:null,scoreB:null,bestOf:bracketDefs.find(m=>m.id===id)!.bestOf}}}
   reconcile(d);d.contentVersion=3;
  }
@@ -49,10 +49,14 @@ export function normalize(d:Tournament):Tournament{
   const cliipThat=d.teams.find(t=>t.id==='ct');if(cliipThat)cliipThat.color=seed.teams.find(t=>t.id==='ct')!.color;
   d.contentVersion=8;
  }
+ if(d.contentVersion<9){
+  const final=d.playoffs.w7;if(final&&final.bestOf!==7){(d.legacyPlayoffs??={}).w7=structuredClone(final);delete d.playoffs.w7}
+  d.contentVersion=9;
+ }
  return d;
 }
 export function youtubeId(value:string){const u=new URL(value);if(u.protocol!=='https:'||!['youtube.com','www.youtube.com','youtu.be'].includes(u.hostname))throw Error('Use a YouTube HTTPS link.');const id=u.hostname==='youtu.be'?u.pathname.slice(1).split('/')[0]:u.searchParams.get('v')||u.pathname.split('/')[2];if(!id||!/^[\w-]{11}$/.test(id))throw Error('Enter a valid YouTube video URL.');return id}
-export function recordingWeek(week:number){return week===10?'Playoffs':`Week ${week}`}
+export function recordingWeek(week:number){return week===10?'LAN Bracket':`Week ${week}`}
 export function syncRecording(d:Tournament,v:Video){v.playerIds=d.players.filter(p=>v.teams.includes(p.teamId)).map(p=>p.id);if(v.matchId?.startsWith('playoff:')){const m=bracket(d).find(m=>'playoff:'+m.id===v.matchId);if(v.week!==10||!m?.a||!m.b||v.teams.length!==2||!v.teams.includes(m.a)||!v.teams.includes(m.b))delete v.matchId}if(!v.matchId?.startsWith('playoff:')){const m=d.matches.find(m=>m.week===v.week&&v.teams.length===2&&v.teams.includes(m.a)&&v.teams.includes(m.b));v.matchId=m?.id}return v}
 export function recordingsForPlayer(d:Tournament,id:string){const p=d.players.find(p=>p.id===id);return p?d.videos.filter(v=>v.playerIds?.includes(id)||(!v.playerIds&&v.teams.includes(p.teamId))):[]}
 export function recordingsForMatch(d:Tournament,m:Match){return d.videos.filter(v=>v.matchId===m.id||(!v.matchId&&v.week===m.week&&v.teams.includes(m.a)&&v.teams.includes(m.b)))}
@@ -117,21 +121,45 @@ export function forecastBreakdown(d:Tournament,a:string,b:string){
 }
 export function forecast(d:Tournament,a:string,b:string):number{return a===b?50:forecastBreakdown(d,a,b)?.probability??50}
 
-type Slot={seed:number}|{win:string};
-type BracketDef={id:string;label:string;group:string;a:Slot;b:Slot;bestOf:number};
+export type Slot={seed:number}|{win:string}|{team:string}|{empty:true};
+export type BracketDef={id:string;label:string;group:string;division:'winners'|'losers';round:number;a:Slot;b:Slot;bestOf:number};
 const S=(seed:number):Slot=>({seed}),W=(win:string):Slot=>({win});
 export const bracketDefs:BracketDef[]=[
- {id:'w1',label:'Quarterfinal 1',group:'Quarterfinals',a:S(1),b:S(8),bestOf:3},{id:'w2',label:'Quarterfinal 2',group:'Quarterfinals',a:S(4),b:S(5),bestOf:3},{id:'w3',label:'Quarterfinal 3',group:'Quarterfinals',a:S(2),b:S(7),bestOf:3},{id:'w4',label:'Quarterfinal 4',group:'Quarterfinals',a:S(3),b:S(6),bestOf:3},
- {id:'w5',label:'Semifinal 1',group:'Semifinals',a:W('w1'),b:W('w2'),bestOf:5},{id:'w6',label:'Semifinal 2',group:'Semifinals',a:W('w3'),b:W('w4'),bestOf:5},{id:'w7',label:'Final',group:'Final',a:W('w5'),b:W('w6'),bestOf:5}
+ {id:'w1',label:'Quarterfinal 1',group:'Quarterfinals',division:'winners',round:1,a:S(1),b:S(8),bestOf:3},{id:'w2',label:'Quarterfinal 2',group:'Quarterfinals',division:'winners',round:1,a:S(4),b:S(5),bestOf:3},{id:'w3',label:'Quarterfinal 3',group:'Quarterfinals',division:'winners',round:1,a:S(2),b:S(7),bestOf:3},{id:'w4',label:'Quarterfinal 4',group:'Quarterfinals',division:'winners',round:1,a:S(3),b:S(6),bestOf:3},
+ {id:'w5',label:'Semifinal 1',group:'Semifinals',division:'winners',round:2,a:W('w1'),b:W('w2'),bestOf:5},{id:'w6',label:'Semifinal 2',group:'Semifinals',division:'winners',round:2,a:W('w3'),b:W('w4'),bestOf:5},{id:'w7',label:'Final',group:'Final',division:'winners',round:3,a:W('w5'),b:W('w6'),bestOf:7},
+ {id:'l1',label:'Losers semifinal 1',group:'Semifinals',division:'losers',round:1,a:{empty:true},b:{empty:true},bestOf:3},
+ {id:'l2',label:'Losers semifinal 2',group:'Semifinals',division:'losers',round:1,a:{empty:true},b:{empty:true},bestOf:3},
+ {id:'l3',label:'Losers final',group:'Final',division:'losers',round:2,a:W('l1'),b:W('l2'),bestOf:3}
 ];
+export function lanDefinitions(d:Tournament){return [...(d.lanMatches??bracketDefs)].sort((a,b)=>a.round-b.round||a.id.localeCompare(b.id))}
+export function validateLanDefinitions(d:Tournament,defs:BracketDef[]){
+ if(!Array.isArray(defs)||defs.length>64)throw Error('Use at most 64 LAN matches.');
+ const ids=new Set<string>();
+ for(const m of defs){
+  if(typeof m.id!=='string'||!m.id||ids.has(m.id))throw Error('Each match needs a unique ID.');ids.add(m.id);
+  if(!['winners','losers'].includes(m.division)||!Number.isInteger(m.round)||m.round<1||m.round>8)throw Error('Choose a bracket and round from 1 to 8.');
+  if(typeof m.label!=='string'||!m.label.trim()||m.label.length>80||!['Quarterfinals','Semifinals','Final'].includes(m.group))throw Error('Enter a match and round name.');
+  const expected=m.division==='losers'||m.group==='Quarterfinals'?3:m.group==='Final'?7:5;
+  if(m.bestOf!==expected)throw Error('Winners: quarterfinals BO3, semifinals BO5, final BO7. Losers: BO3.');
+  for(const slot of [m.a,m.b]){
+   if(!slot||typeof slot!=='object'||Object.keys(slot).length!==1)throw Error('Choose a valid team source.');
+   if('seed'in slot){if(!Number.isInteger(slot.seed)||slot.seed<1||slot.seed>8)throw Error('Choose a seed from 1 to 8.');}
+   else if('team'in slot){if(!d.teams.some(t=>t.id===slot.team))throw Error('Choose a known team.');}
+   else if('win'in slot){const source=defs.find(s=>s.id===slot.win);if(!source||source.division!==m.division||source.round>=m.round)throw Error('Advancement must come from an earlier round in the same bracket.');}
+   else if(!('empty'in slot)||slot.empty!==true)throw Error('Choose a valid team source.');
+  }
+  if(JSON.stringify(m.a)===JSON.stringify(m.b)&&!('empty'in m.a))throw Error('Choose two different team sources.');
+ }
+ const preview=bracket({...d,lanMatches:defs});if(preview.some(m=>m.a&&m.a===m.b))throw Error('A team cannot play itself.');
+}
 export function bracket(d:Tournament){
  const seeds=d.lockedSeeds.length?d.lockedSeeds:standings(d).map(t=>t.id);const resolved:Record<string,{a:string|null;b:string|null;winner:string|null;loser:string|null} >={};
- return bracketDefs.map(def=>{const slot=(s:Slot):string|null=>'seed'in s?seeds[s.seed-1]??null:resolved[s.win]?.winner??null;
+ return lanDefinitions(d).map(def=>{const slot=(s:Slot):string|null=>'seed'in s?seeds[s.seed-1]??null:'team'in s?s.team:'win'in s?resolved[s.win]?.winner??null:null;
  const a=slot(def.a),b=slot(def.b);
  const r=d.playoffs[def.id];const valid=!!(a&&b&&r?.bestOf===def.bestOf&&r?.participants?.[0]===a&&r?.participants?.[1]===b);const scoreA=valid?r.scoreA:null,scoreB=valid?r.scoreB:null;const done=scoreA!==null&&scoreB!==null;
  const winner=done?(scoreA!>scoreB!?a:b):null,loser=done?(scoreA!>scoreB!?b:a):null;resolved[def.id]={a,b,winner,loser};return {...def,a,b,scoreA,scoreB,bestOf:def.bestOf,winner,loser};});
 }
-export function reconcile(d:Tournament){for(const m of bracket(d)){const r=d.playoffs[m.id];if(r&&(r.participants?.[0]!==m.a||r.participants?.[1]!==m.b)){d.playoffs[m.id]={scoreA:null,scoreB:null,bestOf:r.bestOf}}}return d}
+export function reconcile(d:Tournament){for(const m of bracket(d)){const r=d.playoffs[m.id];if(r&&(r.bestOf!==m.bestOf||r.participants?.[0]!==m.a||r.participants?.[1]!==m.b)){d.playoffs[m.id]={scoreA:null,scoreB:null,bestOf:m.bestOf}}}return d}
 export function validateScore(a:number|null,b:number|null,bestOf:number){if(![3,5,7].includes(bestOf))throw Error('Choose best of 3, 5, or 7.');if(a===null&&b===null)return;if(a===null||b===null)throw Error('Enter both scores, or clear both.');const target=(bestOf+1)/2;if(!Number.isInteger(a)||!Number.isInteger(b)||a<0||b<0||a>target||b>target||a===b||Math.max(a,b)!==target)throw Error(`A completed best-of-${bestOf} series needs one winner at ${target} games.`)}
 
 export function filterRecordings(d:Tournament,{query='',week='all',team='all'}:{query?:string;week?:string;team?:string}={}){

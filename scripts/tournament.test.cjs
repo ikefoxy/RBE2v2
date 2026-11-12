@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),cp=r
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'rbe-logic-'));
 process.on('exit',()=>fs.rmSync(tmp,{recursive:true,force:true}));
 cp.execFileSync(process.execPath,['node_modules/typescript/bin/tsc','lib/tournament.ts','--outDir',tmp,'--module','commonjs','--resolveJsonModule','--esModuleInterop','--skipLibCheck','--target','es2022']);
-const {seed,normalize,roundRobinCheck,standings,forecast,bracket,validateScore,reconcile,nextMatch,youtubeId,syncRecording,recordingsForMatch,recordingsForPlayer,filterRecordings,teamRankPoints,forecastWeights,forecastBreakdown,mountainDate,tournamentWeek,seasonEntries,weekByes}=require(path.join(tmp,'lib/tournament.js'));
+const {seed,normalize,roundRobinCheck,standings,forecast,bracket,validateScore,reconcile,nextMatch,youtubeId,syncRecording,recordingsForMatch,recordingsForPlayer,filterRecordings,teamRankPoints,forecastWeights,forecastBreakdown,mountainDate,tournamentWeek,seasonEntries,weekByes,lanDefinitions,validateLanDefinitions}=require(path.join(tmp,'lib/tournament.js'));
 const fresh=()=>structuredClone(seed);
 assert.equal(roundRobinCheck(seed).valid,true);assert.equal(seed.matches.length,28);
 assert.ok(roundRobinCheck(seed).teams.every(t=>t.total===7&&t.opponents===7));
@@ -40,21 +40,21 @@ const upcoming=fresh();assert.equal(nextMatch(upcoming).id,'w5-mm-mp');const nex
 for(const m of seed.matches){validateScore(m.scoreA,m.scoreB,m.bestOf);assert.ok(forecast(seed,m.a,m.b)>0&&forecast(seed,m.a,m.b)<100)}
 const empty=fresh();empty.matches.forEach(m=>{m.scoreA=null;m.scoreB=null});empty.players.forEach(p=>p.rank='GC1');assert.equal(forecast(empty,'ct','mm'),50);
 for(const [a,b,bo] of [[1,1,5],[2,1,5],[-1,3,5],[3,null,5],[3,4,5],[2.5,3,5]])assert.throws(()=>validateScore(a,b,bo));
-const d=fresh();assert.deepEqual(bracket(d).map(m=>m.bestOf),[3,3,3,3,5,5,5]);assert.equal(bracket(d).length,7);
-assert.deepEqual(bracket(d).slice(0,4).map(m=>[m.a,m.b]),[[ranks[0].id,ranks[7].id],[ranks[3].id,ranks[4].id],[ranks[1].id,ranks[6].id],[ranks[2].id,ranks[5].id]]);
+const d=fresh();assert.deepEqual(bracket(d).filter(m=>m.division==='winners').map(m=>m.bestOf),[3,3,3,3,5,5,7]);assert.equal(bracket(d).length,10);
+assert.deepEqual(bracket(d).filter(m=>m.division==='winners').slice(0,4).map(m=>[m.a,m.b]),[[ranks[0].id,ranks[7].id],[ranks[3].id,ranks[4].id],[ranks[1].id,ranks[6].id],[ranks[2].id,ranks[5].id]]);
 function win(id,side=0){const m=bracket(d).find(m=>m.id===id);assert.ok(m.a&&m.b);const target=(m.bestOf+1)/2;d.playoffs[id]={scoreA:side?0:target,scoreB:side?target:0,bestOf:m.bestOf,participants:[m.a,m.b]};reconcile(d)}
 d.lockedSeeds=ranks.map(t=>t.id);for(const id of ['w1','w2','w3','w4','w5','w6','w7'])win(id);
 assert.equal(bracket(d).find(m=>m.id==='w7').winner,ranks[0].id);win('w1',1);assert.equal(d.playoffs.w5.scoreA,null);assert.equal(d.playoffs.w7.scoreA,null);assert.equal(d.playoffs.w6.scoreA,3);
-const locked=bracket(d)[0].a;d.matches.forEach(m=>{if(m.a==='ssl'||m.b==='ssl'){m.scoreA=m.a==='ssl'?0:3;m.scoreB=m.b==='ssl'?0:3}});assert.equal(bracket(d)[0].a,locked);d.lockedSeeds=[];d.playoffs={};assert.equal(bracket(d)[0].a,standings(d)[0].id);
-const custom=fresh();custom.lockedSeeds=standings(custom).map(t=>t.id);[custom.lockedSeeds[0],custom.lockedSeeds[7]]=[custom.lockedSeeds[7],custom.lockedSeeds[0]];assert.equal(bracket(custom)[0].a,custom.lockedSeeds[0]);
+const locked=bracket(d).find(m=>m.id==='w1').a;d.matches.forEach(m=>{if(m.a==='ssl'||m.b==='ssl'){m.scoreA=m.a==='ssl'?0:3;m.scoreB=m.b==='ssl'?0:3}});assert.equal(bracket(d).find(m=>m.id==='w1').a,locked);d.lockedSeeds=[];d.playoffs={};assert.equal(bracket(d).find(m=>m.id==='w1').a,standings(d)[0].id);
+const custom=fresh();custom.lockedSeeds=standings(custom).map(t=>t.id);[custom.lockedSeeds[0],custom.lockedSeeds[7]]=[custom.lockedSeeds[7],custom.lockedSeeds[0]];assert.equal(bracket(custom).find(m=>m.id==='w1').a,custom.lockedSeeds[0]);
 // Upgrade v2 records without losing edited scores, valid dates, or existing recordings.
 const legacy=fresh();legacy.contentVersion=2;legacy.videos=legacy.videos.filter(v=>v.id!=='iVYHQ0uzUuU-mm-ct');legacy.videos.find(v=>v.id==='iVYHQ0uzUuU').teams=['ssl','hg','mm','ct'];legacy.matches[0].scoreB=1;legacy.matches.find(m=>m.id==='w6-mp-ssl').date='';legacy.matches.find(m=>m.id==='w7-ssl-lw').date='2026-11-06';legacy.playoffs={l1:{scoreA:2,scoreB:1,bestOf:3,participants:['ct','mm']},w5:{scoreA:2,scoreB:1,bestOf:3,participants:['ct','mm']}};normalize(legacy);assert.equal(legacy.matches[0].scoreB,1);assert.equal(legacy.matches.find(m=>m.id==='w6-mp-ssl').date,'2026-10-28');assert.equal(legacy.matches.find(m=>m.id==='w7-ssl-lw').date,'2026-11-06');assert.equal(legacy.videos.length,17);assert.ok(legacy.legacyPlayoffs.l1);assert.equal(legacy.playoffs.w5.scoreA,null);assert.ok(!legacy.playoffs.l1);normalize(legacy);assert.equal(legacy.videos.length,17);
-console.log('PASS: seven-opponent round robin, screenshot dates, defaults excluded, all player ranks, shared-stream titles, recording/player linkage, next-match updates, single elimination BO3/BO5/BO5, seed swaps, and safe data upgrades.');
+console.log('PASS: seven-opponent round robin, screenshot dates, defaults excluded, all player ranks, shared-stream titles, recording/player linkage, next-match updates, independent LAN brackets BO3/BO5/BO7, seed swaps, and safe data upgrades.');
 
 // Apply this rank correction once without changing scores, IDs, names, or later admin edits.
 const v3=fresh();v3.contentVersion=3;v3.players.filter(p=>p.teamId==='mp').forEach(p=>p.rank='Grand Plat');
 const before=JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos});normalize(v3);
-assert.equal(v3.contentVersion,8);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
+assert.equal(v3.contentVersion,9);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
 assert.equal(JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos}),before);
 v3.players.find(p=>p.id==='mp-0').rank='GC1';normalize(v3);assert.equal(v3.players.find(p=>p.id==='mp-0').rank,'GC1');
 const {rankOptions,rankConfig,isRank}=require(path.join(tmp,'lib/ranks.js'));
@@ -120,13 +120,13 @@ console.log('PASS: MM/SSL live-record math, two-decimal complementary estimates,
 
 // Upgrade saved team identity without changing any owner-managed tournament data.
 const redHex=fresh();redHex.contentVersion=6;redHex.teams.find(t=>t.id==='hg').color='#b875fa';
-const beforeColor=structuredClone(redHex);normalize(redHex);beforeColor.teams.find(t=>t.id==='hg').color='#ff5b5b';beforeColor.contentVersion=8;
+const beforeColor=structuredClone(redHex);normalize(redHex);beforeColor.teams.find(t=>t.id==='hg').color='#ff5b5b';beforeColor.contentVersion=9;
 assert.deepEqual(redHex,beforeColor);assert.equal(seed.teams.find(t=>t.id==='hg').color,'#ff5b5b');
 normalize(redHex);assert.deepEqual(redHex,beforeColor);
 console.log('PASS: Hex Girls red identity upgrades saved data without altering results, ranks or recordings.');
 
 const blueCliip=fresh();blueCliip.contentVersion=7;blueCliip.teams.find(t=>t.id==='ct').color='#35beff';
-const beforeBlue=structuredClone(blueCliip);normalize(blueCliip);beforeBlue.teams.find(t=>t.id==='ct').color='#3f79e8';beforeBlue.contentVersion=8;
+const beforeBlue=structuredClone(blueCliip);normalize(blueCliip);beforeBlue.teams.find(t=>t.id==='ct').color='#3f79e8';beforeBlue.contentVersion=9;
 assert.deepEqual(blueCliip,beforeBlue);assert.equal(seed.teams.find(t=>t.id==='ct').color,'#3f79e8');
 normalize(blueCliip);assert.deepEqual(blueCliip,beforeBlue);
 console.log('PASS: Cliip That deeper blue identity updates saved data and preserves other teams and results.');
@@ -154,3 +154,16 @@ assert.deepEqual(seasonEntries(seed,'not-a-team'),[]);assert.deepEqual(weekByes(
 assert.equal(JSON.stringify(seed),seasonBefore);assert.equal(JSON.stringify(standings(seed)),recordsBeforeSeason);
 const seasonEdit=fresh();const ownEntry=seasonEntries(seasonEdit,'ct').find(e=>e.kind==='match');ownEntry.match.scoreA=3;ownEntry.match.scoreB=2;assert.equal(seasonEntries(seasonEdit,'ct').find(e=>e.id===ownEntry.id).match.scoreB,2);
 console.log('PASS: all 72 team/week entries, seven active opponents plus one default and one BYE per team, and unchanged competitive records.');
+
+// Independent losers bracket, editable slots, safe migration and advancement.
+const lan=fresh();lan.lanMatches=structuredClone(lanDefinitions(lan));validateLanDefinitions(lan,lan.lanMatches);
+for(const [id,a,b] of [['l1','ct','mm'],['l2','pg','lw']]){Object.assign(lan.lanMatches.find(m=>m.id===id),{a:{team:a},b:{team:b}});lan.playoffs[id]={scoreA:2,scoreB:0,bestOf:3,participants:[a,b]}}
+validateLanDefinitions(lan,lan.lanMatches);assert.deepEqual([bracket(lan).find(m=>m.id==='l3').a,bracket(lan).find(m=>m.id==='l3').b],['ct','pg']);
+const upperBefore=JSON.stringify(bracket(lan).filter(m=>m.division==='winners'));
+lan.playoffs.l3={scoreA:2,scoreB:1,bestOf:3,participants:['ct','pg']};lan.playoffs.l1={scoreA:0,scoreB:2,bestOf:3,participants:['ct','mm']};reconcile(lan);assert.equal(lan.playoffs.l3.scoreA,null);assert.equal(JSON.stringify(bracket(lan).filter(m=>m.division==='winners')),upperBefore);
+const cross=structuredClone(lan.lanMatches);cross.find(m=>m.id==='l3').a={win:'w1'};assert.throws(()=>validateLanDefinitions(lan,cross),/same bracket/);
+const cycle=structuredClone(lan.lanMatches);cycle.find(m=>m.id==='l1').a={win:'l3'};assert.throws(()=>validateLanDefinitions(lan,cycle),/earlier round/);
+const badFormat=structuredClone(lan.lanMatches);badFormat.find(m=>m.id==='l3').bestOf=5;assert.throws(()=>validateLanDefinitions(lan,badFormat));
+const extra={id:'extra',label:'Losers quarterfinal',division:'losers',round:1,group:'Quarterfinals',a:{team:'mf'},b:{team:'ssl'},bestOf:3};lan.lanMatches.push(extra);validateLanDefinitions(lan,lan.lanMatches);assert.ok(bracket(lan).some(m=>m.id==='extra'));
+const upgrade=fresh();upgrade.contentVersion=8;upgrade.playoffs.w7={scoreA:3,scoreB:1,bestOf:5,participants:['ct','mm']};const leagueBefore=JSON.stringify(upgrade.matches);normalize(upgrade);assert.ok(upgrade.legacyPlayoffs.w7);assert.ok(!upgrade.playoffs.w7);assert.equal(JSON.stringify(upgrade.matches),leagueBefore);assert.equal(bracket(upgrade).find(m=>m.id==='w7').bestOf,7);validateScore(4,3,7);assert.throws(()=>validateScore(3,2,7));
+console.log('PASS: separate losers advancement, no cross-bracket links/cycles, match additions, BO7 final validation, and lossless saved-state upgrade.');

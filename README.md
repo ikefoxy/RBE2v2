@@ -35,3 +35,9 @@ Example with Mommy Mag 3–0 / 9–2 and SSL 3–0 / 9–4: both average 21 rank
 GitHub: https://github.com/ikefoxy/RBE2v2
 
 Sites hosting identity is retained in `.openai/hosting.json`. Publish through the Sites workflow and push each completed fix to GitHub. The same source commit should back both destinations.
+
+## LAN Bracket
+
+The public LAN Bracket shows independent winners and losers brackets. Winners use BO3 quarterfinals, BO5 semifinals and a BO7 final. All losers matches are BO3. The losers bracket starts with two unassigned semifinals and a final; assign its teams manually in Admin → LAN Bracket. Advancement never crosses brackets.
+
+The existing password-protected admin portal supports seed swaps, team assignments, winner sources, match names/rounds, adding/removing matches, scores and resets. Save matchup changes before scores. Changes invalidate affected later results; league standings are unchanged. LAN recordings can be added through Admin → Recordings after teams are determined. Local integration checks: `python3 scripts/test-lan-local.py` with disposable local admin credentials and the preview on port 5173.
