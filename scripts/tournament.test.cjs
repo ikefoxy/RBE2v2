@@ -54,7 +54,7 @@ console.log('PASS: seven-opponent round robin, screenshot dates, defaults exclud
 // Apply this rank correction once without changing scores, IDs, names, or later admin edits.
 const v3=fresh();v3.contentVersion=3;v3.players.filter(p=>p.teamId==='mp').forEach(p=>p.rank='Grand Plat');
 const before=JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos});normalize(v3);
-assert.equal(v3.contentVersion,10);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
+assert.equal(v3.contentVersion,11);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
 assert.equal(JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos}),before);
 v3.players.find(p=>p.id==='mp-0').rank='GC1';normalize(v3);assert.equal(v3.players.find(p=>p.id==='mp-0').rank,'GC1');
 const {rankOptions,rankConfig,isRank}=require(path.join(tmp,'lib/ranks.js'));
@@ -120,13 +120,13 @@ console.log('PASS: MM/SSL live-record math, two-decimal complementary estimates,
 
 // Upgrade saved team identity without changing any owner-managed tournament data.
 const redHex=fresh();redHex.contentVersion=6;redHex.teams.find(t=>t.id==='hg').color='#b875fa';
-const beforeColor=structuredClone(redHex);normalize(redHex);beforeColor.teams.find(t=>t.id==='hg').color='#ff5b5b';beforeColor.contentVersion=10;
+const beforeColor=structuredClone(redHex);normalize(redHex);beforeColor.teams.find(t=>t.id==='hg').color='#ff5b5b';beforeColor.contentVersion=11;
 assert.deepEqual(redHex,beforeColor);assert.equal(seed.teams.find(t=>t.id==='hg').color,'#ff5b5b');
 normalize(redHex);assert.deepEqual(redHex,beforeColor);
 console.log('PASS: Hex Girls red identity upgrades saved data without altering results, ranks or recordings.');
 
 const blueCliip=fresh();blueCliip.contentVersion=7;blueCliip.teams.find(t=>t.id==='ct').color='#35beff';
-const beforeBlue=structuredClone(blueCliip);normalize(blueCliip);beforeBlue.teams.find(t=>t.id==='ct').color='#3f79e8';beforeBlue.contentVersion=10;
+const beforeBlue=structuredClone(blueCliip);normalize(blueCliip);beforeBlue.teams.find(t=>t.id==='ct').color='#3f79e8';beforeBlue.contentVersion=11;
 assert.deepEqual(blueCliip,beforeBlue);assert.equal(seed.teams.find(t=>t.id==='ct').color,'#3f79e8');
 normalize(blueCliip);assert.deepEqual(blueCliip,beforeBlue);
 console.log('PASS: Cliip That deeper blue identity updates saved data and preserves other teams and results.');
@@ -190,3 +190,5 @@ for(const bo of [3,5,7]){const target=(bo+1)/2;for(let loser=0;loser<target;lose
 const allResults=fresh();allResults.matches.forEach(m=>{m.scoreA=3;m.scoreB=0});assert.ok(standings(allResults).every(t=>t.form.length===7));
 const untouched=fresh();untouched.contentVersion=9;untouched.lanMatches=structuredClone(lanDefinitions(untouched));untouched.lanMatches.find(m=>m.id==='l1').a={empty:true};untouched.lanMatches.find(m=>m.id==='l1').b={team:'ct'};normalize(untouched);assert.deepEqual(untouched.lanMatches.find(m=>m.id==='l1').a,{lose:'w1'});assert.deepEqual(untouched.lanMatches.find(m=>m.id==='l1').b,{team:'ct'});
 console.log('PASS: every quarterfinal outcome, seed/half placement, two-match guarantee, separate champions, invalid-score non-advancement, strict BO3/5/7 targets, all seven weekly results and safe routing upgrade.');
+const consolationNames=fresh();consolationNames.contentVersion=10;consolationNames.lanMatches=structuredClone(lanDefinitions(consolationNames));consolationNames.lanMatches.find(m=>m.id==='l1').label='Losers semifinal 1';consolationNames.lanMatches.find(m=>m.id==='l2').label='Saturday semifinal';const originalLeague=JSON.stringify(consolationNames.matches);normalize(consolationNames);assert.equal(consolationNames.lanMatches.find(m=>m.id==='l1').label,'Consolation semifinal 1');assert.equal(consolationNames.lanMatches.find(m=>m.id==='l2').label,'Saturday semifinal');assert.equal(JSON.stringify(consolationNames.matches),originalLeague);assert.deepEqual(consolationNames.lanMatches.find(m=>m.id==='l1').a,{lose:'w1'});
+console.log('PASS: Consolation labels migrate safely without changing custom names, scores or advancement.');

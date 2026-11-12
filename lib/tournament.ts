@@ -58,6 +58,10 @@ export function normalize(d:Tournament):Tournament{
   for(const [id,a,b] of [['l1','w1','w2'],['l2','w3','w4']]){const match=d.lanMatches?.find(m=>m.id===id&&m.division==='losers'&&m.round===1);if(match){if('empty'in match.a)match.a={lose:a};if('empty'in match.b)match.b={lose:b}}}
   d.contentVersion=10;
  }
+ if(d.contentVersion<11){
+  for(const match of d.lanMatches??[]){if(/^Losers (semifinal [12]|final)$/.test(match.label))match.label=match.label.replace('Losers ','Consolation ')}
+  d.contentVersion=11;
+ }
  return d;
 }
 export function youtubeId(value:string){const u=new URL(value);if(u.protocol!=='https:'||!['youtube.com','www.youtube.com','youtu.be'].includes(u.hostname))throw Error('Use a YouTube HTTPS link.');const id=u.hostname==='youtu.be'?u.pathname.slice(1).split('/')[0]:u.searchParams.get('v')||u.pathname.split('/')[2];if(!id||!/^[\w-]{11}$/.test(id))throw Error('Enter a valid YouTube video URL.');return id}
@@ -132,9 +136,9 @@ const S=(seed:number):Slot=>({seed}),W=(win:string):Slot=>({win});
 export const bracketDefs:BracketDef[]=[
  {id:'w1',label:'Quarterfinal 1',group:'Quarterfinals',division:'winners',round:1,a:S(1),b:S(8),bestOf:3},{id:'w2',label:'Quarterfinal 2',group:'Quarterfinals',division:'winners',round:1,a:S(4),b:S(5),bestOf:3},{id:'w3',label:'Quarterfinal 3',group:'Quarterfinals',division:'winners',round:1,a:S(2),b:S(7),bestOf:3},{id:'w4',label:'Quarterfinal 4',group:'Quarterfinals',division:'winners',round:1,a:S(3),b:S(6),bestOf:3},
  {id:'w5',label:'Semifinal 1',group:'Semifinals',division:'winners',round:2,a:W('w1'),b:W('w2'),bestOf:5},{id:'w6',label:'Semifinal 2',group:'Semifinals',division:'winners',round:2,a:W('w3'),b:W('w4'),bestOf:5},{id:'w7',label:'Final',group:'Final',division:'winners',round:3,a:W('w5'),b:W('w6'),bestOf:7},
- {id:'l1',label:'Losers semifinal 1',group:'Semifinals',division:'losers',round:1,a:{lose:'w1'},b:{lose:'w2'},bestOf:3},
- {id:'l2',label:'Losers semifinal 2',group:'Semifinals',division:'losers',round:1,a:{lose:'w3'},b:{lose:'w4'},bestOf:3},
- {id:'l3',label:'Losers final',group:'Final',division:'losers',round:2,a:W('l1'),b:W('l2'),bestOf:3}
+ {id:'l1',label:'Consolation semifinal 1',group:'Semifinals',division:'losers',round:1,a:{lose:'w1'},b:{lose:'w2'},bestOf:3},
+ {id:'l2',label:'Consolation semifinal 2',group:'Semifinals',division:'losers',round:1,a:{lose:'w3'},b:{lose:'w4'},bestOf:3},
+ {id:'l3',label:'Consolation final',group:'Final',division:'losers',round:2,a:W('l1'),b:W('l2'),bestOf:3}
 ];
 export function lanDefinitions(d:Tournament){return [...(d.lanMatches??bracketDefs)].sort((a,b)=>(a.division===b.division?0:a.division==='winners'?-1:1)||a.round-b.round||a.id.localeCompare(b.id))}
 export function validateLanDefinitions(d:Tournament,defs:BracketDef[]){
@@ -145,13 +149,13 @@ export function validateLanDefinitions(d:Tournament,defs:BracketDef[]){
   if(!['winners','losers'].includes(m.division)||!Number.isInteger(m.round)||m.round<1||m.round>8)throw Error('Choose a bracket and round from 1 to 8.');
   if(typeof m.label!=='string'||!m.label.trim()||m.label.length>80||!['Quarterfinals','Semifinals','Final'].includes(m.group))throw Error('Enter a match and round name.');
   const expected=m.division==='losers'||m.group==='Quarterfinals'?3:m.group==='Final'?7:5;
-  if(m.bestOf!==expected)throw Error('Winners: quarterfinals BO3, semifinals BO5, final BO7. Losers: BO3.');
+  if(m.bestOf!==expected)throw Error('Winners: quarterfinals BO3, semifinals BO5, final BO7. Consolation: BO3.');
   for(const slot of [m.a,m.b]){
    if(!slot||typeof slot!=='object'||Object.keys(slot).length!==1)throw Error('Choose a valid team source.');
    if('seed'in slot){if(!Number.isInteger(slot.seed)||slot.seed<1||slot.seed>8)throw Error('Choose a seed from 1 to 8.');}
    else if('team'in slot){if(!d.teams.some(t=>t.id===slot.team))throw Error('Choose a known team.');}
    else if('win'in slot){const source=defs.find(s=>s.id===slot.win);if(!source||source.division!==m.division||source.round>=m.round)throw Error('Advancement must come from an earlier round in the same bracket.');}
-   else if('lose'in slot){const source=defs.find(s=>s.id===slot.lose);if(!source||source.division!=='winners'||source.group!=='Quarterfinals'||m.division!=='losers'||m.round!==1)throw Error('Quarterfinal losers may enter only the first losers round.');}
+   else if('lose'in slot){const source=defs.find(s=>s.id===slot.lose);if(!source||source.division!=='winners'||source.group!=='Quarterfinals'||m.division!=='losers'||m.round!==1)throw Error('Quarterfinal losers may enter only the first consolation round.');}
    else if(!('empty'in slot)||slot.empty!==true)throw Error('Choose a valid team source.');
   }
   if(JSON.stringify(m.a)===JSON.stringify(m.b)&&!('empty'in m.a))throw Error('Choose two different team sources.');

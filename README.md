@@ -38,6 +38,8 @@ Sites hosting identity is retained in `.openai/hosting.json`. Publish through th
 
 ## LAN Bracket
 
-The public LAN Bracket shows independent winners and losers brackets. Winners use BO3 quarterfinals, BO5 semifinals and a BO7 final. All losers matches are BO3. Quarterfinals 1/2 feed their losers into the top losers semifinal; quarterfinals 3/4 feed the bottom semifinal. Each team gets at least two matches. Winners advance within each bracket to separate finals and champion boxes; there is no combined grand final. Admins can override the team sources.
+The public LAN Bracket shows independent winners and consolation brackets. Winners use BO3 quarterfinals, BO5 semifinals and a BO7 final. All consolation matches are BO3. Quarterfinals 1/2 feed their losers into the top consolation semifinal; quarterfinals 3/4 feed the bottom semifinal. Each team gets at least two matches. Winners advance within each bracket to separate finals and champion boxes; there is no combined grand final. Admins can override the team sources.
 
 The existing password-protected admin portal supports seed swaps, team assignments, winner sources, match names/rounds, adding/removing matches, scores and resets. Save matchup changes before scores. Changes invalidate affected later results; league standings are unchanged. LAN recordings can be added through Admin → Recordings after teams are determined. Local integration checks: `python3 scripts/test-lan-local.py` with disposable local admin credentials and the preview on port 5173.
+
+In Admin → LAN Bracket, click any match to open its score and matchup editor. Use Add match for a new match and Seeding for seed order/reset controls. Score saves remain in the dialog and refresh the bracket for viewers.
