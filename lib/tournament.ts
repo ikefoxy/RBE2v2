@@ -53,6 +53,11 @@ export function normalize(d:Tournament):Tournament{
   const final=d.playoffs.w7;if(final&&final.bestOf!==7){(d.legacyPlayoffs??={}).w7=structuredClone(final);delete d.playoffs.w7}
   d.contentVersion=9;
  }
+ if(d.contentVersion<10){
+  // Fill only untouched empty entry slots; preserve organizer team assignments and custom matches.
+  for(const [id,a,b] of [['l1','w1','w2'],['l2','w3','w4']]){const match=d.lanMatches?.find(m=>m.id===id&&m.division==='losers'&&m.round===1);if(match){if('empty'in match.a)match.a={lose:a};if('empty'in match.b)match.b={lose:b}}}
+  d.contentVersion=10;
+ }
  return d;
 }
 export function youtubeId(value:string){const u=new URL(value);if(u.protocol!=='https:'||!['youtube.com','www.youtube.com','youtu.be'].includes(u.hostname))throw Error('Use a YouTube HTTPS link.');const id=u.hostname==='youtu.be'?u.pathname.slice(1).split('/')[0]:u.searchParams.get('v')||u.pathname.split('/')[2];if(!id||!/^[\w-]{11}$/.test(id))throw Error('Enter a valid YouTube video URL.');return id}
@@ -96,7 +101,7 @@ export function standings(d:Tournament){
   const played=d.matches.filter(m=>(m.a===t.id||m.b===t.id)&&complete(m));let w=0,l=0,gw=0,gl=0;
   const form:string[]=[];
   for(const m of [...played].sort((a,b)=>a.week-b.week)){const a=m.a===t.id;const own=(a?m.scoreA:m.scoreB)!;const other=(a?m.scoreB:m.scoreA)!;gw+=own;gl+=other;if(own>other){w++;form.push('W')}else{l++;form.push('L')}}
-  return {...t,w,l,gw,gl,md:w-l,gd:gw-gl,sw:w+l?w/(w+l):0,gwr:gw+gl?gw/(gw+gl):0,form:form.slice(-5)};
+  return {...t,w,l,gw,gl,md:w-l,gd:gw-gl,sw:w+l?w/(w+l):0,gwr:gw+gl?gw/(gw+gl):0,form};
  }).sort((a,b)=>b.md-a.md||b.gd-a.gd||a.name.localeCompare(b.name)).map((t,i)=>({...t,rank:i+1}));
 }
 // Rank is the primary signal; small, smoothed league samples cannot dominate it.
@@ -121,17 +126,17 @@ export function forecastBreakdown(d:Tournament,a:string,b:string){
 }
 export function forecast(d:Tournament,a:string,b:string):number{return a===b?50:forecastBreakdown(d,a,b)?.probability??50}
 
-export type Slot={seed:number}|{win:string}|{team:string}|{empty:true};
+export type Slot={seed:number}|{win:string}|{lose:string}|{team:string}|{empty:true};
 export type BracketDef={id:string;label:string;group:string;division:'winners'|'losers';round:number;a:Slot;b:Slot;bestOf:number};
 const S=(seed:number):Slot=>({seed}),W=(win:string):Slot=>({win});
 export const bracketDefs:BracketDef[]=[
  {id:'w1',label:'Quarterfinal 1',group:'Quarterfinals',division:'winners',round:1,a:S(1),b:S(8),bestOf:3},{id:'w2',label:'Quarterfinal 2',group:'Quarterfinals',division:'winners',round:1,a:S(4),b:S(5),bestOf:3},{id:'w3',label:'Quarterfinal 3',group:'Quarterfinals',division:'winners',round:1,a:S(2),b:S(7),bestOf:3},{id:'w4',label:'Quarterfinal 4',group:'Quarterfinals',division:'winners',round:1,a:S(3),b:S(6),bestOf:3},
  {id:'w5',label:'Semifinal 1',group:'Semifinals',division:'winners',round:2,a:W('w1'),b:W('w2'),bestOf:5},{id:'w6',label:'Semifinal 2',group:'Semifinals',division:'winners',round:2,a:W('w3'),b:W('w4'),bestOf:5},{id:'w7',label:'Final',group:'Final',division:'winners',round:3,a:W('w5'),b:W('w6'),bestOf:7},
- {id:'l1',label:'Losers semifinal 1',group:'Semifinals',division:'losers',round:1,a:{empty:true},b:{empty:true},bestOf:3},
- {id:'l2',label:'Losers semifinal 2',group:'Semifinals',division:'losers',round:1,a:{empty:true},b:{empty:true},bestOf:3},
+ {id:'l1',label:'Losers semifinal 1',group:'Semifinals',division:'losers',round:1,a:{lose:'w1'},b:{lose:'w2'},bestOf:3},
+ {id:'l2',label:'Losers semifinal 2',group:'Semifinals',division:'losers',round:1,a:{lose:'w3'},b:{lose:'w4'},bestOf:3},
  {id:'l3',label:'Losers final',group:'Final',division:'losers',round:2,a:W('l1'),b:W('l2'),bestOf:3}
 ];
-export function lanDefinitions(d:Tournament){return [...(d.lanMatches??bracketDefs)].sort((a,b)=>a.round-b.round||a.id.localeCompare(b.id))}
+export function lanDefinitions(d:Tournament){return [...(d.lanMatches??bracketDefs)].sort((a,b)=>(a.division===b.division?0:a.division==='winners'?-1:1)||a.round-b.round||a.id.localeCompare(b.id))}
 export function validateLanDefinitions(d:Tournament,defs:BracketDef[]){
  if(!Array.isArray(defs)||defs.length>64)throw Error('Use at most 64 LAN matches.');
  const ids=new Set<string>();
@@ -146,17 +151,19 @@ export function validateLanDefinitions(d:Tournament,defs:BracketDef[]){
    if('seed'in slot){if(!Number.isInteger(slot.seed)||slot.seed<1||slot.seed>8)throw Error('Choose a seed from 1 to 8.');}
    else if('team'in slot){if(!d.teams.some(t=>t.id===slot.team))throw Error('Choose a known team.');}
    else if('win'in slot){const source=defs.find(s=>s.id===slot.win);if(!source||source.division!==m.division||source.round>=m.round)throw Error('Advancement must come from an earlier round in the same bracket.');}
+   else if('lose'in slot){const source=defs.find(s=>s.id===slot.lose);if(!source||source.division!=='winners'||source.group!=='Quarterfinals'||m.division!=='losers'||m.round!==1)throw Error('Quarterfinal losers may enter only the first losers round.');}
    else if(!('empty'in slot)||slot.empty!==true)throw Error('Choose a valid team source.');
   }
   if(JSON.stringify(m.a)===JSON.stringify(m.b)&&!('empty'in m.a))throw Error('Choose two different team sources.');
  }
+ for(const division of ['winners','losers']){if(defs.filter(m=>m.division===division&&m.group==='Final').length>1)throw Error('Each bracket can have only one final.');}
  const preview=bracket({...d,lanMatches:defs});if(preview.some(m=>m.a&&m.a===m.b))throw Error('A team cannot play itself.');
 }
 export function bracket(d:Tournament){
  const seeds=d.lockedSeeds.length?d.lockedSeeds:standings(d).map(t=>t.id);const resolved:Record<string,{a:string|null;b:string|null;winner:string|null;loser:string|null} >={};
- return lanDefinitions(d).map(def=>{const slot=(s:Slot):string|null=>'seed'in s?seeds[s.seed-1]??null:'team'in s?s.team:'win'in s?resolved[s.win]?.winner??null:null;
+ return lanDefinitions(d).map(def=>{const slot=(s:Slot):string|null=>'seed'in s?seeds[s.seed-1]??null:'team'in s?s.team:'win'in s?resolved[s.win]?.winner??null:'lose'in s?resolved[s.lose]?.loser??null:null;
  const a=slot(def.a),b=slot(def.b);
- const r=d.playoffs[def.id];const valid=!!(a&&b&&r?.bestOf===def.bestOf&&r?.participants?.[0]===a&&r?.participants?.[1]===b);const scoreA=valid?r.scoreA:null,scoreB=valid?r.scoreB:null;const done=scoreA!==null&&scoreB!==null;
+ const r=d.playoffs[def.id];let legal=false;try{if(r){validateScore(r.scoreA,r.scoreB,def.bestOf);legal=true}}catch{}const valid=!!(a&&b&&a!==b&&legal&&r?.bestOf===def.bestOf&&r?.participants?.[0]===a&&r?.participants?.[1]===b);const scoreA=valid?r.scoreA:null,scoreB=valid?r.scoreB:null;const done=scoreA!==null&&scoreB!==null;
  const winner=done?(scoreA!>scoreB!?a:b):null,loser=done?(scoreA!>scoreB!?b:a):null;resolved[def.id]={a,b,winner,loser};return {...def,a,b,scoreA,scoreB,bestOf:def.bestOf,winner,loser};});
 }
 export function reconcile(d:Tournament){for(const m of bracket(d)){const r=d.playoffs[m.id];if(r&&(r.bestOf!==m.bestOf||r.participants?.[0]!==m.a||r.participants?.[1]!==m.b)){d.playoffs[m.id]={scoreA:null,scoreB:null,bestOf:m.bestOf}}}return d}

@@ -26,7 +26,7 @@ export async function POST(req:Request){
  const next=old?defs.map(m=>m.id===p.match.id?p.match:m):[...defs,p.match];validateLanDefinitions(d,next);d.lanMatches=next;reconcile(d);action=`Updated LAN match: ${p.match.label}`;
  }else if(p.type==='lan-delete'){
  const defs=lanDefinitions(d);if(!defs.some(m=>m.id===p.id))throw Error('Unknown LAN match.');
- d.lanMatches=defs.filter(m=>m.id!==p.id).map(m=>({...m,a:'win'in m.a&&m.a.win===p.id?{empty:true as const}:m.a,b:'win'in m.b&&m.b.win===p.id?{empty:true as const}:m.b}));delete d.playoffs[p.id];reconcile(d);action='Removed LAN match';
+ d.lanMatches=defs.filter(m=>m.id!==p.id).map(m=>({...m,a:('win'in m.a&&m.a.win===p.id)||('lose'in m.a&&m.a.lose===p.id)?{empty:true as const}:m.a,b:('win'in m.b&&m.b.win===p.id)||('lose'in m.b&&m.b.lose===p.id)?{empty:true as const}:m.b}));delete d.playoffs[p.id];reconcile(d);action='Removed LAN match';
  }else if(p.type==='seeds'){
  if(!Array.isArray(p.seeds)||p.seeds.length!==8||new Set(p.seeds).size!==8||p.seeds.some((id:string)=>!d.teams.some(t=>t.id===id)))throw Error('Each of the eight teams must appear once.');
  d.lockedSeeds=p.seeds;validateLanDefinitions(d,lanDefinitions(d));reconcile(d);action='Updated LAN seed order';

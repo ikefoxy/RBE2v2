@@ -54,7 +54,7 @@ console.log('PASS: seven-opponent round robin, screenshot dates, defaults exclud
 // Apply this rank correction once without changing scores, IDs, names, or later admin edits.
 const v3=fresh();v3.contentVersion=3;v3.players.filter(p=>p.teamId==='mp').forEach(p=>p.rank='Grand Plat');
 const before=JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos});normalize(v3);
-assert.equal(v3.contentVersion,9);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
+assert.equal(v3.contentVersion,10);assert.deepEqual(v3.players.filter(p=>p.teamId==='mp').map(p=>p.rank),['Plat 2','Plat 3']);
 assert.equal(JSON.stringify({matches:v3.matches,teams:v3.teams,playoffs:v3.playoffs,videos:v3.videos}),before);
 v3.players.find(p=>p.id==='mp-0').rank='GC1';normalize(v3);assert.equal(v3.players.find(p=>p.id==='mp-0').rank,'GC1');
 const {rankOptions,rankConfig,isRank}=require(path.join(tmp,'lib/ranks.js'));
@@ -120,13 +120,13 @@ console.log('PASS: MM/SSL live-record math, two-decimal complementary estimates,
 
 // Upgrade saved team identity without changing any owner-managed tournament data.
 const redHex=fresh();redHex.contentVersion=6;redHex.teams.find(t=>t.id==='hg').color='#b875fa';
-const beforeColor=structuredClone(redHex);normalize(redHex);beforeColor.teams.find(t=>t.id==='hg').color='#ff5b5b';beforeColor.contentVersion=9;
+const beforeColor=structuredClone(redHex);normalize(redHex);beforeColor.teams.find(t=>t.id==='hg').color='#ff5b5b';beforeColor.contentVersion=10;
 assert.deepEqual(redHex,beforeColor);assert.equal(seed.teams.find(t=>t.id==='hg').color,'#ff5b5b');
 normalize(redHex);assert.deepEqual(redHex,beforeColor);
 console.log('PASS: Hex Girls red identity upgrades saved data without altering results, ranks or recordings.');
 
 const blueCliip=fresh();blueCliip.contentVersion=7;blueCliip.teams.find(t=>t.id==='ct').color='#35beff';
-const beforeBlue=structuredClone(blueCliip);normalize(blueCliip);beforeBlue.teams.find(t=>t.id==='ct').color='#3f79e8';beforeBlue.contentVersion=9;
+const beforeBlue=structuredClone(blueCliip);normalize(blueCliip);beforeBlue.teams.find(t=>t.id==='ct').color='#3f79e8';beforeBlue.contentVersion=10;
 assert.deepEqual(blueCliip,beforeBlue);assert.equal(seed.teams.find(t=>t.id==='ct').color,'#3f79e8');
 normalize(blueCliip);assert.deepEqual(blueCliip,beforeBlue);
 console.log('PASS: Cliip That deeper blue identity updates saved data and preserves other teams and results.');
@@ -167,3 +167,26 @@ const badFormat=structuredClone(lan.lanMatches);badFormat.find(m=>m.id==='l3').b
 const extra={id:'extra',label:'Losers quarterfinal',division:'losers',round:1,group:'Quarterfinals',a:{team:'mf'},b:{team:'ssl'},bestOf:3};lan.lanMatches.push(extra);validateLanDefinitions(lan,lan.lanMatches);assert.ok(bracket(lan).some(m=>m.id==='extra'));
 const upgrade=fresh();upgrade.contentVersion=8;upgrade.playoffs.w7={scoreA:3,scoreB:1,bestOf:5,participants:['ct','mm']};const leagueBefore=JSON.stringify(upgrade.matches);normalize(upgrade);assert.ok(upgrade.legacyPlayoffs.w7);assert.ok(!upgrade.playoffs.w7);assert.equal(JSON.stringify(upgrade.matches),leagueBefore);assert.equal(bracket(upgrade).find(m=>m.id==='w7').bestOf,7);validateScore(4,3,7);assert.throws(()=>validateScore(3,2,7));
 console.log('PASS: separate losers advancement, no cross-bracket links/cycles, match additions, BO7 final validation, and lossless saved-state upgrade.');
+// All quarterfinal outcomes route losses to their own half without reseeding.
+for(let outcomes=0;outcomes<16;outcomes++){
+ const routed=fresh();routed.lockedSeeds=standings(routed).map(t=>t.id);
+ const won=[],lost=[];
+ for(let i=0;i<4;i++){
+  const game=bracket(routed).find(m=>m.id==='w'+(i+1)),reverse=!!(outcomes&(1<<i));
+  routed.playoffs[game.id]={scoreA:reverse?0:2,scoreB:reverse?2:0,bestOf:3,participants:[game.a,game.b]};reconcile(routed);
+  const result=bracket(routed).find(m=>m.id===game.id);won.push(result.winner);lost.push(result.loser);
+ }
+ for(const [id,teams] of [['w5',won.slice(0,2)],['w6',won.slice(2)],['l1',lost.slice(0,2)],['l2',lost.slice(2)]]){
+  const game=bracket(routed).find(m=>m.id===id);assert.deepEqual([game.a,game.b],teams);
+ }
+ const appearances=routed.teams.map(t=>bracket(routed).filter(m=>[m.a,m.b].includes(t.id)).length);assert.ok(appearances.every(n=>n===2));
+ function finish(id){const m=bracket(routed).find(m=>m.id===id);routed.playoffs[id]={scoreA:(m.bestOf+1)/2,scoreB:0,bestOf:m.bestOf,participants:[m.a,m.b]};reconcile(routed)}
+ for(const id of ['w5','w6','w7','l1','l2','l3'])finish(id);
+ assert.equal(bracket(routed).find(m=>m.id==='w7').winner,won[0]);assert.equal(bracket(routed).find(m=>m.id==='l3').winner,lost[0]);
+ const q=bracket(routed).find(m=>m.id==='w1');routed.playoffs.w1={scoreA:0,scoreB:0,bestOf:3,participants:[q.a,q.b]};reconcile(routed);
+ assert.equal(bracket(routed).find(m=>m.id==='w1').winner,null);assert.equal(bracket(routed).find(m=>m.id==='w7').winner,null);assert.equal(bracket(routed).find(m=>m.id==='l3').winner,null);
+}
+for(const bo of [3,5,7]){const target=(bo+1)/2;for(let loser=0;loser<target;loser++){validateScore(target,loser,bo);validateScore(loser,target,bo)}for(const [a,b] of [[target-1,0],[target,target],[target+1,0],[target,.5],[target,-1],[target,null],[target,'0'],[undefined,0],[NaN,0]])assert.throws(()=>validateScore(a,b,bo))}
+const allResults=fresh();allResults.matches.forEach(m=>{m.scoreA=3;m.scoreB=0});assert.ok(standings(allResults).every(t=>t.form.length===7));
+const untouched=fresh();untouched.contentVersion=9;untouched.lanMatches=structuredClone(lanDefinitions(untouched));untouched.lanMatches.find(m=>m.id==='l1').a={empty:true};untouched.lanMatches.find(m=>m.id==='l1').b={team:'ct'};normalize(untouched);assert.deepEqual(untouched.lanMatches.find(m=>m.id==='l1').a,{lose:'w1'});assert.deepEqual(untouched.lanMatches.find(m=>m.id==='l1').b,{team:'ct'});
+console.log('PASS: every quarterfinal outcome, seed/half placement, two-match guarantee, separate champions, invalid-score non-advancement, strict BO3/5/7 targets, all seven weekly results and safe routing upgrade.');

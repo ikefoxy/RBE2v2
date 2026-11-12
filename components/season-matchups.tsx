@@ -4,8 +4,8 @@ import TeamLogo from './team-logo';
 import TeamNumber from './team-number';
 
 export function WeeklyResults({data,teamId}:{data:Tournament;teamId:string}){
- const matches=data.matches.filter(m=>[m.a,m.b].includes(teamId)&&complete(m)).sort((a,b)=>a.week-b.week||a.date.localeCompare(b.date)).slice(-5);
- return <div className="form" aria-label="Last five completed series">{matches.map(m=>{
+ const matches=data.matches.filter(m=>[m.a,m.b].includes(teamId)&&complete(m)).sort((a,b)=>a.week-b.week||a.date.localeCompare(b.date));
+ return <div className="form" aria-label="All completed league series">{matches.map(m=>{
   const own=m.a===teamId,opponent=data.teams.find(t=>t.id===(own?m.b:m.a))!;
   const code=(own?m.scoreA!:m.scoreB!)>(own?m.scoreB!:m.scoreA!)?'W':'L';
   const label=`Week ${m.week}: ${code==='W'?'Win':'Loss'} vs ${opponent.name}`;
