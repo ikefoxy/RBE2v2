@@ -38,6 +38,8 @@ try:
     assert post(dict(type='playoff',id='w7',scoreA=3,scoreB=2))[0]==400
     save(dict(type='playoff',id='w7',scoreA=4,scoreB=3))
     save(dict(type='lan-delete',id='w7'))
+    reset=save(dict(type='lan-reset'));assert len(reset['lanMatches'])==10 and reset['lockedSeeds']==[] and reset['playoffs']=={}
+    assert next(m for m in reset['lanMatches'] if m['id']=='l1')['a']=={'lose':'w1'}
     assert get()['matches']==original['matches'] and get()['videos']==original['videos']
     print('PASS: protected LAN creation/edit/delete, saved scores, BO7 validation, independent advancement, downstream invalidation, rejected cross-bracket sources and preserved league/recordings.')
 finally:

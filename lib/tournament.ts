@@ -140,6 +140,7 @@ export const bracketDefs:BracketDef[]=[
  {id:'l2',label:'Consolation semifinal 2',group:'Semifinals',division:'losers',round:1,a:{lose:'w3'},b:{lose:'w4'},bestOf:3},
  {id:'l3',label:'Consolation final',group:'Final',division:'losers',round:2,a:W('l1'),b:W('l2'),bestOf:3}
 ];
+export function resetLan(d:Tournament){d.playoffs={};d.lockedSeeds=[];d.lanMatches=structuredClone(bracketDefs);return d}
 export function lanDefinitions(d:Tournament){return [...(d.lanMatches??bracketDefs)].sort((a,b)=>(a.division===b.division?0:a.division==='winners'?-1:1)||a.round-b.round||a.id.localeCompare(b.id))}
 export function validateLanDefinitions(d:Tournament,defs:BracketDef[]){
  if(!Array.isArray(defs)||defs.length>64)throw Error('Use at most 64 LAN matches.');

@@ -1,7 +1,7 @@
 import {env} from 'cloudflare:workers';
 import {isRank} from '../../../lib/ranks';
 import {isAdmin} from '../../../lib/admin-auth';
-import {bracket,lanDefinitions,validateLanDefinitions,standings,validateScore,reconcile,syncRecording,youtubeId,type Tournament,type Video} from '../../../lib/tournament';
+import {bracket,resetLan,lanDefinitions,validateLanDefinitions,standings,validateScore,reconcile,syncRecording,youtubeId,type Tournament,type Video} from '../../../lib/tournament';
 import {readTournament as read} from '../../../lib/tournament-store';
 export const dynamic='force-dynamic';
 const json=(value:unknown,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'no-store'}});
@@ -30,6 +30,8 @@ export async function POST(req:Request){
  }else if(p.type==='seeds'){
  if(!Array.isArray(p.seeds)||p.seeds.length!==8||new Set(p.seeds).size!==8||p.seeds.some((id:string)=>!d.teams.some(t=>t.id===id)))throw Error('Each of the eight teams must appear once.');
  d.lockedSeeds=p.seeds;validateLanDefinitions(d,lanDefinitions(d));reconcile(d);action='Updated LAN seed order';
+ }else if(p.type==='lan-reset'){
+ resetLan(d);action='Restored default LAN bracket and cleared LAN scores';
  }else if(p.type==='reseed'){
  d.lockedSeeds=[];d.playoffs={};action='Reset LAN scores and restored live seeding';
  }else if(p.type==='team'){

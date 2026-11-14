@@ -43,3 +43,5 @@ The public LAN Bracket shows independent winners and consolation brackets. Winne
 The existing password-protected admin portal supports seed swaps, team assignments, winner sources, match names/rounds, adding/removing matches, scores and resets. Save matchup changes before scores. Changes invalidate affected later results; league standings are unchanged. LAN recordings can be added through Admin → Recordings after teams are determined. Local integration checks: `python3 scripts/test-lan-local.py` with disposable local admin credentials and the preview on port 5173.
 
 In Admin → LAN Bracket, click any match to open its score and matchup editor. Use Add match for a new match and Seeding for seed order/reset controls. Score saves remain in the dialog and refresh the bracket for viewers.
+
+Restore default bracket in Seeding resets LAN scores, custom matches and seed locks while preserving league results, rosters and recordings. Champion cards omit the repeated final score.

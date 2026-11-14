@@ -48,3 +48,5 @@
 - Champion boxes derive from each final. BO3 needs exactly 2 wins, BO5 exactly 3, BO7 exactly 4; reject ties, partial, fractional and oversized results on the server. Invalid stored bracket scores never advance a team. Subtle background motion respects prefers-reduced-motion.
 
 - Use Consolation bracket in public/admin labels; internal losers IDs stay stable. Admin LAN controls show the visual bracket with click-to-edit match dialogs. Keep scores first, matchup settings collapsed, and server errors visible in the dialog.
+
+- Champion boxes show logo/name/seed without a repeated final score. Consolation entry placeholders must use Consolation entry, not Loser. Restore default bracket clears LAN scores/custom matchups and live seed locks only; league results, rosters and recordings stay intact.
